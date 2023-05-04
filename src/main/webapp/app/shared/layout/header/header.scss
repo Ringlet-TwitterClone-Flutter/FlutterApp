@@ -1,5 +1,6 @@
 $header-color: #7539ee;
 $header-color-secondary: #47b0ec;
+
 $header-color-hover: darken($header-color, 20%);
 
 /* ==========================================================================
@@ -51,7 +52,6 @@ Navbar styles
   font-size: 10px;
   color: $header-color-secondary;
   padding: 0 0 0 10px;
-  background-color: #41afda;
 }
 
 .brand-logo {
@@ -83,6 +83,10 @@ Navbar styles
   position: absolute;
   top: 0px;
   z-index: 1031;
+}
+//For the nav bar drop down menu items
+.nav-link {
+  color: #47b0ec;
 }
 
 // .bg-primary {
