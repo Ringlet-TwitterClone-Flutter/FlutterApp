@@ -29,7 +29,7 @@ const Header = (props: IHeaderProps) => {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   /* jhipster-needle-add-element-to-menu - JHipster will add new menu items here */
-
+  // bgstock is blk bkground */
   return (
     <div id="app-header">
       {/* {renderDevRibbon()} */}
