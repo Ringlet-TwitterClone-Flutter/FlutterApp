@@ -74,13 +74,16 @@ const LoginModal = (props: ILoginModalProps) => {
           <div className="mt-1" id="sign-in-one">
             &nbsp;
           </div>
-          <Alert color="warning">
-            <Link to="/account/reset/request" data-cy="forgetYourPasswordSelector">
+          <Alert color="warning" id="success">
+            <Link to="/account/reset/request" data-cy="forgetYourPasswordSelector" id="success-text">
               Did you forget your password?
             </Link>
           </Alert>
-          <Alert color="warning">
-            <span>You don&apos;t have an account yet?</span> <Link to="/account/register">Register a new account</Link>
+          <Alert color="warning" id="success">
+            <span>You don&apos;t have an account yet?</span>{' '}
+            <Link to="/account/register" id="success-text">
+              Register a new account
+            </Link>
           </Alert>
         </ModalBody>
         <ModalFooter>
