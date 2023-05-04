@@ -1,0 +1,37 @@
+entity User {
+  login String required unique,
+  password String required,
+  firstName String required,
+  lastName String required,
+  email String required unique,
+  activated Boolean,
+  langKey String,
+  imageUrl String,
+  activationKey String,
+  resetKey String,
+  resetDate ZonedDateTime
+}
+
+entity Post {
+  text String required,
+  createdAt ZonedDateTime required
+}
+
+entity Hashtag {
+  name String required
+}
+
+entity Comment {
+  text String required,
+  createdAt ZonedDateTime required
+}
+
+relationship ManyToOne {
+  Post { user(login) } to User,
+  Comment { user(login) } to User,
+  Comment { post(text) } to Post
+}
+
+relationship ManyToMany {
+  Post { hashtags(name) } to Hashtag{ posts }
+}
