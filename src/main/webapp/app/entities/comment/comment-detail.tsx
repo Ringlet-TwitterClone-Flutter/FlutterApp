@@ -41,8 +41,8 @@ export const CommentDetail = () => {
           <dt>Post</dt>
           <dd>{commentEntity.post ? commentEntity.post.text : ''}</dd>
         </dl>
-        <Button tag={Link} to="/comment" replace color="info" data-cy="entityDetailsBackButton">
-          <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>
+        <Button tag={Link} to="/comment" replace color="info" data-cy="entityDetailsBackButton" id="view-button">
+          <FontAwesomeIcon icon="arrow-left" /> <span className=" d-md-inline">Back</span>
         </Button>
         &nbsp;
         <Button tag={Link} to={`/comment/${commentEntity.id}/edit`} replace color="primary">

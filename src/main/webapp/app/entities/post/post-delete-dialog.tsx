@@ -46,7 +46,7 @@ export const PostDeleteDialog = () => {
       </ModalHeader>
       <ModalBody id="flutterApp.post.delete.question">Are you sure you want to delete Post {postEntity.id}?</ModalBody>
       <ModalFooter>
-        <Button color="secondary" onClick={handleClose}>
+        <Button color="secondary" onClick={handleClose} id="view-button">
           <FontAwesomeIcon icon="ban" />
           &nbsp; Cancel
         </Button>
