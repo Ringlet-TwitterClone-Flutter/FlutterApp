@@ -31,7 +31,7 @@ export const Hashtag = () => {
     <div>
       <h2 id="hashtag-heading" data-cy="HashtagHeading">
         Hashtags
-        <div className=" justify-content-end">
+        <div className="d-flex justify-content-end">
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading} id="refresh-list">
             <FontAwesomeIcon icon="sync" spin={loading} /> Refresh list
           </Button>
