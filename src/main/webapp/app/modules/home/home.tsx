@@ -47,9 +47,9 @@ export const Home = () => {
 
         <ul>
           <li>
-            <a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer">
-              JHipster homepage
-            </a>
+            {/* <a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer">
+            
+            </a> */}
           </li>
           <li>
             <a href="https://stackoverflow.com/tags/jhipster/info" target="_blank" rel="noopener noreferrer">
