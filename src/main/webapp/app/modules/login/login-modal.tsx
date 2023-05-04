@@ -71,7 +71,9 @@ const LoginModal = (props: ILoginModalProps) => {
               <ValidatedField name="rememberMe" type="checkbox" check label="Remember me" value={true} register={register} />
             </Col>
           </Row>
-          <div className="mt-1">&nbsp;</div>
+          <div className="mt-1" id="sign-in-one">
+            &nbsp;
+          </div>
           <Alert color="warning">
             <Link to="/account/reset/request" data-cy="forgetYourPasswordSelector">
               Did you forget your password?

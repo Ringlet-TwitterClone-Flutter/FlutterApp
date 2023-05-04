@@ -16,8 +16,10 @@ export const Home = () => {
         <span className="hipster rounded" />
       </Col>
       <Col md="9">
-        <h2>Welcome, to Flutter!</h2>
-        <p className="lead">Spread your wings</p>
+        <h2 id="welcome">Welcome to Flutter!</h2>
+        <p className="lead" id="motto">
+          SPREAD YOUR WINGS
+        </p>
         {account?.login ? (
           <div>
             <Alert color="success">You are logged in as user &quot;{account.login}&quot;.</Alert>
