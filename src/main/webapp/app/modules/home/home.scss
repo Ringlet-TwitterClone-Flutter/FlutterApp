@@ -14,10 +14,12 @@ Main page styles
   margin-top: 25px;
   text-align: center;
 }
+
 #motto {
   font-size: 20px;
   text-align: center;
 }
+
 #success {
   color: black;
   background-color: lavender;
@@ -28,8 +30,16 @@ Main page styles
   color: #47e6ec;
 }
 
+// Button Styles
+
 #view-button {
   color: black;
+}
+#comment-button {
+  background-color: #7539ee;
+  color: white;
+}
+#delete-button {
 }
 #cancel-save {
   color: black;
@@ -38,7 +48,27 @@ Main page styles
 #jh-create-entity {
   background-color: #7539ee;
 }
-#comment-button {
-  background-color: #7539ee;
-  color: white;
+
+//Post Styles
+.card {
+  // display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 'header header' 'content content' 'time time' 'hashtags hashtags' 'buttons buttons';
+}
+
+.post-header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+}
+
+.post-content {
+  grid-area: content;
+}
+
+.post-time {
+  grid-area: time;
+  font-size: 14px;
+  color: #999;
 }

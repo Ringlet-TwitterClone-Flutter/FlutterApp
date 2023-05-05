@@ -29,9 +29,9 @@ export const Post = () => {
 
   return (
     <div>
-      <h2 id="post-heading" data-cy="PostHeading">
+      <h1 id="post-heading" data-cy="PostHeading">
         Posts
-        <div className="d-flex justify-content-end">
+        <div className="d-flex justify-content-center">
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading} id="refresh-list">
             <FontAwesomeIcon icon="sync" spin={loading} /> Refresh list
           </Button>
@@ -40,83 +40,60 @@ export const Post = () => {
             &nbsp; Create a new Post
           </Link>
         </div>
-      </h2>
+      </h1>
 
       {
-        //   <div className="row">
-        //   <div className="leftcolumn">
-        //     <div className="card">
-        //       <h3>USERNAME</h3>
-        //       <h5>TIME</h5>
-        //       <p>CONTENT..</p>
-        //       <div className="fakeimg">Image..</div>
-        //     </div>
-        //       <div className="card">
-        //       <h3>USERNAME</h3>
-        //       <h5>TIME</h5>
-        //       <p>CONTENT..</p>
-        //       <div className="fakeimg">Image..</div>
-        //     </div>
-        //   </div>
-        // </div>
-
         <div className="container">
           {postList && postList.length > 0 ? (
             <div className="post-list">
               {postList.map((post, i) => (
                 <div key={`entity-${i}`} className="post-list-row" data-cy="entityTable">
-                  {/* <div className="post-list-cell">
-          <Button tag={Link} to={`/post/${post.id}`} color="link" size="sm">
-            {post.id}
-          </Button>
-        </div> */}
+                  <div className="card">
+                    <div className="post-list-cell post-header" id="post-header">
+                      <h3>{post.user ? post.user.login : ''}</h3>
+                      <span className="post-time">
+                        {post.createdAt ? <TextFormat type="date" value={post.createdAt} format={APP_DATE_FORMAT} /> : null}
+                      </span>
+                    </div>
 
-                  <div className="row">
-                    <div className="leftcolumn">
-                      <div className="card">
-                        <div className="post-list-cell">
-                          <h3>{post.user ? post.user.login : ''}</h3>
-                        </div>
-                        <div className="post-list-cell">
-                          <h5>{post.createdAt ? <TextFormat type="date" value={post.createdAt} format={APP_DATE_FORMAT} /> : null}</h5>
-                        </div>
-                        <div className="post-list-cell">
-                          <p>{post.text}</p>
-                        </div>
-                        <div className="post-list-cell">
-                          {post.hashtags
-                            ? post.hashtags.map((val, j) => (
-                                <span key={j}>
-                                  <Link to={`/hashtag/${val.id}`}>{val.name}</Link>
-                                  {j === post.hashtags.length - 1 ? '' : ', '}
-                                </span>
-                              ))
-                            : null}
-                        </div>
-                        <div className="post-list-cell">
-                          <div className="btn-group flex-btn-group-container">
-                            {/* <Button tag={Link} to={`/post/${post.id}`} color="info" size="sm" data-cy="entityDetailsButton" id="view-button">
-              <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">View</span>
-            </Button> */}
-
-                            <Button tag={Link} to={`/comment/new`} id="comment-button" size="sm" data-cy="entityDeleteButton">
-                              <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
-                            </Button>
-                            <Button
-                              tag={Link}
-                              to={`/post/${post.id}/edit`}
-                              color="primary"
-                              size="sm"
-                              data-cy="entityEditButton"
-                              id="view-button"
-                            >
-                              <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
-                            </Button>
-                            <Button tag={Link} to={`/post/${post.id}/delete`} color="primary" size="sm" data-cy="entityDeleteButton">
-                              <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
-                            </Button>
-                          </div>
-                        </div>
+                    <div className="post-list-cell post-content" id="post-content">
+                      <p>{post.text}</p>
+                    </div>
+                    <div className="post-list-cell">
+                      {post.hashtags
+                        ? post.hashtags.map((val, j) => (
+                            <span key={j}>
+                              <Link to={`/hashtag/${val.id}`}>{val.name}</Link>
+                              {j === post.hashtags.length - 1 ? '' : ', '}
+                            </span>
+                          ))
+                        : null}
+                    </div>
+                    <div className="post-list-cell">
+                      <div className="btn-group flex-btn-group-container" id="buttons">
+                        <Button tag={Link} to={`/comment/new`} id="comment-button" size="sm" data-cy="entityDeleteButton">
+                          <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
+                        </Button>
+                        <Button
+                          tag={Link}
+                          to={`/post/${post.id}/edit`}
+                          color="primary"
+                          size="sm"
+                          data-cy="entityEditButton"
+                          id="view-button"
+                        >
+                          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                        </Button>
+                        <Button
+                          tag={Link}
+                          to={`/post/${post.id}/delete`}
+                          color="primary"
+                          id="delete-button"
+                          size="sm"
+                          data-cy="entityDeleteButton"
+                        >
+                          <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
+                        </Button>
                       </div>
                     </div>
                   </div>
@@ -127,8 +104,14 @@ export const Post = () => {
             !loading && <div className="alert alert-warning">No Posts found</div>
           )}
         </div>
+      }
+    </div>
+  );
+};
 
-        /* <div className="table-responsive">
+export default Post;
+
+/* <div className="table-responsive">
         {postList && postList.length > 0 ? (
           <Table responsive>
             <thead>
@@ -183,9 +166,3 @@ export const Post = () => {
           !loading && <div className="alert alert-warning">No Posts found</div>
         )}
       </div> */
-      }
-    </div>
-  );
-};
-
-export default Post;
