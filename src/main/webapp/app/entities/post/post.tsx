@@ -98,6 +98,10 @@ export const Post = () => {
                             {/* <Button tag={Link} to={`/post/${post.id}`} color="info" size="sm" data-cy="entityDetailsButton" id="view-button">
               <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">View</span>
             </Button> */}
+
+                            <Button size="sm" data-cy="entityCommentButton" id="comment-button">
+                              Comment
+                            </Button>
                             <Button
                               tag={Link}
                               to={`/post/${post.id}/edit`}
