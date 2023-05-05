@@ -29,12 +29,17 @@ export const Post = () => {
 
   return (
     <div>
+      {/* Heading */}
       <h1 id="post-heading" data-cy="PostHeading">
         Posts
+        {/* Buttons */}
         <div className="d-flex justify-content-center">
+          {/* Refresh List Button */}
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading} id="refresh-list">
             <FontAwesomeIcon icon="sync" spin={loading} /> Refresh list
           </Button>
+
+          {/* Create New Post Button */}
           <Link to="/post/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
             &nbsp; Create a new Post
@@ -46,9 +51,11 @@ export const Post = () => {
         <div className="container">
           {postList && postList.length > 0 ? (
             <div className="post-list">
+              {/* Displays each Post */}
               {postList.map((post, i) => (
                 <div key={`entity-${i}`} className="post-list-row" data-cy="entityTable">
                   <div className="card">
+                    {/* Username and Post Time */}
                     <div className="post-list-cell post-header" id="post-header">
                       <h3>{post.user ? post.user.login : ''}</h3>
                       <span className="post-time">
@@ -56,9 +63,12 @@ export const Post = () => {
                       </span>
                     </div>
 
+                    {/* Content of post */}
                     <div className="post-list-cell post-content" id="post-content">
                       <p>{post.text}</p>
                     </div>
+
+                    {/* Hashtags */}
                     <div className="post-list-cell">
                       {post.hashtags
                         ? post.hashtags.map((val, j) => (
@@ -69,11 +79,16 @@ export const Post = () => {
                           ))
                         : null}
                     </div>
+
+                    {/* Buttons */}
                     <div className="post-list-cell">
                       <div className="btn-group flex-btn-group-container" id="buttons">
+                        {/* Comment Button */}
                         <Button tag={Link} to={`/comment/new`} id="comment-button" size="sm" data-cy="entityDeleteButton">
                           <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
                         </Button>
+
+                        {/* Edit Button */}
                         <Button
                           tag={Link}
                           to={`/post/${post.id}/edit`}
@@ -84,6 +99,8 @@ export const Post = () => {
                         >
                           <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
                         </Button>
+
+                        {/* Delete Button */}
                         <Button
                           tag={Link}
                           to={`/post/${post.id}/delete`}
