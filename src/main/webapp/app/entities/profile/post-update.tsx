@@ -118,24 +118,24 @@ export const PostUpdate = () => {
                 }}
               />
               <ValidatedField id="post-user" name="user" data-cy="user" label="User" type="select">
-                <option value="" key="0" />
-                {users
+                <textarea value="" key="0" />
+                {/* {users
                   ? users.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.login}
                       </option>
                     ))
-                  : null}
+                  : null} */}
               </ValidatedField>
               <ValidatedField label="Hashtags" id="post-hashtags" data-cy="hashtags" type="select" multiple name="hashtags">
-                <option value="" key="0" />
-                {hashtags
+                <textarea value="" key="0" />
+                {/* {hashtags
                   ? hashtags.map(otherEntity => (
                       <option value={otherEntity.id} key={otherEntity.id}>
                         {otherEntity.name}
                       </option>
                     ))
-                  : null}
+                  : null} */}
               </ValidatedField>
               <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/post" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
