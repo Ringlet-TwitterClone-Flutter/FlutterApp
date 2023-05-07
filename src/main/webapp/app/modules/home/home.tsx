@@ -28,6 +28,10 @@ export const Home = () => {
             <Link to="/post" rel="noopener noreferrer">
               QuottaBoard
             </Link>
+            <br></br>
+            <Link to="/profile" rel="noopener noreferrer">
+              Profile
+            </Link>
           </div>
         ) : (
           // This is where we change the sign in display
