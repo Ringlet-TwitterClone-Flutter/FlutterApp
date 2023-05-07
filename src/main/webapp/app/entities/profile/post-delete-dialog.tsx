@@ -5,7 +5,7 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useAppDispatch, useAppSelector } from 'app/config/store';
-import { getEntity, deleteEntity } from './post.reducer';
+import { getEntity, deleteEntity } from './profile.reducer';
 
 export const PostDeleteDialog = () => {
   const dispatch = useAppDispatch();

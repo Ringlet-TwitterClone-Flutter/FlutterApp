@@ -13,7 +13,7 @@ import { getUsers } from 'app/modules/administration/user-management/user-manage
 import { IHashtag } from 'app/shared/model/hashtag.model';
 import { getEntities as getHashtags } from 'app/entities/hashtag/hashtag.reducer';
 import { IPost } from 'app/shared/model/post.model';
-import { getEntity, updateEntity, createEntity, reset } from './post.reducer';
+import { getEntity, updateEntity, createEntity, reset } from './profile.reducer';
 
 export const PostUpdate = () => {
   const dispatch = useAppDispatch();

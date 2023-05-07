@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
 
-import Post from './post';
+import Post from './profile';
 import PostDetail from './post-detail';
 import PostUpdate from './post-update';
 import PostDeleteDialog from './post-delete-dialog';

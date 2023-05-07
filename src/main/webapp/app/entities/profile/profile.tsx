@@ -8,9 +8,9 @@ import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { IPost } from 'app/shared/model/post.model';
-import { getEntities } from './post.reducer';
+import { getEntities } from './profile.reducer';
 
-export const Post = () => {
+export const Profile = () => {
   const dispatch = useAppDispatch();
 
   const location = useLocation();
@@ -126,7 +126,7 @@ export const Post = () => {
   );
 };
 
-export default Post;
+export default Profile;
 
 /* <div className="table-responsive">
         {postList && postList.length > 0 ? (
