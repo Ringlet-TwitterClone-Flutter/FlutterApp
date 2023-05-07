@@ -18,6 +18,9 @@ export const Post = () => {
 
   const postList = useAppSelector(state => state.post.entities);
   const loading = useAppSelector(state => state.post.loading);
+  const isAuthenticated = useAppSelector(state => state.authentication.isAuthenticated);
+  const currentUser = useAppSelector(state => state.authentication.account);
+  const postEntity = useAppSelector(state => state.post.entity);
 
   useEffect(() => {
     dispatch(getEntities({}));
@@ -52,7 +55,7 @@ export const Post = () => {
           {postList && postList.length > 0 ? (
             <div className="post-list">
               {/* Displays each Post */}
-              {postList.map((post, i) => (
+              {[...postList].reverse().map((post, i) => (
                 <div key={`entity-${i}`} className="post-list-row" data-cy="entityTable">
                   <div className="card">
                     {/* Username and Post Time */}
@@ -69,7 +72,7 @@ export const Post = () => {
                     </div>
 
                     {/* Hashtags */}
-                    <div className="post-list-cell">
+                    <div className="post-list-cell " id="post-hashtag">
                       {post.hashtags
                         ? post.hashtags.map((val, j) => (
                             <span key={j}>
@@ -77,43 +80,44 @@ export const Post = () => {
                               {j === post.hashtags.length - 1 ? '' : ', '}
                             </span>
                           ))
+                        : '#Flutter'}
+
+                      {/* Comment Button */}
+                      <Button tag={Link} to={`/comment/new`} id="comment-button" size="sm" data-cy="entityDeleteButton">
+                        <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
+                      </Button>
+                      {/* Edit Button */}
+                      <Button tag={Link} to={`/post/${post.id}/edit`} color="primary" size="sm" data-cy="entityEditButton" id="view-button">
+                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                      </Button>
+                      {/* Delete Button */}
+                      {/* {post.user && post.user.login === useAppSelector(state => state.authentication.account.login) && */}
+                      <Button
+                        tag={Link}
+                        to={`/post/${post.id}/delete`}
+                        color="primary"
+                        id="delete-button"
+                        size="sm"
+                        data-cy="entityDeleteButton"
+                      >
+                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
+                      </Button>
+                    </div>
+
+                    {/* Shows specific hashtag under every post, temporarily */}
+                    {/* <div className="post-list-cell">
+                    {postEntity.hashtags
+                      ? postEntity.hashtags.map((val, i) => (
+                        <span key={val.id}>
+                          <a>{val.name}</a>
+                          {postEntity.hashtags && i === postEntity.hashtags.length - 1 ? '' : ', '}
+                        </span>
+                         ))
                         : null}
-                    </div>
-
-                    {/* Buttons */}
-                    <div className="post-list-cell">
-                      <div className="btn-group flex-btn-group-container" id="buttons">
-                        {/* Comment Button */}
-                        <Button tag={Link} to={`/comment/new`} id="comment-button" size="sm" data-cy="entityDeleteButton">
-                          <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
-                        </Button>
-
-                        {/* Edit Button */}
-                        <Button
-                          tag={Link}
-                          to={`/post/${post.id}/edit`}
-                          color="primary"
-                          size="sm"
-                          data-cy="entityEditButton"
-                          id="view-button"
-                        >
-                          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
-                        </Button>
-
-                        {/* Delete Button */}
-                        <Button
-                          tag={Link}
-                          to={`/post/${post.id}/delete`}
-                          color="primary"
-                          id="delete-button"
-                          size="sm"
-                          data-cy="entityDeleteButton"
-                        >
-                          <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
-                        </Button>
-                      </div>
-                    </div>
+                    </div> */}
                   </div>
+                  {/* ADD COMMENTS TO POSTS HERE */}
+                  <div className="comment-container"></div>
                 </div>
               ))}
             </div>
