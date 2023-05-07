@@ -81,35 +81,27 @@ export const Post = () => {
                             </span>
                           ))
                         : '#Flutter'}
-                      <div>
-                        {/* Comment Button */}
-                        <Button tag={Link} to={`/comment/new`} id="comment-button" size="sm" data-cy="entityDeleteButton">
-                          <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
-                        </Button>
-                        {/* Edit Button */}
-                        <Button
-                          tag={Link}
-                          to={`/post/${post.id}/edit`}
-                          color="primary"
-                          size="sm"
-                          data-cy="entityEditButton"
-                          id="view-button"
-                        >
-                          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
-                        </Button>
-                        {/* Delete Button */}
-                        {/* {post.user && post.user.login === useAppSelector(state => state.authentication.account.login) && */}
-                        <Button
-                          tag={Link}
-                          to={`/post/${post.id}/delete`}
-                          color="primary"
-                          id="delete-button"
-                          size="sm"
-                          data-cy="entityDeleteButton"
-                        >
-                          <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
-                        </Button>
-                      </div>
+
+                      {/* Comment Button */}
+                      <Button tag={Link} to={`/comment/new`} id="comment-button" size="sm" data-cy="entityDeleteButton">
+                        <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
+                      </Button>
+                      {/* Edit Button */}
+                      <Button tag={Link} to={`/post/${post.id}/edit`} color="primary" size="sm" data-cy="entityEditButton" id="view-button">
+                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                      </Button>
+                      {/* Delete Button */}
+                      {/* {post.user && post.user.login === useAppSelector(state => state.authentication.account.login) && */}
+                      <Button
+                        tag={Link}
+                        to={`/post/${post.id}/delete`}
+                        color="primary"
+                        id="delete-button"
+                        size="sm"
+                        data-cy="entityDeleteButton"
+                      >
+                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
+                      </Button>
                     </div>
 
                     {/* Shows specific hashtag under every post, temporarily */}
@@ -123,13 +115,6 @@ export const Post = () => {
                          ))
                         : null}
                     </div> */}
-
-                    {/* Buttons */}
-                    <div className="post-list-cell">
-                      <div className="btn-group flex-btn-group-container" id="buttons">
-                        {/* } */}
-                      </div>
-                    </div>
                   </div>
                   {/* ADD COMMENTS TO POSTS HERE */}
                   <div className="comment-container"></div>
