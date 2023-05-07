@@ -34,12 +34,18 @@ Main page styles
 
 #view-button {
   color: black;
+  float: right;
+  margin-right: 5px;
 }
 #comment-button {
   background-color: #7539ee;
   color: white;
+  float: right;
+  margin-right: 5px;
 }
 #delete-button {
+  float: right;
+  margin-right: 5px;
 }
 #cancel-save {
   color: black;
@@ -53,6 +59,10 @@ Main page styles
 .jh-card {
 }
 
+.button-pad {
+  margin-left: 5px;
+  margin-right: 5px;
+}
 .card {
   grid-template-columns: auto 1fr;
   grid-template-rows: auto;
