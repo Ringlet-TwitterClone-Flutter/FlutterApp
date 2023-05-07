@@ -33,7 +33,7 @@ export const HashtagDetail = () => {
           </dt>
           <dd>{hashtagEntity.name}</dd>
         </dl>
-        <Button tag={Link} to="/hashtag" replace color="info" data-cy="entityDetailsBackButton">
+        <Button tag={Link} to="/hashtag" replace color="info" data-cy="entityDetailsBackButton" id="view-button">
           <FontAwesomeIcon icon="arrow-left" /> <span className="d-none d-md-inline">Back</span>
         </Button>
         &nbsp;

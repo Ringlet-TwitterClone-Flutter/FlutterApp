@@ -1,5 +1,5 @@
 $header-color: #7539ee;
-$header-color-secondary: #47b0ec;
+$header-color-secondary: #47e6ec;
 
 $header-color-hover: darken($header-color, 20%);
 
@@ -49,6 +49,7 @@ Navbar styles
 
 .bg-stock {
   background-color: #000000;
+  opacity: 82%;
 }
 
 .navbar-version {
@@ -89,9 +90,12 @@ Navbar styles
 }
 //For the nav bar drop down menu items
 .nav-link {
-  color: #47b0ec;
+  color: #47e6ec;
 }
 
 // .bg-primary {
 //   background-color: #47b0ec;
 // }
+.d-flex {
+  margin-top: 10px;
+}

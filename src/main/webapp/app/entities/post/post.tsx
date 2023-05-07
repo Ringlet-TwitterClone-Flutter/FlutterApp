@@ -18,6 +18,9 @@ export const Post = () => {
 
   const postList = useAppSelector(state => state.post.entities);
   const loading = useAppSelector(state => state.post.loading);
+  const isAuthenticated = useAppSelector(state => state.authentication.isAuthenticated);
+  const currentUser = useAppSelector(state => state.authentication.account);
+  const postEntity = useAppSelector(state => state.post.entity);
 
   useEffect(() => {
     dispatch(getEntities({}));
@@ -29,19 +32,122 @@ export const Post = () => {
 
   return (
     <div>
-      <h2 id="post-heading" data-cy="PostHeading">
+      {/* Heading */}
+      <h1 id="post-heading" data-cy="PostHeading">
         Posts
-        <div className="d-flex justify-content-end">
-          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
+        {/* Buttons */}
+        <div className="d-flex justify-content-center">
+          {/* Refresh List Button */}
+          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading} id="refresh-list">
             <FontAwesomeIcon icon="sync" spin={loading} /> Refresh list
           </Button>
+
+          {/* Create New Post Button */}
           <Link to="/post/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
             &nbsp; Create a new Post
           </Link>
         </div>
-      </h2>
-      <div className="table-responsive">
+      </h1>
+
+      {
+        <div className="container">
+          {postList && postList.length > 0 ? (
+            <div className="post-list">
+              {/* Displays each Post */}
+              {postList.map((post, i) => (
+                <div key={`entity-${i}`} className="post-list-row" data-cy="entityTable">
+                  <div className="card">
+                    {/* Username and Post Time */}
+                    <div className="post-list-cell post-header" id="post-header">
+                      <h3>{post.user ? post.user.login : ''}</h3>
+                      <span className="post-time">
+                        {post.createdAt ? <TextFormat type="date" value={post.createdAt} format={APP_DATE_FORMAT} /> : null}
+                      </span>
+                    </div>
+
+                    {/* Content of post */}
+                    <div className="post-list-cell post-content" id="post-content">
+                      <p>{post.text}</p>
+                    </div>
+
+                    {/* Hashtags */}
+                    <div className="post-list-cell" id="post-hashtag">
+                      {post.hashtags
+                        ? post.hashtags.map((val, j) => (
+                            <span key={j}>
+                              <Link to={`/hashtag/${val.id}`}>{val.name}</Link>
+                              {j === post.hashtags.length - 1 ? '' : ', '}
+                            </span>
+                          ))
+                        : '#Flutter'}
+                    </div>
+
+                    {/* Shows specific hashtag under every post, temporarily */}
+                    {/* <div className="post-list-cell">
+                    {postEntity.hashtags
+                      ? postEntity.hashtags.map((val, i) => (
+                        <span key={val.id}>
+                          <a>{val.name}</a>
+                          {postEntity.hashtags && i === postEntity.hashtags.length - 1 ? '' : ', '}
+                        </span>
+                         ))
+                        : null}
+                    </div> */}
+
+                    {/* Buttons */}
+                    <div className="post-list-cell">
+                      <div className="btn-group flex-btn-group-container" id="buttons">
+                        {/* Comment Button */}
+                        <Button tag={Link} to={`/comment/new`} id="comment-button" size="sm" data-cy="entityDeleteButton">
+                          <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
+                        </Button>
+
+                        {/* Edit Button */}
+                        <Button
+                          tag={Link}
+                          to={`/post/${post.id}/edit`}
+                          color="primary"
+                          size="sm"
+                          data-cy="entityEditButton"
+                          id="view-button"
+                        >
+                          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                        </Button>
+
+                        {/* Delete Button */}
+                        {/* {post.user && post.user.login === useAppSelector(state => state.authentication.account.login) && */}
+                        <Button
+                          tag={Link}
+                          to={`/post/${post.id}/delete`}
+                          color="primary"
+                          id="delete-button"
+                          size="sm"
+                          data-cy="entityDeleteButton"
+                        >
+                          <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
+                        </Button>
+                        {/* } */}
+                      </div>
+                    </div>
+                  </div>
+                  {/* ADD COMMENTS TO POSTS HERE */}
+                  <div className="comment-container"></div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            !loading && <div className="alert alert-warning">No Posts found</div>
+          )}
+        </div>
+      }
+    </div>
+  );
+};
+
+export default Post;
+
+/* <div className="table-responsive">
         {postList && postList.length > 0 ? (
           <Table responsive>
             <thead>
@@ -77,7 +183,7 @@ export const Post = () => {
                   </td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
-                      <Button tag={Link} to={`/post/${post.id}`} color="info" size="sm" data-cy="entityDetailsButton">
+                      <Button tag={Link} to={`/post/${post.id}`} color="info" size="sm" data-cy="entityDetailsButton" id="view-button">
                         <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">View</span>
                       </Button>
                       <Button tag={Link} to={`/post/${post.id}/edit`} color="primary" size="sm" data-cy="entityEditButton">
@@ -95,9 +201,4 @@ export const Post = () => {
         ) : (
           !loading && <div className="alert alert-warning">No Posts found</div>
         )}
-      </div>
-    </div>
-  );
-};
-
-export default Post;
+      </div> */

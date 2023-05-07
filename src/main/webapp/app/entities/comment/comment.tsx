@@ -32,7 +32,7 @@ export const Comment = () => {
       <h2 id="comment-heading" data-cy="CommentHeading">
         Comments
         <div className="d-flex justify-content-end">
-          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
+          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading} id="refresh-list">
             <FontAwesomeIcon icon="sync" spin={loading} /> Refresh list
           </Button>
           <Link to="/comment/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
@@ -68,7 +68,14 @@ export const Comment = () => {
                   <td>{comment.post ? <Link to={`/post/${comment.post.id}`}>{comment.post.text}</Link> : ''}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
-                      <Button tag={Link} to={`/comment/${comment.id}`} color="info" size="sm" data-cy="entityDetailsButton">
+                      <Button
+                        tag={Link}
+                        to={`/comment/${comment.id}`}
+                        color="info"
+                        size="sm"
+                        data-cy="entityDetailsButton"
+                        id="view-button"
+                      >
                         <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">View</span>
                       </Button>
                       <Button tag={Link} to={`/comment/${comment.id}/edit`} color="primary" size="sm" data-cy="entityEditButton">

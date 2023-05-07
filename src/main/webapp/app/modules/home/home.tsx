@@ -22,15 +22,20 @@ export const Home = () => {
         </p>
         {account?.login ? (
           <div>
-            <Alert color="success">You are logged in as user &quot;{account.login}&quot;.</Alert>
+            <Alert color="success" id="success">
+              You are logged in as user &quot;{account.login}&quot;.
+            </Alert>
+            <Link to="/post" rel="noopener noreferrer">
+              QuottaBoard
+            </Link>
           </div>
         ) : (
           // This is where we change the sign in display
           <div>
-            <Alert color="warning">
+            <Alert color="warning" id="success">
               If you want to
               <span>&nbsp;</span>
-              <Link to="/login" className="alert-link">
+              <Link to="/login" className="alert-link" id="success-text">
                 sign in
               </Link>
               , you can try the default accounts:
@@ -38,9 +43,9 @@ export const Home = () => {
               password=&quot;user&quot;).
             </Alert>
 
-            <Alert color="warning">
+            <Alert color="warning" id="success">
               You don&apos;t have an account yet?&nbsp;
-              <Link to="/account/register" className="alert-link">
+              <Link to="/account/register" className="alert-link" id="success-text">
                 Register a new account
               </Link>
             </Alert>
