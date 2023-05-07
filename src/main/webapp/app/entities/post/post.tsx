@@ -18,6 +18,9 @@ export const Post = () => {
 
   const postList = useAppSelector(state => state.post.entities);
   const loading = useAppSelector(state => state.post.loading);
+  const isAuthenticated = useAppSelector(state => state.authentication.isAuthenticated);
+  const currentUser = useAppSelector(state => state.authentication.account);
+  const postEntity = useAppSelector(state => state.post.entity);
 
   useEffect(() => {
     dispatch(getEntities({}));
@@ -69,7 +72,7 @@ export const Post = () => {
                     </div>
 
                     {/* Hashtags */}
-                    <div className="post-list-cell">
+                    <div className="post-list-cell" id="post-hashtag">
                       {post.hashtags
                         ? post.hashtags.map((val, j) => (
                             <span key={j}>
@@ -77,8 +80,20 @@ export const Post = () => {
                               {j === post.hashtags.length - 1 ? '' : ', '}
                             </span>
                           ))
-                        : null}
+                        : '#Flutter'}
                     </div>
+
+                    {/* Shows specific hashtag under every post, temporarily */}
+                    {/* <div className="post-list-cell">
+                    {postEntity.hashtags
+                      ? postEntity.hashtags.map((val, i) => (
+                        <span key={val.id}>
+                          <a>{val.name}</a>
+                          {postEntity.hashtags && i === postEntity.hashtags.length - 1 ? '' : ', '}
+                        </span>
+                         ))
+                        : null}
+                    </div> */}
 
                     {/* Buttons */}
                     <div className="post-list-cell">
@@ -101,6 +116,7 @@ export const Post = () => {
                         </Button>
 
                         {/* Delete Button */}
+                        {/* {post.user && post.user.login === useAppSelector(state => state.authentication.account.login) && */}
                         <Button
                           tag={Link}
                           to={`/post/${post.id}/delete`}
@@ -111,9 +127,12 @@ export const Post = () => {
                         >
                           <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
                         </Button>
+                        {/* } */}
                       </div>
                     </div>
                   </div>
+                  {/* ADD COMMENTS TO POSTS HERE */}
+                  <div className="comment-container"></div>
                 </div>
               ))}
             </div>
