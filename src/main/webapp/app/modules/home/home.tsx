@@ -25,6 +25,9 @@ export const Home = () => {
             <Alert color="success" id="success">
               You are logged in as user &quot;{account.login}&quot;.
             </Alert>
+            <Link to="/post" rel="noopener noreferrer">
+              QuottaBoard
+            </Link>
           </div>
         ) : (
           // This is where we change the sign in display
