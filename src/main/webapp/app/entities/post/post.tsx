@@ -55,7 +55,7 @@ export const Post = () => {
           {postList && postList.length > 0 ? (
             <div className="post-list">
               {/* Displays each Post */}
-              {postList.map((post, i) => (
+              {[...postList].reverse().map((post, i) => (
                 <div key={`entity-${i}`} className="post-list-row" data-cy="entityTable">
                   <div className="card">
                     {/* Username and Post Time */}
