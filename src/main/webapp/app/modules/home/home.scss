@@ -47,7 +47,9 @@ Main page styles
 
 #edit-button:hover,
 #comment-button:hover,
-#delete-button:hover {
+#delete-button:hover,
+#refresh-list:hover,
+#jh-create-entity:hover #header-jawn:hover {
   color: #47e6ec;
 }
 
@@ -56,11 +58,12 @@ Main page styles
   background-color: #47e6ec;
 }
 #jh-create-entity {
-  background-color: #7539ee;
-  border-radius: 5px;
+  color: black;
+  background-color: white;
 }
 #refresh-list {
-  border-radius: 5px;
+  color: black;
+  background-color: white;
 }
 
 //Profile Styles

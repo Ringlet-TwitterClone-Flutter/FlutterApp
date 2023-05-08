@@ -34,9 +34,11 @@ export const Post = () => {
     <div>
       {/* Heading */}
       <h1 id="post-heading" data-cy="PostHeading">
-        <img height="25" width="25" src="content/images/butterflySilho3.png" alt="Logo" />
-        Flutter Feed
-        <img height="25" width="25" src="content/images/butterFreeSilhoFlipped.png" alt="Logo" />
+        <div id="header-jawn">
+          <img height="25" width="25" src="content/images/butterflySilho.png" alt="Logo" />
+          Flutter Feed
+          <img height="25" width="25" src="content/images/butterflySilhoFlipped.png" alt="Logo" />
+        </div>
         {/* Buttons */}
         <div className="d-flex justify-content-center">
           {/* Refresh List Button */}
@@ -62,7 +64,7 @@ export const Post = () => {
                   <div className="card">
                     {/* Username and Post Time */}
                     <div className="post-list-cell post-header" id="post-header">
-                      <h3>{post.user ? post.user.login : ''}</h3>
+                      <h4>{post.user ? post.user.login : ''}</h4>
                       <span className="post-time">
                         {post.createdAt ? <TextFormat type="date" value={post.createdAt} format={APP_DATE_FORMAT} /> : null}
                       </span>
