@@ -4,7 +4,8 @@ Main page styles
 .hipster {
   display: inline-block;
   width: 100%;
-  height: 497px;
+  height: 100;
+  padding-bottom: 200px;
   background: url('../../../content/images/butterfreePic.png') no-repeat center top;
   background-size: contain;
 }
@@ -32,24 +33,24 @@ Main page styles
 
 // Button Styles
 
-#view-button {
-  color: black;
-  float: right;
-  margin-right: 5px;
-  border-radius: 5px;
-}
+#edit-button,
+#delete-button,
 #comment-button {
-  background-color: #7539ee;
-  color: white;
+  // background-color: #7539ee;
+  color: black;
+  background-color: white;
   float: right;
   margin-right: 5px;
   border-radius: 5px;
+  font-size: 12px;
 }
-#delete-button {
-  float: right;
-  margin-right: 5px;
-  border-radius: 5px;
+
+#edit-button:hover,
+#comment-button:hover,
+#delete-button:hover {
+  color: #47e6ec;
 }
+
 #cancel-save {
   color: black;
   background-color: #47e6ec;

@@ -89,7 +89,7 @@ export const Post = () => {
                         <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
                       </Button>
                       {/* Edit Button */}
-                      <Button tag={Link} to={`/post/${post.id}/edit`} color="primary" size="sm" data-cy="entityEditButton" id="view-button">
+                      <Button tag={Link} to={`/post/${post.id}/edit`} color="primary" size="sm" data-cy="entityEditButton" id="edit-button">
                         <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
                       </Button>
                       {/* Delete Button */}
