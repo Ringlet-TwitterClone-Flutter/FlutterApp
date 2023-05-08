@@ -15,6 +15,7 @@ export const Post = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
+  const commentList = useAppSelector(state => state.comment.entities);
 
   const postList = useAppSelector(state => state.post.entities);
   const loading = useAppSelector(state => state.post.loading);
@@ -121,7 +122,67 @@ export const Post = () => {
                     </div> */}
                   </div>
                   {/* ADD COMMENTS TO POSTS HERE */}
-                  <div className="comment-container"></div>
+                  <div className="comment-container">
+                    <div>
+                      {commentList && commentList.length > 0 ? (
+                        <div className="comment-container">
+                          {commentList.map((comment, i) => (
+                            <div key={`entity-${i}`} data-cy="entityTable" className="comment">
+                              <div className="comment-field">
+                                <div className="comment-label">Text</div>
+                                <div className="comment-value">{comment.text}</div>
+                              </div>
+                              <div className="comment-field">
+                                <div className="comment-label">Created At</div>
+                                <div className="comment-value">
+                                  {comment.createdAt ? <TextFormat type="date" value={comment.createdAt} format={APP_DATE_FORMAT} /> : null}
+                                </div>
+                              </div>
+                              <div className="comment-field">
+                                <div className="comment-label">User</div>
+                                <div className="comment-value">{comment.user ? comment.user.login : ''}</div>
+                              </div>
+                              {/* <div className="comment-field">
+                              <div className="comment-label">Post</div>
+                              <div className="comment-value">{comment.post ? <Link to={`/post/${comment.post.id}`}>{comment.post.text}</Link> : ''}</div>
+                            </div> */}
+                              <div className="comment-field">
+                                <div className="comment-label"></div>
+                                <div className="comment-value text-end">
+                                  <div className="btn-group flex-btn-group-container">
+                                    <Button
+                                      tag={Link}
+                                      to={`/comment/${comment.id}/edit`}
+                                      color="primary"
+                                      size="sm"
+                                      data-cy="entityEditButton"
+                                    >
+                                      <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                                    </Button>
+                                    <Button
+                                      tag={Link}
+                                      to={`/comment/${comment.id}/delete`}
+                                      color="danger"
+                                      size="sm"
+                                      data-cy="entityDeleteButton"
+                                    >
+                                      <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
+                                    </Button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        !loading && (
+                          <div id="success" className="alert alert-warning">
+                            No Comments found
+                          </div>
+                        )
+                      )}
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -130,6 +191,27 @@ export const Post = () => {
           )}
         </div>
       }
+
+      <div className="wrapper">
+        <div className="sidebar">
+          <ul>
+            <div>
+              <FontAwesomeIcon icon="home" />
+              <Link id="home-button" to="/home" rel="noopener noreferrer">
+                {' '}
+                Home
+              </Link>
+            </div>
+            <div>
+              <img height="23" width="23" src="content/images/butterflySilho.png" alt="Logo" />
+              <Link id="profile-button" to="/profile" rel="noopener noreferrer">
+                {' '}
+                Profile
+              </Link>
+            </div>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
