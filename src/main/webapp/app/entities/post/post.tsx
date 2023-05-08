@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button, Table } from 'reactstrap';
 import { Translate, TextFormat } from 'react-jhipster';
@@ -9,6 +9,7 @@ import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { IPost } from 'app/shared/model/post.model';
 import { getEntities } from './post.reducer';
+import FlipMove from 'react-flip-move';
 
 export const Post = () => {
   const dispatch = useAppDispatch();
