@@ -16,6 +16,7 @@ export const Post = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
+  const commentList = useAppSelector(state => state.comment.entities);
 
   const postList = useAppSelector(state => state.post.entities);
   const loading = useAppSelector(state => state.post.loading);
@@ -35,20 +36,23 @@ export const Post = () => {
     <div>
       {/* Heading */}
       <h1 id="post-heading" data-cy="PostHeading">
-        <img height="25" width="25" src="content/images/butterflySilho3.png" alt="Logo" />
-        Flutter Feed
-        <img height="25" width="25" src="content/images/butterFreeSilhoFlipped.png" alt="Logo" />
+        <div id="header-jawn">
+          <img height="25" width="25" src="content/images/butterflySilho.png" alt="Logo" />
+          Flutter Feed
+          <img height="25" width="25" src="content/images/butterflySilhoFlipped.png" alt="Logo" />
+        </div>
         {/* Buttons */}
         <div className="d-flex justify-content-center">
           {/* Refresh List Button */}
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading} id="refresh-list">
-            <FontAwesomeIcon icon="sync" spin={loading} /> Refresh page
+            <FontAwesomeIcon icon="sync" spin={loading} />
+            Refresh page
           </Button>
 
           {/* Create New Post Button */}
           <Link to="/post/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
-            &nbsp; New Post
+            &nbsp;New Post
           </Link>
         </div>
       </h1>
@@ -63,7 +67,7 @@ export const Post = () => {
                   <div className="card">
                     {/* Username and Post Time */}
                     <div className="post-list-cell post-header" id="post-header">
-                      <h3>{post.user ? post.user.login : ''}</h3>
+                      <h4>{post.user ? post.user.login : ''}</h4>
                       <span className="post-time">
                         {post.createdAt ? <TextFormat type="date" value={post.createdAt} format={APP_DATE_FORMAT} /> : null}
                       </span>
@@ -90,7 +94,7 @@ export const Post = () => {
                         <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
                       </Button>
                       {/* Edit Button */}
-                      <Button tag={Link} to={`/post/${post.id}/edit`} color="primary" size="sm" data-cy="entityEditButton" id="view-button">
+                      <Button tag={Link} to={`/post/${post.id}/edit`} color="primary" size="sm" data-cy="entityEditButton" id="edit-button">
                         <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
                       </Button>
                       {/* Delete Button */}
@@ -120,7 +124,73 @@ export const Post = () => {
                     </div> */}
                   </div>
                   {/* ADD COMMENTS TO POSTS HERE */}
-                  <div className="comment-container"></div>
+                  <div className="comment-container">
+                    <div>
+                      {commentList && commentList.length > 0 ? (
+                        <div className="card">
+                          {commentList
+                            .filter(comment => comment.post && comment.post.id === post.id)
+                            .map((comment, i) => (
+                              <div key={`entity-${i}`} data-cy="entityTable" className="comment">
+                                <div className="comment-field">
+                                  <div className="comment-label">Text</div>
+                                  <div className="comment-value">{comment.text}</div>
+                                </div>
+                                <div className="comment-field">
+                                  <div className="comment-label">Created At</div>
+                                  <div className="comment-value">
+                                    {comment.createdAt ? (
+                                      <TextFormat type="date" value={comment.createdAt} format={APP_DATE_FORMAT} />
+                                    ) : null}
+                                  </div>
+                                </div>
+                                <div className="comment-field">
+                                  <div className="comment-label">User</div>
+                                  <div className="comment-value">{comment.user ? comment.user.login : ''}</div>
+                                </div>
+                                <div className="comment-field">
+                                  <div className="comment-label">Post</div>
+                                  <div className="comment-value">
+                                    {comment.post ? <Link to={`/post/${comment.post.id}`}>{comment.post.text}</Link> : ''}
+                                  </div>
+                                </div>
+                                <div className="comment-field">
+                                  <div className="comment-label"></div>
+                                  <div className="comment-value text-end">
+                                    <div className="btn-group flex-btn-group-container">
+                                      <Button
+                                        tag={Link}
+                                        to={`/comment/${comment.id}/edit`}
+                                        color="primary"
+                                        size="sm"
+                                        data-cy="entityEditButton"
+                                      >
+                                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                                      </Button>
+                                      <Button
+                                        tag={Link}
+                                        to={`/comment/${comment.id}/delete`}
+                                        color="danger"
+                                        size="sm"
+                                        data-cy="entityDeleteButton"
+                                      >
+                                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
+                                      </Button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                        </div>
+                      ) : (
+                        !loading && (
+                          <div id="success" className="alert alert-warning">
+                            No Comments found
+                          </div>
+                        )
+                      )}
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -129,64 +199,29 @@ export const Post = () => {
           )}
         </div>
       }
+
+      <div className="wrapper">
+        <div className="sidebar">
+          <ul>
+            <div>
+              <FontAwesomeIcon icon="home" />
+              <Link id="home-button" to="/home" rel="noopener noreferrer">
+                {' '}
+                Home
+              </Link>
+            </div>
+            <div>
+              <img height="23" width="23" src="content/images/butterflySilho.png" alt="Logo" />
+              <Link id="profile-button" to="/profile" rel="noopener noreferrer">
+                {' '}
+                Profile
+              </Link>
+            </div>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default Post;
-
-/* <div className="table-responsive">
-        {postList && postList.length > 0 ? (
-          <Table responsive>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Text</th>
-                <th>Created At</th>
-                <th>User</th>
-                <th>Hashtags</th>
-                <th />
-              </tr>
-            </thead>
-            <tbody>
-              {postList.map((post, i) => (
-                <tr key={`entity-${i}`} data-cy="entityTable">
-                  <td>
-                    <Button tag={Link} to={`/post/${post.id}`} color="link" size="sm">
-                      {post.id}
-                    </Button>
-                  </td>
-                  <td>{post.text}</td>
-                  <td>{post.createdAt ? <TextFormat type="date" value={post.createdAt} format={APP_DATE_FORMAT} /> : null}</td>
-                  <td>{post.user ? post.user.login : ''}</td>
-                  <td>
-                    {post.hashtags
-                      ? post.hashtags.map((val, j) => (
-                          <span key={j}>
-                            <Link to={`/hashtag/${val.id}`}>{val.name}</Link>
-                            {j === post.hashtags.length - 1 ? '' : ', '}
-                          </span>
-                        ))
-                      : null}
-                  </td>
-                  <td className="text-end">
-                    <div className="btn-group flex-btn-group-container">
-                      <Button tag={Link} to={`/post/${post.id}`} color="info" size="sm" data-cy="entityDetailsButton" id="view-button">
-                        <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">View</span>
-                      </Button>
-                      <Button tag={Link} to={`/post/${post.id}/edit`} color="primary" size="sm" data-cy="entityEditButton">
-                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
-                      </Button>
-                      <Button tag={Link} to={`/post/${post.id}/delete`} color="danger" size="sm" data-cy="entityDeleteButton">
-                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
-                      </Button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        ) : (
-          !loading && <div className="alert alert-warning">No Posts found</div>
-        )}
-      </div> */
