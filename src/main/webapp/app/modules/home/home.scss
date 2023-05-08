@@ -1,7 +1,7 @@
 /* ==========================================================================
 Main page styles
 ========================================================================== */
-.hipster {
+.butterfree {
   display: inline-block;
   width: 100%;
   height: 100;
@@ -25,6 +25,8 @@ Main page styles
   color: black;
   background-color: lavender;
   border-color: #47e6ec;
+  border-radius: 5px;
+  margin-right: 20px;
 }
 
 #success-text {
@@ -45,9 +47,15 @@ Main page styles
   font-size: 12px;
 }
 
+#feed {
+  float: right;
+}
+
 #edit-button:hover,
 #comment-button:hover,
-#delete-button:hover {
+#delete-button:hover,
+#refresh-list:hover,
+#jh-create-entity:hover #header-jawn:hover {
   color: #47e6ec;
 }
 
@@ -56,11 +64,12 @@ Main page styles
   background-color: #47e6ec;
 }
 #jh-create-entity {
-  background-color: #7539ee;
-  border-radius: 5px;
+  color: black;
+  background-color: white;
 }
 #refresh-list {
-  border-radius: 5px;
+  color: black;
+  background-color: white;
 }
 
 //Profile Styles
@@ -85,6 +94,7 @@ Main page styles
   grid-template-areas: 'header header' 'content content' 'time time' 'hashtags hashtags' 'buttons buttons';
   z-index: 1;
   border-radius: 5px;
+  margin-right: 20px;
 }
 
 .post-header {
@@ -105,4 +115,35 @@ Main page styles
 
 #post-hashtag {
   margin-bottom: 10px;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.sidebar {
+  position: fixed;
+  top: 210px;
+  left: 20px;
+  width: 300px;
+  max-height: calc(100vh - 210px);
+  background-color: transparent;
+  overflow-y: auto;
+  font-size: 20px;
+  z-index: 1;
+}
+
+#profile-button,
+#home-button {
+  text-decoration: none;
+}
+
+#profile-button:hover,
+#home-button:hover {
+  color: #47e6ec;
+}
+
+.content {
+  margin-left: 200px;
+  /* adjust margin-left to match the width of the sidebar */
 }

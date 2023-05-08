@@ -13,7 +13,7 @@ export const Home = () => {
   return (
     <Row>
       <Col md="3" className="pad">
-        <span className="hipster rounded" />
+        <span className="butterfree rounded" />
         <Link to="/post" rel="noopener noreferrer">
           FlutterBoard
         </Link>
