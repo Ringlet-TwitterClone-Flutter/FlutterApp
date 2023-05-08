@@ -1,7 +1,7 @@
 /* ==========================================================================
 Main page styles
 ========================================================================== */
-.hipster {
+.butterfree {
   display: inline-block;
   width: 100%;
   height: 100;
@@ -45,6 +45,10 @@ Main page styles
   margin-right: 5px;
   border-radius: 5px;
   font-size: 12px;
+}
+
+#feed {
+  float: right;
 }
 
 #edit-button:hover,
