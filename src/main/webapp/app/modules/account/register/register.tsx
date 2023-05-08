@@ -104,8 +104,8 @@ export const RegisterPage = () => {
             </Button>
           </ValidatedForm>
           <p>&nbsp;</p>
-          <Alert color="warning">
-            <span>If you want to</span>
+          <Alert color="warning" id="success">
+            <span>If you want to </span>
             <a className="alert-link">sign in</a>
             <span>
               , you can try the default accounts:

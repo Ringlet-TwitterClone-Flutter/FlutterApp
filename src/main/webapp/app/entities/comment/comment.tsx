@@ -32,7 +32,7 @@ export const Comment = () => {
       <h2 id="comment-heading" data-cy="CommentHeading">
         Comments
         <div className="d-flex justify-content-end">
-          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
+          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading} id="refresh-list">
             <FontAwesomeIcon icon="sync" spin={loading} /> Refresh list
           </Button>
           <Link to="/comment/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
@@ -68,7 +68,14 @@ export const Comment = () => {
                   <td>{comment.post ? <Link to={`/post/${comment.post.id}`}>{comment.post.text}</Link> : ''}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
-                      <Button tag={Link} to={`/comment/${comment.id}`} color="info" size="sm" data-cy="entityDetailsButton">
+                      <Button
+                        tag={Link}
+                        to={`/comment/${comment.id}`}
+                        color="info"
+                        size="sm"
+                        data-cy="entityDetailsButton"
+                        id="view-button"
+                      >
                         <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">View</span>
                       </Button>
                       <Button tag={Link} to={`/comment/${comment.id}/edit`} color="primary" size="sm" data-cy="entityEditButton">
@@ -92,3 +99,74 @@ export const Comment = () => {
 };
 
 export default Comment;
+// <div>
+//   <h2 id="comment-heading" data-cy="CommentHeading">
+//   Comments
+//   <div className="d-flex justify-content-end">
+//     <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading} id="refresh-list">
+//       <FontAwesomeIcon icon="sync" spin={loading} /> Refresh list
+//     </Button>
+//     <Link to="/comment/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
+//       <FontAwesomeIcon icon="plus" />
+//       &nbsp; Create a new Comment
+//     </Link>
+//   </div>
+// </h2>
+// {commentList && commentList.length > 0 ? (
+//   <div className="comment-container">
+//     {commentList.map((comment, i) => (
+//       <div key={`entity-${i}`} data-cy="entityTable" className="comment">
+//         <div className="comment-field">
+//           <div className="comment-label">ID</div>
+//           <div className="comment-value">
+//             <Button tag={Link} to={`/comment/${comment.id}`} color="link" size="sm">
+//               {comment.id}
+//             </Button>
+//           </div>
+//         </div>
+//         <div className="comment-field">
+//           <div className="comment-label">Text</div>
+//           <div className="comment-value">{comment.text}</div>
+//         </div>
+//         <div className="comment-field">
+//           <div className="comment-label">Created At</div>
+//           <div className="comment-value">{comment.createdAt ? <TextFormat type="date" value={comment.createdAt} format={APP_DATE_FORMAT} /> : null}</div>
+//         </div>
+//         <div className="comment-field">
+//           <div className="comment-label">User</div>
+//           <div className="comment-value">{comment.user ? comment.user.login : ''}</div>
+//         </div>
+//         <div className="comment-field">
+//           <div className="comment-label">Post</div>
+//           <div className="comment-value">{comment.post ? <Link to={`/post/${comment.post.id}`}>{comment.post.text}</Link> : ''}</div>
+//         </div>
+//         <div className="comment-field">
+//           <div className="comment-label"></div>
+//           <div className="comment-value text-end">
+//             <div className="btn-group flex-btn-group-container">
+//               <Button
+//                 tag={Link}
+//                 to={`/comment/${comment.id}`}
+//                 color="info"
+//                 size="sm"
+//                 data-cy="entityDetailsButton"
+//                 id="view-button"
+//               >
+//                 <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">View</span>
+//               </Button>
+//               <Button tag={Link} to={`/comment/${comment.id}/edit`} color="primary" size="sm" data-cy="entityEditButton">
+//                 <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+//               </Button>
+//               <Button tag={Link} to={`/comment/${comment.id}/delete`} color="danger" size="sm" data-cy="entityDeleteButton">
+//                 <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
+//               </Button>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     ))}
+//   </div>
+// ) : (
+//   !loading && <div className="alert alert-warning">No Comments found</div>
+// )}
+// </div>

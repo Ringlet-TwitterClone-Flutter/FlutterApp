@@ -32,7 +32,7 @@ export const Hashtag = () => {
       <h2 id="hashtag-heading" data-cy="HashtagHeading">
         Hashtags
         <div className="d-flex justify-content-end">
-          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
+          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading} id="refresh-list">
             <FontAwesomeIcon icon="sync" spin={loading} /> Refresh list
           </Button>
           <Link to="/hashtag/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
@@ -62,7 +62,14 @@ export const Hashtag = () => {
                   <td>{hashtag.name}</td>
                   <td className="text-end">
                     <div className="btn-group flex-btn-group-container">
-                      <Button tag={Link} to={`/hashtag/${hashtag.id}`} color="info" size="sm" data-cy="entityDetailsButton">
+                      <Button
+                        tag={Link}
+                        to={`/hashtag/${hashtag.id}`}
+                        color="info"
+                        size="sm"
+                        data-cy="entityDetailsButton"
+                        id="view-button"
+                      >
                         <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">View</span>
                       </Button>
                       <Button tag={Link} to={`/hashtag/${hashtag.id}/edit`} color="primary" size="sm" data-cy="entityEditButton">
