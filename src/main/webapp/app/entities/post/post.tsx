@@ -34,18 +34,20 @@ export const Post = () => {
     <div>
       {/* Heading */}
       <h1 id="post-heading" data-cy="PostHeading">
-        Posts
+        <img height="25" width="25" src="content/images/butterflySilho3.png" alt="Logo" />
+        Flutter Feed
+        <img height="25" width="25" src="content/images/butterFreeSilhoFlipped.png" alt="Logo" />
         {/* Buttons */}
         <div className="d-flex justify-content-center">
           {/* Refresh List Button */}
           <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading} id="refresh-list">
-            <FontAwesomeIcon icon="sync" spin={loading} /> Refresh list
+            <FontAwesomeIcon icon="sync" spin={loading} /> Refresh page
           </Button>
 
           {/* Create New Post Button */}
           <Link to="/post/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
             <FontAwesomeIcon icon="plus" />
-            &nbsp; Create a new Post
+            &nbsp; New Post
           </Link>
         </div>
       </h1>
