@@ -9,6 +9,7 @@ import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { IPost } from 'app/shared/model/post.model';
 import { getEntities } from './profile.reducer';
+import { find } from 'lodash';
 
 export const Profile = () => {
   const dispatch = useAppDispatch();
@@ -16,7 +17,9 @@ export const Profile = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const postList = useAppSelector(state => state.post.entities);
+  const currentUser = useAppSelector(state => state.authentication.account);
+  let postList = useAppSelector(state => state.post.entities);
+  postList = postList.filter(post => post.user.id === currentUser.id);
   const loading = useAppSelector(state => state.post.loading);
 
   useEffect(() => {
@@ -34,6 +37,8 @@ export const Profile = () => {
         Profiles
       </h1>
 
+      {/* <post className="user"></post>  */}
+      {/*findByUserIsCurrentUser()*/}
       {
         <div className="container">
           {postList && postList.length > 0 ? (
