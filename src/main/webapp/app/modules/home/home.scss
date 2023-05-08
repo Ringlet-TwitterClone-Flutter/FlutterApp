@@ -58,6 +58,14 @@ Main page styles
   background-color: #7539ee;
 }
 
+//Profile Styles
+
+.profile-header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+}
+
 //Post Styles
 .jh-card {
 }

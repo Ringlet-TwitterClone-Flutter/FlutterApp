@@ -30,6 +30,11 @@ export const Profile = () => {
   return (
     <div>
       {/* Heading */}
+      <h1 id="profile-heading" data-cy="ProfileHeading">
+        Profiles
+      </h1>
+
+      {/* Heading */}
       <h1 id="post-heading" data-cy="PostHeading">
         Posts
         {/* Buttons */}
