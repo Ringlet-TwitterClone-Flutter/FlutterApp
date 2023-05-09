@@ -17,9 +17,7 @@ export const Profile = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const currentUser = useAppSelector(state => state.authentication.account);
-  let postList = useAppSelector(state => state.post.entities);
-  postList = postList.filter(post => post.user.id === currentUser.id);
+  const postList = useAppSelector(state => state.post.entities);
   const loading = useAppSelector(state => state.post.loading);
 
   useEffect(() => {
