@@ -34,29 +34,24 @@ export const Post = () => {
 
   return (
     <Row>
-      <Col md="3" className="" style={{ display: 'flex', justifyContent: 'right' }}>
-        <div className="wrapper ">
-          <div className="sidebar">
-            <ul>
-              <div>
-                <FontAwesomeIcon icon="home" />
-                <Link id="home-button" to="/home" rel="noopener noreferrer">
-                  {' '}
-                  Home
-                </Link>
-              </div>
-              <div>
-                <img height="23" width="23" src="content/images/butterflySilho.png" alt="Logo" />
-                <Link id="profile-button" to="/profile" rel="noopener noreferrer">
-                  {' '}
-                  Profile
-                </Link>
-              </div>
-            </ul>
-          </div>
+      <Col md="2" className="" style={{ display: 'flex', justifyContent: 'right' }}>
+        <div className="wrapper sidebar">
+          <ul>
+            <FontAwesomeIcon icon="home" />
+            <Link id="home-button" to="/home" rel="noopener noreferrer">
+              {' '}
+              Home
+            </Link>
+            <br></br>
+            <img height="23" width="23" src="content/images/butterflySilho.png" alt="Logo" />
+            <Link id="profile-button" to="/profile" rel="noopener noreferrer">
+              {' '}
+              Profile
+            </Link>
+          </ul>
         </div>
       </Col>
-      <Col>
+      <Col md="8">
         <div>
           {/* Heading */}
           <h1 id="post-heading" data-cy="PostHeading">
@@ -236,6 +231,25 @@ export const Post = () => {
               )}
             </div>
           }
+        </div>
+      </Col>
+      <Col md="2">
+        //temporary until we make another sidebar here
+        {/* Shows specific hashtag under every post, temporarily */}
+        <div className="sidebar">
+          {/* <ul>
+            <FontAwesomeIcon icon="home" />
+            <Link id="home-button" to="/home" rel="noopener noreferrer">
+              {' '}
+              Home
+            </Link>
+            <br></br>
+            <img height="23" width="23" src="content/images/butterflySilho.png" alt="Logo" />
+            <Link id="profile-button" to="/profile" rel="noopener noreferrer">
+              {' '}
+              Profile
+            </Link>
+          </ul> */}
         </div>
       </Col>
     </Row>
