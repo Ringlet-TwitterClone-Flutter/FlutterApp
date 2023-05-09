@@ -157,7 +157,7 @@ public class PostResource {
     }
 
     // Get all posts by user
-    @GetMapping("/brew-cards/user")
+    @GetMapping("/posts/user")
     public List<Post> getAllPostsByUser(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
         log.debug("REST request to get all Posts");
         if (eagerload) {
