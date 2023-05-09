@@ -59,11 +59,6 @@ export const Post = () => {
               <img height="25" width="25" src="content/images/butterflySilho.png" alt="Logo" />
               Flutter Feed
               <img height="25" width="25" src="content/images/butterflySilhoFlipped.png" alt="Logo" />
-              {/* Refresh List Button */}
-              <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading} id="refresh-list">
-                <FontAwesomeIcon icon="sync" spin={loading} />
-                Refresh page
-              </Button>
             </div>
             <div className="d-flex justify-content-center">
               {/* Create New Post Button */}
@@ -164,11 +159,9 @@ export const Post = () => {
                                   .map((comment, i) => (
                                     <div key={`entity-${i}`} data-cy="entityTable" className="comment">
                                       <div className="comment-field">
-                                        <div className="comment-label">Text</div>
                                         <div className="comment-value">{comment.text}</div>
                                       </div>
                                       <div className="comment-field">
-                                        <div className="comment-label">Created At</div>
                                         <div className="comment-value">
                                           {comment.createdAt ? (
                                             <TextFormat type="date" value={comment.createdAt} format={APP_DATE_FORMAT} />
@@ -176,14 +169,7 @@ export const Post = () => {
                                         </div>
                                       </div>
                                       <div className="comment-field">
-                                        <div className="comment-label">User</div>
                                         <div className="comment-value">{comment.user ? comment.user.login : ''}</div>
-                                      </div>
-                                      <div className="comment-field">
-                                        <div className="comment-label">Post</div>
-                                        <div className="comment-value">
-                                          {comment.post ? <Link to={`/post/${comment.post.id}`}>{comment.post.text}</Link> : ''}
-                                        </div>
                                       </div>
                                       <div className="comment-field">
                                         <div className="comment-label"></div>
@@ -192,18 +178,19 @@ export const Post = () => {
                                             <Button
                                               tag={Link}
                                               to={`/comment/${comment.id}/edit`}
-                                              color="primary"
                                               size="sm"
                                               data-cy="entityEditButton"
+                                              id="edit-button"
                                             >
                                               <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
                                             </Button>
                                             <Button
                                               tag={Link}
                                               to={`/comment/${comment.id}/delete`}
-                                              color="danger"
+                                              color="black"
                                               size="sm"
                                               data-cy="entityDeleteButton"
+                                              id="delete-button"
                                             >
                                               <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
                                             </Button>
