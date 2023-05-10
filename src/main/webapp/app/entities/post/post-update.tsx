@@ -84,20 +84,13 @@ export const PostUpdate = () => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="flutterApp.post.home.createOrEditLabel" data-cy="PostCreateUpdateHeading">
-            New Post
-          </h2>
-        </Col>
-      </Row>
-      <Row className="justify-content-center">
-        <Col md="8">
           {loading ? (
             <p>Loading...</p>
           ) : (
             <ValidatedForm defaultValues={defaultValues()} onSubmit={saveEntity}>
               {!isNew ? <ValidatedField name="id" required readOnly id="post-id" label="ID" validate={{ required: true }} /> : null}
               <ValidatedField
-                label=""
+                label="New Post"
                 id="post-text"
                 name="text"
                 data-cy="text"
@@ -105,7 +98,7 @@ export const PostUpdate = () => {
                 validate={{
                   required: { value: true, message: 'This field is required.' },
                 }}
-                // style={{ height: '50%' }}
+                style={{ height: '200px' }}
               />
               <ValidatedField id="post-user" name="user" data-cy="user" label="User" type="select">
                 <option value="" key="0" />
