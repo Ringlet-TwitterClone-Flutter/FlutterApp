@@ -84,9 +84,9 @@ export const PostUpdate = () => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h5 id="flutterApp.post.home.createOrEditLabel" data-cy="PostCreateUpdateHeading">
-            Create or edit a Post
-          </h5>
+          <h2 id="flutterApp.post.home.createOrEditLabel" data-cy="PostCreateUpdateHeading">
+            New Post
+          </h2>
         </Col>
       </Row>
       <Row className="justify-content-center">
@@ -97,7 +97,7 @@ export const PostUpdate = () => {
             <ValidatedForm defaultValues={defaultValues()} onSubmit={saveEntity}>
               {!isNew ? <ValidatedField name="id" required readOnly id="post-id" label="ID" validate={{ required: true }} /> : null}
               <ValidatedField
-                label="Text"
+                label=""
                 id="post-text"
                 name="text"
                 data-cy="text"
@@ -106,18 +106,6 @@ export const PostUpdate = () => {
                   required: { value: true, message: 'This field is required.' },
                 }}
                 // style={{ height: '50%' }}
-              />
-              <ValidatedField
-                label="Created At"
-                id="post-createdAt"
-                name="createdAt"
-                data-cy="createdAt"
-                type="datetime-local"
-                placeholder="YYYY-MM-DD HH:mm"
-                validate={{
-                  required: { value: true, message: 'This field is required.' },
-                }}
-                style={{ width: '50%' }}
               />
               <ValidatedField id="post-user" name="user" data-cy="user" label="User" type="select">
                 <option value="" key="0" />
@@ -139,15 +127,10 @@ export const PostUpdate = () => {
                     ))
                   : null}
               </ValidatedField>
-              <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/post" replace color="info">
-                <FontAwesomeIcon icon="arrow-left" />
-                &nbsp;
-                <span className="d-none d-md-inline">Back</span>
-              </Button>
               &nbsp;
-              <Button color="primary" id="save-entity" data-cy="entityCreateSaveButton" type="submit" disabled={updating}>
-                <FontAwesomeIcon icon="save" />
-                &nbsp; Save
+              <Button color="primary" id="comment-button" data-cy="entityCreateSaveButton" type="submit" disabled={updating}>
+                <FontAwesomeIcon icon="plus" />
+                &nbsp; Post
               </Button>
             </ValidatedForm>
           )}
