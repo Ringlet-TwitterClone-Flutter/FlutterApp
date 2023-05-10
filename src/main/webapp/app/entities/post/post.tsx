@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { IPost } from 'app/shared/model/post.model';
 import { getEntities } from './post.reducer';
 import FlipMove from 'react-flip-move';
+import PostUpdate from './post-update';
 
 export const Post = () => {
   const dispatch = useAppDispatch();
@@ -65,10 +66,11 @@ export const Post = () => {
               <div className="container post-list">
                 <div className="post-list-row" data-cy="entityTable">
                   <div className="card">
-                    <Link to="/post/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
+                    <PostUpdate></PostUpdate>
+                    {/* <Link to="/post/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
                       <FontAwesomeIcon icon="plus" />
                       &nbsp;New Post
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               </div>
