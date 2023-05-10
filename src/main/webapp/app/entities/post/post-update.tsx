@@ -85,7 +85,7 @@ export const PostUpdate = () => {
       <Row className="justify-content-center">
         <Col md="8">
           <h2 id="flutterApp.post.home.createOrEditLabel" data-cy="PostCreateUpdateHeading">
-            Create or edit a Post
+            New Post
           </h2>
         </Col>
       </Row>
@@ -97,22 +97,11 @@ export const PostUpdate = () => {
             <ValidatedForm defaultValues={defaultValues()} onSubmit={saveEntity}>
               {!isNew ? <ValidatedField name="id" required readOnly id="post-id" label="ID" validate={{ required: true }} /> : null}
               <ValidatedField
-                label="Text"
+                label=""
                 id="post-text"
                 name="text"
                 data-cy="text"
                 type="text"
-                validate={{
-                  required: { value: true, message: 'This field is required.' },
-                }}
-              />
-              <ValidatedField
-                label="Created At"
-                id="post-createdAt"
-                name="createdAt"
-                data-cy="createdAt"
-                type="datetime-local"
-                placeholder="YYYY-MM-DD HH:mm"
                 validate={{
                   required: { value: true, message: 'This field is required.' },
                 }}
@@ -137,15 +126,10 @@ export const PostUpdate = () => {
                     ))
                   : null}
               </ValidatedField>
-              <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/post" replace color="info">
-                <FontAwesomeIcon icon="arrow-left" />
-                &nbsp;
-                <span className="d-none d-md-inline">Back</span>
-              </Button>
               &nbsp;
-              <Button color="primary" id="save-entity" data-cy="entityCreateSaveButton" type="submit" disabled={updating}>
-                <FontAwesomeIcon icon="save" />
-                &nbsp; Save
+              <Button color="primary" id="comment-button" data-cy="entityCreateSaveButton" type="submit" disabled={updating}>
+                <FontAwesomeIcon icon="plus" />
+                &nbsp; Post
               </Button>
             </ValidatedForm>
           )}
