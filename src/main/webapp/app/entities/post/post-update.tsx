@@ -94,11 +94,11 @@ export const PostUpdate = () => {
                 id="post-text"
                 name="text"
                 data-cy="text"
-                type="text"
+                type="textarea"
                 validate={{
                   required: { value: true, message: 'This field is required.' },
                 }}
-                style={{ height: '200px' }}
+                style={{}}
               />
               <ValidatedField id="post-user" name="user" data-cy="user" label="User" type="select">
                 <option value="" key="0" />
