@@ -84,9 +84,9 @@ export const PostUpdate = () => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="flutterApp.post.home.createOrEditLabel" data-cy="PostCreateUpdateHeading">
+          <h5 id="flutterApp.post.home.createOrEditLabel" data-cy="PostCreateUpdateHeading">
             Create or edit a Post
-          </h2>
+          </h5>
         </Col>
       </Row>
       <Row className="justify-content-center">
@@ -105,6 +105,7 @@ export const PostUpdate = () => {
                 validate={{
                   required: { value: true, message: 'This field is required.' },
                 }}
+                // style={{ height: '50%' }}
               />
               <ValidatedField
                 label="Created At"
@@ -116,6 +117,7 @@ export const PostUpdate = () => {
                 validate={{
                   required: { value: true, message: 'This field is required.' },
                 }}
+                style={{ width: '50%' }}
               />
               <ValidatedField id="post-user" name="user" data-cy="user" label="User" type="select">
                 <option value="" key="0" />
@@ -127,7 +129,7 @@ export const PostUpdate = () => {
                     ))
                   : null}
               </ValidatedField>
-              <ValidatedField label="Hashtags" id="post-hashtags" data-cy="hashtags" type="select" multiple name="hashtags">
+              <ValidatedField label="Hashtags " id="post-hashtag" data-cy="hashtags" type="select" multiple name="hashtags">
                 <option value="" key="0" />
                 {hashtags
                   ? hashtags.map(otherEntity => (
