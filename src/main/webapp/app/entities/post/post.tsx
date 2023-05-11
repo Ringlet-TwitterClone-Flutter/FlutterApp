@@ -101,11 +101,11 @@ export const Post = () => {
 
                           {/* Hashtags */}
                           <div className="post-list-cell " id="post-hashtag">
-                            {post.hashtags
-                              ? post.hashtags.map((val, j) => (
+                            {postEntity.hashtags
+                              ? postEntity.hashtags.map((val, j) => (
                                   <span key={j}>
                                     <Link to={`/hashtag/${val.id}`}>{val.name}</Link>
-                                    {j === post.hashtags.length - 1 ? '' : ', '}
+                                    {j === postEntity.hashtags.length - 1 ? '' : ', '}
                                   </span>
                                 ))
                               : '#Flutter'}

@@ -150,6 +150,8 @@ public class HashtagResource {
         return hashtagRepository.findAll();
     }
 
+    //
+
     /**
      * {@code GET  /hashtags/:id} : get the "id" hashtag.
      *
