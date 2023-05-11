@@ -23,6 +23,7 @@ export const PostUpdate = () => {
   const { id } = useParams<'id'>();
   const isNew = id === undefined;
 
+  const currentUser = useAppSelector(state => state.authentication.account);
   const users = useAppSelector(state => state.userManagement.users);
   const hashtags = useAppSelector(state => state.hashtag.entities);
   const postEntity = useAppSelector(state => state.post.entity);
@@ -112,15 +113,10 @@ export const PostUpdate = () => {
                 }}
                 style={{ width: '50%' }}
               /> */}
-              <ValidatedField id="post-user" name="user" data-cy="user" label="User" type="select">
-                <option value="" key="0" />
-                {users
-                  ? users.map(otherEntity => (
-                      <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.login}
-                      </option>
-                    ))
-                  : null}
+              <ValidatedField id="post-user" name="user" data-cy="user" label="User" type="select" disabled>
+                <option value={currentUser.id} key={currentUser.id}>
+                  {currentUser.login}
+                </option>
               </ValidatedField>
               <ValidatedField label="Hashtags " id="post-hashtag" data-cy="hashtags" type="select" multiple name="hashtags">
                 <option value="" key="0" />
