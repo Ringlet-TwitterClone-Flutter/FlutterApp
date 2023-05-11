@@ -17,6 +17,7 @@ export const Profile = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const profile = useAppSelector(state => state.authentication.account);
   const postList = useAppSelector(state => state.post.entities);
   const loading = useAppSelector(state => state.post.loading);
 
@@ -35,8 +36,20 @@ export const Profile = () => {
         Profiles
       </h1>
 
-      {/* <post className="user"></post>  */}
-      {/*findByUserIsCurrentUser()*/}
+      <div className="container">
+        <div className="profile-info">
+          <p> {profile.firstName}</p>
+
+          {/* Edit Button */}
+          <Button tag={Link} to={`/user/${profile.login}/edit`} color="primary" size="sm" data-cy="entityEditButton" id="view-button">
+            <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+          </Button>
+
+          <p> {profile.lastName}</p>
+
+          <p> {profile.email}</p>
+        </div>
+      </div>
 
       {/* Heading */}
       <h1 id="post-heading" data-cy="PostHeading">
