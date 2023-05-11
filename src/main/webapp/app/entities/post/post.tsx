@@ -80,8 +80,8 @@ export const Post = () => {
           {
             <div className="container">
               {postList && postList.length > 0 ? (
-                <FlipMove>
-                  <div className="post-list">
+                <div className="post-list">
+                  <FlipMove>
                     {/* Displays each Post */}
                     {[...postList].reverse().map((post, i) => (
                       <div key={`entity-${i}`} className="post-list-row" data-cy="entityTable">
@@ -143,18 +143,6 @@ export const Post = () => {
                                 </Button>
                               )}
                           </div>
-
-                          {/* Shows specific hashtag under every post, temporarily */}
-                          {/* <div className="post-list-cell">
-                    {postEntity.hashtags
-                      ? postEntity.hashtags.map((val, i) => (
-                        <span key={val.id}>
-                          <a>{val.name}</a>
-                          {postEntity.hashtags && i === postEntity.hashtags.length - 1 ? '' : ', '}
-                        </span>
-                         ))
-                        : null}
-                    </div> */}
                         </div>
                         {/* ADD COMMENTS TO POSTS HERE */}
                         <div className="comment-container">
@@ -218,8 +206,8 @@ export const Post = () => {
                         </div>
                       </div>
                     ))}
-                  </div>
-                </FlipMove>
+                  </FlipMove>
+                </div>
               ) : (
                 !loading && <div className="alert alert-warning">No Posts found</div>
               )}
