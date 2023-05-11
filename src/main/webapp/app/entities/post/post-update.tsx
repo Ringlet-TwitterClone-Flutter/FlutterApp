@@ -83,7 +83,7 @@ export const PostUpdate = () => {
   return (
     <div>
       <Row className="justify-content-center">
-        <Col md="8">
+        <Col md="11">
           {loading ? (
             <p>Loading...</p>
           ) : (
@@ -100,6 +100,18 @@ export const PostUpdate = () => {
                 }}
                 style={{}}
               />
+              {/* <ValidatedField
+                label="Created At"
+                id="post-createdAt"
+                name="createdAt"
+                data-cy="createdAt"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
+                validate={{
+                  required: { value: true, message: 'This field is required.' },
+                }}
+                style={{ width: '50%' }}
+              /> */}
               <ValidatedField id="post-user" name="user" data-cy="user" label="User" type="select">
                 <option value="" key="0" />
                 {users

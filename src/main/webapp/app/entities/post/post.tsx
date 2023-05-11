@@ -63,8 +63,8 @@ export const Post = () => {
             </div>
             <div className="d-flex justify-content-center">
               {/* Create New Post Button */}
-              <div className="container post-list">
-                <div className="post-list-row" data-cy="entityTable">
+              <div className="container">
+                <div className="post-list-row">
                   <div className="card">
                     <PostUpdate></PostUpdate>
                     {/* <Link to="/post/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
@@ -251,3 +251,17 @@ export const Post = () => {
 };
 
 export default Post;
+{
+  /* <ValidatedField
+                label="Created At"
+                id="post-createdAt"
+                name="createdAt"
+                data-cy="createdAt"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
+                validate={{
+                  required: { value: true, message: 'This field is required.' },
+                }}
+                style={{ width: '50%' }}
+              /> */
+}
