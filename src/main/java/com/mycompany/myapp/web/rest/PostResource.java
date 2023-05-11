@@ -170,6 +170,10 @@ public class PostResource {
         }
     }
 
+    // Get post by hashtag
+    // @GetMapping("/posts/hashtag")
+    // public
+
     /**
      * {@code GET  /posts/:id} : get the "id" post.
      *
