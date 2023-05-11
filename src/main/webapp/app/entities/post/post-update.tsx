@@ -22,7 +22,7 @@ export const PostUpdate = () => {
 
   const { id } = useParams<'id'>();
   const isNew = id === undefined;
-
+  const [refresh, setRefresh] = useState(false);
   const currentUser = useAppSelector(state => state.authentication.account);
   const users = useAppSelector(state => state.userManagement.users);
   const hashtags = useAppSelector(state => state.hashtag.entities);
@@ -49,8 +49,15 @@ export const PostUpdate = () => {
   useEffect(() => {
     if (updateSuccess) {
       handleClose();
+      setRefresh(false);
     }
   }, [updateSuccess]);
+
+  useEffect(() => {
+    if (refresh) {
+      window.location.reload();
+    }
+  }, [refresh]);
 
   const saveEntity = values => {
     values.createdAt = convertDateTimeToServer(values.createdAt);
@@ -67,6 +74,7 @@ export const PostUpdate = () => {
     } else {
       dispatch(updateEntity(entity));
     }
+    setRefresh(true);
   };
 
   const defaultValues = () =>
