@@ -30,7 +30,7 @@ public class Hashtag implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @ManyToMany(mappedBy = "hashtags")
+    @ManyToMany(mappedBy = "hashtags", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "user", "hashtags" }, allowSetters = true)
     private Set<Post> posts = new HashSet<>();

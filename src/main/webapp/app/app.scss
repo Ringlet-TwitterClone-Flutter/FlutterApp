@@ -42,6 +42,13 @@ a {
     }
   }
 }
+// this changed the title "Hashtags" in the create a post container
+label[for='post-hashtag'],
+label[for='post-text'],
+label[for='post-createdAt'],
+label[for='post-user'] {
+  font-size: 15px;
+}
 
 .fullscreen {
   position: fixed;
@@ -348,4 +355,15 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
 }
 
 .card {
+}
+
+//Styling for Profile title
+
+#profile-heading {
+  margin-top: 25px;
+  text-align: center;
+  color: black;
+}
+#footer {
+  float: right;
 }

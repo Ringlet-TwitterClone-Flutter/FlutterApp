@@ -46,14 +46,15 @@ Navbar styles
   padding-right: 0;
   padding-left: 0;
 }
-
+// adjusts header height and color
 .bg-stock {
   background-color: #000000;
   opacity: 82%;
+  height: 70px;
 }
 
 .navbar-version {
-  font-size: 10px;
+  font-size: 14px;
   color: $header-color-secondary;
   padding: 0 0 0 10px;
 }
@@ -71,7 +72,7 @@ Navbar styles
     }
   }
 }
-
+// controls "Flutter" in header
 .brand-title {
   font-size: 24px;
   color: $header-color;
@@ -96,6 +97,8 @@ Navbar styles
 // .bg-primary {
 //   background-color: #47b0ec;
 // }
+
+// controls outer portion of header
 .d-flex {
-  margin-top: 10px;
+  margin-top: 1px;
 }

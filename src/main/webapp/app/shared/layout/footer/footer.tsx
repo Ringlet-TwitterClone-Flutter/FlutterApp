@@ -8,7 +8,7 @@ const Footer = () => (
   <div className="footer page-content">
     <Row>
       <Col md="12">
-        <p>Flutter ©2023</p>
+        <p id="footer">Flutter ©2023</p>
       </Col>
     </Row>
   </div>
