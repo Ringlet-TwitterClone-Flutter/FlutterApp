@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Button, Row, Col, FormText } from 'reactstrap';
 import { isNumber, ValidatedField, ValidatedForm } from 'react-jhipster';
@@ -22,7 +22,7 @@ export const PostUpdate = () => {
 
   const { id } = useParams<'id'>();
   const isNew = id === undefined;
-
+  const [refresh, setRefresh] = useState(false);
   const currentUser = useAppSelector(state => state.authentication.account);
   const users = useAppSelector(state => state.userManagement.users);
   const hashtags = useAppSelector(state => state.hashtag.entities);
@@ -49,8 +49,15 @@ export const PostUpdate = () => {
   useEffect(() => {
     if (updateSuccess) {
       handleClose();
+      setRefresh(false);
     }
   }, [updateSuccess]);
+
+  useEffect(() => {
+    if (refresh) {
+      window.location.reload();
+    }
+  }, [refresh]);
 
   const saveEntity = values => {
     values.createdAt = convertDateTimeToServer(values.createdAt);
@@ -67,6 +74,7 @@ export const PostUpdate = () => {
     } else {
       dispatch(updateEntity(entity));
     }
+    setRefresh(true);
   };
 
   const defaultValues = () =>
@@ -113,7 +121,7 @@ export const PostUpdate = () => {
                 }}
                 style={{ width: '50%' }}
               /> */}
-              <ValidatedField id="post-user" name="user" data-cy="user" label="User" type="select">
+              <ValidatedField id="post-user" name="user" data-cy="user" type="select">
                 <option value={currentUser.id} key={currentUser.id}>
                   {currentUser.login}
                 </option>
