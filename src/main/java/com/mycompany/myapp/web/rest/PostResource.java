@@ -14,7 +14,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import tech.jhipster.web.util.HeaderUtil;
 import tech.jhipster.web.util.ResponseUtil;
@@ -155,6 +158,21 @@ public class PostResource {
             return postRepository.findAll();
         }
     }
+
+    // Get all posts by user
+    @GetMapping("/posts/user")
+    public List<Post> getAllPostsByUser(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
+        log.debug("REST request to get all Posts");
+        if (eagerload) {
+            return postRepository.findAllWithEagerRelationships();
+        } else {
+            return postRepository.findByUserIsCurrentUser();
+        }
+    }
+
+    // Get post by hashtag
+    // @GetMapping("/posts/hashtag")
+    // public
 
     /**
      * {@code GET  /posts/:id} : get the "id" post.

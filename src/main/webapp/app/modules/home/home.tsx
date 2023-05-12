@@ -13,7 +13,14 @@ export const Home = () => {
   return (
     <Row>
       <Col md="3" className="pad">
-        <span className="hipster rounded" />
+        <span className="butterfree rounded" />
+        <Link to="/post" rel="noopener noreferrer">
+          FlutterBoard
+        </Link>
+        <br></br>
+        <Link to="/profile" rel="noopener noreferrer">
+          Profile
+        </Link>
       </Col>
       <Col md="9">
         <h2 id="welcome">Welcome to Flutter!</h2>
@@ -25,9 +32,6 @@ export const Home = () => {
             <Alert color="success" id="success">
               You are logged in as user &quot;{account.login}&quot;.
             </Alert>
-            <Link to="/post" rel="noopener noreferrer">
-              QuottaBoard
-            </Link>
           </div>
         ) : (
           // This is where we change the sign in display
