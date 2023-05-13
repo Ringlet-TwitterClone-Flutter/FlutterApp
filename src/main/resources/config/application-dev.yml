@@ -32,9 +32,9 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://flutterdb1.ccbrrqv3ymjw.us-east-1.rds.amazonaws.com:5432/flutterdb1
-    username: flutterdb1
-    password: Zipcode123
+    url: jdbc:h2:file:./target/h2db/db/flutterapp;DB_CLOSE_DELAY=-1;MODE=LEGACY
+    username: FlutterApp
+    password:
     hikari:
       poolName: Hikari
       auto-commit: false
