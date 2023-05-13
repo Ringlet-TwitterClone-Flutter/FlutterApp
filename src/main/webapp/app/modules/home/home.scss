@@ -102,6 +102,11 @@ Main page styles
   display: flex;
   align-items: center;
 }
+.profile-info {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+}
 
 .post-content {
   grid-area: content;
@@ -146,4 +151,8 @@ Main page styles
 .content {
   margin-left: 200px;
   /* adjust margin-left to match the width of the sidebar */
+}
+
+#post-user {
+  display: none;
 }

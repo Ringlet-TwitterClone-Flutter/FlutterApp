@@ -37,18 +37,14 @@ export const Home = () => {
           // This is where we change the sign in display
           <div>
             <Alert color="warning" id="success">
-              If you want to
-              <span>&nbsp;</span>
               <Link to="/login" className="alert-link" id="success-text">
-                sign in
+                Sign in
               </Link>
-              , you can try the default accounts:
               <br />- Administrator (login=&quot;admin&quot; and password=&quot;admin&quot;) <br />- User (login=&quot;user&quot; and
               password=&quot;user&quot;).
             </Alert>
 
             <Alert color="warning" id="success">
-              You don&apos;t have an account yet?&nbsp;
               <Link to="/account/register" className="alert-link" id="success-text">
                 Register a new account
               </Link>

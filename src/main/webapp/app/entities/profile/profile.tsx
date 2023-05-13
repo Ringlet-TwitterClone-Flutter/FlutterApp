@@ -9,6 +9,7 @@ import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { IPost } from 'app/shared/model/post.model';
 import { getEntities } from './profile.reducer';
+import { find } from 'lodash';
 
 export const Profile = () => {
   const dispatch = useAppDispatch();
@@ -16,6 +17,7 @@ export const Profile = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const profile = useAppSelector(state => state.authentication.account);
   const postList = useAppSelector(state => state.post.entities);
   const loading = useAppSelector(state => state.post.loading);
 
@@ -33,6 +35,21 @@ export const Profile = () => {
       <h1 id="profile-heading" data-cy="ProfileHeading">
         Profiles
       </h1>
+
+      <div className="container">
+        <div className="profile-info">
+          <p> {profile.firstName}</p>
+
+          {/* Edit Button */}
+          <Button tag={Link} to={`/user/${profile.login}/edit`} color="primary" size="sm" data-cy="entityEditButton" id="view-button">
+            <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+          </Button>
+
+          <p> {profile.lastName}</p>
+
+          <p> {profile.email}</p>
+        </div>
+      </div>
 
       {/* Heading */}
       <h1 id="post-heading" data-cy="PostHeading">
@@ -52,6 +69,7 @@ export const Profile = () => {
         </div>
       </h1>
 
+      {/* Displays each Post */}
       {
         <div className="container">
           {postList && postList.length > 0 ? (
@@ -132,59 +150,3 @@ export const Profile = () => {
 };
 
 export default Profile;
-
-/* <div className="table-responsive">
-        {postList && postList.length > 0 ? (
-          <Table responsive>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Text</th>
-                <th>Created At</th>
-                <th>User</th>
-                <th>Hashtags</th>
-                <th />
-              </tr>
-            </thead>
-            <tbody>
-              {postList.map((post, i) => (
-                <tr key={`entity-${i}`} data-cy="entityTable">
-                  <td>
-                    <Button tag={Link} to={`/post/${post.id}`} color="link" size="sm">
-                      {post.id}
-                    </Button>
-                  </td>
-                  <td>{post.text}</td>
-                  <td>{post.createdAt ? <TextFormat type="date" value={post.createdAt} format={APP_DATE_FORMAT} /> : null}</td>
-                  <td>{post.user ? post.user.login : ''}</td>
-                  <td>
-                    {post.hashtags
-                      ? post.hashtags.map((val, j) => (
-                          <span key={j}>
-                            <Link to={`/hashtag/${val.id}`}>{val.name}</Link>
-                            {j === post.hashtags.length - 1 ? '' : ', '}
-                          </span>
-                        ))
-                      : null}
-                  </td>
-                  <td className="text-end">
-                    <div className="btn-group flex-btn-group-container">
-                      <Button tag={Link} to={`/post/${post.id}`} color="info" size="sm" data-cy="entityDetailsButton" id="view-button">
-                        <FontAwesomeIcon icon="eye" /> <span className="d-none d-md-inline">View</span>
-                      </Button>
-                      <Button tag={Link} to={`/post/${post.id}/edit`} color="primary" size="sm" data-cy="entityEditButton">
-                        <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
-                      </Button>
-                      <Button tag={Link} to={`/post/${post.id}/delete`} color="danger" size="sm" data-cy="entityDeleteButton">
-                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
-                      </Button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </Table>
-        ) : (
-          !loading && <div className="alert alert-warning">No Posts found</div>
-        )}
-      </div> */

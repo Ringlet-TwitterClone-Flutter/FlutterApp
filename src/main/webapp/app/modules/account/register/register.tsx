@@ -105,10 +105,8 @@ export const RegisterPage = () => {
           </ValidatedForm>
           <p>&nbsp;</p>
           <Alert color="warning" id="success">
-            <span>If you want to </span>
-            <a className="alert-link">sign in</a>
+            <a className="alert-link">Sign in</a>
             <span>
-              , you can try the default accounts:
               <br />- Administrator (login=&quot;admin&quot; and password=&quot;admin&quot;) <br />- User (login=&quot;user&quot; and
               password=&quot;user&quot;).
             </span>

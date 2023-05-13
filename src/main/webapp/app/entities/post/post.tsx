@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { IPost } from 'app/shared/model/post.model';
 import { getEntities } from './post.reducer';
 import FlipMove from 'react-flip-move';
+import PostUpdate from './post-update';
 
 export const Post = () => {
   const dispatch = useAppDispatch();
@@ -34,29 +35,24 @@ export const Post = () => {
 
   return (
     <Row>
-      <Col md="3" className="" style={{ display: 'flex', justifyContent: 'right' }}>
-        <div className="wrapper ">
-          <div className="sidebar">
-            <ul>
-              <div>
-                <FontAwesomeIcon icon="home" />
-                <Link id="home-button" to="/home" rel="noopener noreferrer">
-                  {' '}
-                  Home
-                </Link>
-              </div>
-              <div>
-                <img height="23" width="23" src="content/images/butterflySilho.png" alt="Logo" />
-                <Link id="profile-button" to="/profile" rel="noopener noreferrer">
-                  {' '}
-                  Profile
-                </Link>
-              </div>
-            </ul>
-          </div>
+      <Col md="2" className="" style={{ display: 'flex', justifyContent: 'right' }}>
+        <div className="wrapper sidebar">
+          <ul>
+            <FontAwesomeIcon icon="home" />
+            <Link id="home-button" to="/home" rel="noopener noreferrer">
+              {' '}
+              Home
+            </Link>
+            <br></br>
+            <img height="23" width="23" src="content/images/butterflySilho.png" alt="Logo" />
+            <Link id="profile-button" to="/profile" rel="noopener noreferrer">
+              {' '}
+              Profile
+            </Link>
+          </ul>
         </div>
       </Col>
-      <Col>
+      <Col md="8">
         <div>
           {/* Heading */}
           <h1 id="post-heading" data-cy="PostHeading">
@@ -67,13 +63,14 @@ export const Post = () => {
             </div>
             <div className="d-flex justify-content-center">
               {/* Create New Post Button */}
-              <div className="container post-list">
-                <div className="post-list-row" data-cy="entityTable">
+              <div className="container">
+                <div className="post-list-row">
                   <div className="card">
-                    <Link to="/post/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
+                    <PostUpdate></PostUpdate>
+                    {/* <Link to="/post/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
                       <FontAwesomeIcon icon="plus" />
                       &nbsp;New Post
-                    </Link>
+                    </Link> */}
                   </div>
                 </div>
               </div>
@@ -83,8 +80,8 @@ export const Post = () => {
           {
             <div className="container">
               {postList && postList.length > 0 ? (
-                <FlipMove>
-                  <div className="post-list">
+                <div className="post-list">
+                  <FlipMove>
                     {/* Displays each Post */}
                     {[...postList].reverse().map((post, i) => (
                       <div key={`entity-${i}`} className="post-list-row" data-cy="entityTable">
@@ -104,11 +101,11 @@ export const Post = () => {
 
                           {/* Hashtags */}
                           <div className="post-list-cell " id="post-hashtag">
-                            {post.hashtags
-                              ? post.hashtags.map((val, j) => (
+                            {postEntity.hashtags
+                              ? postEntity.hashtags.map((val, j) => (
                                   <span key={j}>
                                     <Link to={`/hashtag/${val.id}`}>{val.name}</Link>
-                                    {j === post.hashtags.length - 1 ? '' : ', '}
+                                    {j === postEntity.hashtags.length - 1 ? '' : ', '}
                                   </span>
                                 ))
                               : '#Flutter'}
@@ -118,41 +115,34 @@ export const Post = () => {
                               <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
                             </Button>
                             {/* Edit Button */}
-                            <Button
-                              tag={Link}
-                              to={`/post/${post.id}/edit`}
-                              color="primary"
-                              size="sm"
-                              data-cy="entityEditButton"
-                              id="edit-button"
-                            >
-                              <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
-                            </Button>
+                            {post.user &&
+                              post.user.login === currentUser.login && ( // Check if post belongs to the current user
+                                <Button
+                                  tag={Link}
+                                  to={`/post/${post.id}/edit`}
+                                  color="primary"
+                                  size="sm"
+                                  data-cy="entityEditButton"
+                                  id="edit-button"
+                                >
+                                  <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                                </Button>
+                              )}
                             {/* Delete Button */}
-                            {/* {post.user && post.user.login === useAppSelector(state => state.authentication.account.login) && */}
-                            <Button
-                              tag={Link}
-                              to={`/post/${post.id}/delete`}
-                              color="primary"
-                              id="delete-button"
-                              size="sm"
-                              data-cy="entityDeleteButton"
-                            >
-                              <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
-                            </Button>
+                            {post.user &&
+                              post.user.login === currentUser.login && ( // Check if post belongs to the current user
+                                <Button
+                                  tag={Link}
+                                  to={`/post/${post.id}/delete`}
+                                  color="primary"
+                                  id="delete-button"
+                                  size="sm"
+                                  data-cy="entityDeleteButton"
+                                >
+                                  <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
+                                </Button>
+                              )}
                           </div>
-
-                          {/* Shows specific hashtag under every post, temporarily */}
-                          {/* <div className="post-list-cell">
-                    {postEntity.hashtags
-                      ? postEntity.hashtags.map((val, i) => (
-                        <span key={val.id}>
-                          <a>{val.name}</a>
-                          {postEntity.hashtags && i === postEntity.hashtags.length - 1 ? '' : ', '}
-                        </span>
-                         ))
-                        : null}
-                    </div> */}
                         </div>
                         {/* ADD COMMENTS TO POSTS HERE */}
                         <div className="comment-container">
@@ -216,8 +206,8 @@ export const Post = () => {
                         </div>
                       </div>
                     ))}
-                  </div>
-                </FlipMove>
+                  </FlipMove>
+                </div>
               ) : (
                 !loading && <div className="alert alert-warning">No Posts found</div>
               )}
@@ -225,8 +215,41 @@ export const Post = () => {
           }
         </div>
       </Col>
+      <Col md="2">
+        //temporary until we make another sidebar here
+        {/* Shows specific hashtag under every post, temporarily */}
+        <div className="sidebar">
+          {/* <ul>
+            <FontAwesomeIcon icon="home" />
+            <Link id="home-button" to="/home" rel="noopener noreferrer">
+              {' '}
+              Home
+            </Link>
+            <br></br>
+            <img height="23" width="23" src="content/images/butterflySilho.png" alt="Logo" />
+            <Link id="profile-button" to="/profile" rel="noopener noreferrer">
+              {' '}
+              Profile
+            </Link>
+          </ul> */}
+        </div>
+      </Col>
     </Row>
   );
 };
 
 export default Post;
+{
+  /* <ValidatedField
+                label="Created At"
+                id="post-createdAt"
+                name="createdAt"
+                data-cy="createdAt"
+                type="datetime-local"
+                placeholder="YYYY-MM-DD HH:mm"
+                validate={{
+                  required: { value: true, message: 'This field is required.' },
+                }}
+                style={{ width: '50%' }}
+              /> */
+}

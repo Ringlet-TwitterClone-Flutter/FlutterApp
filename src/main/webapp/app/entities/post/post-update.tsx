@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Button, Row, Col, FormText } from 'reactstrap';
 import { isNumber, ValidatedField, ValidatedForm } from 'react-jhipster';
@@ -22,7 +22,8 @@ export const PostUpdate = () => {
 
   const { id } = useParams<'id'>();
   const isNew = id === undefined;
-
+  const [refresh, setRefresh] = useState(false);
+  const currentUser = useAppSelector(state => state.authentication.account);
   const users = useAppSelector(state => state.userManagement.users);
   const hashtags = useAppSelector(state => state.hashtag.entities);
   const postEntity = useAppSelector(state => state.post.entity);
@@ -48,8 +49,15 @@ export const PostUpdate = () => {
   useEffect(() => {
     if (updateSuccess) {
       handleClose();
+      setRefresh(false);
     }
   }, [updateSuccess]);
+
+  useEffect(() => {
+    if (refresh) {
+      window.location.reload();
+    }
+  }, [refresh]);
 
   const saveEntity = values => {
     values.createdAt = convertDateTimeToServer(values.createdAt);
@@ -66,6 +74,7 @@ export const PostUpdate = () => {
     } else {
       dispatch(updateEntity(entity));
     }
+    setRefresh(true);
   };
 
   const defaultValues = () =>
@@ -83,30 +92,24 @@ export const PostUpdate = () => {
   return (
     <div>
       <Row className="justify-content-center">
-        <Col md="8">
-          <h2 id="flutterApp.post.home.createOrEditLabel" data-cy="PostCreateUpdateHeading">
-            Create or edit a Post
-          </h2>
-        </Col>
-      </Row>
-      <Row className="justify-content-center">
-        <Col md="8">
+        <Col md="11">
           {loading ? (
             <p>Loading...</p>
           ) : (
             <ValidatedForm defaultValues={defaultValues()} onSubmit={saveEntity}>
               {!isNew ? <ValidatedField name="id" required readOnly id="post-id" label="ID" validate={{ required: true }} /> : null}
               <ValidatedField
-                label="Text"
+                label="New Post"
                 id="post-text"
                 name="text"
                 data-cy="text"
-                type="text"
+                type="textarea"
                 validate={{
                   required: { value: true, message: 'This field is required.' },
                 }}
+                style={{}}
               />
-              <ValidatedField
+              {/* <ValidatedField
                 label="Created At"
                 id="post-createdAt"
                 name="createdAt"
@@ -116,18 +119,14 @@ export const PostUpdate = () => {
                 validate={{
                   required: { value: true, message: 'This field is required.' },
                 }}
-              />
-              <ValidatedField id="post-user" name="user" data-cy="user" label="User" type="select">
-                <option value="" key="0" />
-                {users
-                  ? users.map(otherEntity => (
-                      <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.login}
-                      </option>
-                    ))
-                  : null}
+                style={{ width: '50%' }}
+              /> */}
+              <ValidatedField id="post-user" name="user" data-cy="user" type="select">
+                <option value={currentUser.id} key={currentUser.id}>
+                  {currentUser.login}
+                </option>
               </ValidatedField>
-              <ValidatedField label="Hashtags" id="post-hashtags" data-cy="hashtags" type="select" multiple name="hashtags">
+              <ValidatedField label="Hashtags " id="post-hashtag" data-cy="hashtags" type="select" multiple name="hashtags">
                 <option value="" key="0" />
                 {hashtags
                   ? hashtags.map(otherEntity => (
@@ -137,15 +136,10 @@ export const PostUpdate = () => {
                     ))
                   : null}
               </ValidatedField>
-              <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/post" replace color="info">
-                <FontAwesomeIcon icon="arrow-left" />
-                &nbsp;
-                <span className="d-none d-md-inline">Back</span>
-              </Button>
               &nbsp;
-              <Button color="primary" id="save-entity" data-cy="entityCreateSaveButton" type="submit" disabled={updating}>
-                <FontAwesomeIcon icon="save" />
-                &nbsp; Save
+              <Button color="primary" id="comment-button" data-cy="entityCreateSaveButton" type="submit" disabled={updating}>
+                <FontAwesomeIcon icon="plus" />
+                &nbsp; Post
               </Button>
             </ValidatedForm>
           )}
