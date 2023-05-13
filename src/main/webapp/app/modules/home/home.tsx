@@ -21,6 +21,9 @@ export const Home = () => {
         <Link to="/profile" rel="noopener noreferrer">
           Profile
         </Link>
+        <Link to="/bio" rel="noopener noreferrer">
+          Bio
+        </Link>
       </Col>
       <Col md="9">
         <h2 id="welcome">Welcome to Flutter!</h2>
