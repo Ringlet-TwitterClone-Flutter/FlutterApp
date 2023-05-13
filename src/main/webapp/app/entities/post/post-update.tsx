@@ -121,7 +121,7 @@ export const PostUpdate = () => {
                 }}
                 style={{ width: '50%' }}
               /> */}
-              <ValidatedField id="post-user" name="user" data-cy="user" label="User" type="select">
+              <ValidatedField id="post-user" name="user" data-cy="user" type="select">
                 <option value={currentUser.id} key={currentUser.id}>
                   {currentUser.login}
                 </option>
