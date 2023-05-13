@@ -17,7 +17,7 @@ export const Profile = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const profile = useAppSelector(state => state.user.entities);
+  const profile = useAppSelector(state => state.authentication.account);
   const postList = useAppSelector(state => state.post.entities);
   const loading = useAppSelector(state => state.post.loading);
 
