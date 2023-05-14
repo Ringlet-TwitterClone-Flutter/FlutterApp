@@ -35,30 +35,22 @@ export const Profile = () => {
       <h1 id="profile-heading" data-cy="ProfileHeading">
         Profile jopa ssanaya
       </h1>
-      <div className="profile-info">
-        <div id="user">Current User: {currentUser.login}</div>
-        <br></br>
-        <div>First Name: {currentUser.login}</div>
-        <br></br>
-
-        <div>Last Name: {currentUser.login}</div>
-        <br></br>
-
-        <div>Current ID: {currentUser.login}</div>
-      </div>
-
-      <div className="container">
+      <div className="card">
         <div className="profile-info">
-          <p> {profile.firstName}</p>
+          <div id="user">User: {currentUser.login}</div>
+
+          <div>Name: {currentUser.firstName}</div>
+
+          <div>Bio: {currentUser.lastName}</div>
+
+          <div>ID: {currentUser.id}</div>
+
+          <div>Profile Pic: {currentUser.imageUrl}</div>
 
           {/* Edit Button */}
-          <Button tag={Link} to={`/user/${profile.login}/edit`} color="primary" size="sm" data-cy="entityEditButton" id="view-button">
+          <Button tag={Link} to={`./profile-update`} color="primary" size="sm" data-cy="entityEditButton" id="view-button">
             <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
           </Button>
-
-          <p> {profile.lastName}</p>
-
-          <p> {profile.email}</p>
         </div>
       </div>
 

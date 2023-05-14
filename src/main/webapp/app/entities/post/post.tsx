@@ -3,9 +3,11 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button, Col, Row, Table } from 'reactstrap';
 import { Translate, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { createEntity as createCommentEntity } from 'app/entities/comment/comment.reducer';
 
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
+import { format } from 'date-fns';
 
 import { IPost } from 'app/shared/model/post.model';
 import { getEntities } from './post.reducer';
@@ -18,6 +20,7 @@ export const Post = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const commentList = useAppSelector(state => state.comment.entities);
+  const history = useNavigate();
 
   const postList = useAppSelector(state => state.post.entities);
   const loading = useAppSelector(state => state.post.loading);
@@ -31,6 +34,18 @@ export const Post = () => {
 
   const handleSyncList = () => {
     dispatch(getEntities({}));
+  };
+
+  const handleComment = (post: IPost) => {
+    const comment = {
+      text: '',
+      createdAt: new Date().toISOString(),
+      user: currentUser,
+      post: post,
+    };
+
+    dispatch(createCommentEntity(comment));
+    navigate('/comment/new');
   };
 
   return (
@@ -93,7 +108,7 @@ export const Post = () => {
                       </div>
                       <div>
                         {/* Comment Button */}
-                        <Button tag={Link} to={`/comment/new`} id="comment-button" size="sm" data-cy="entityDeleteButton">
+                        <Button onClick={() => handleComment(post)} size="sm" data-cy="entityDeleteButton" id="comment-button">
                           <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
                         </Button>
                         {/* Edit Button */}
