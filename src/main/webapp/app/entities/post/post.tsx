@@ -58,7 +58,7 @@ export const Post = () => {
           <h1 id="post-heading" data-cy="PostHeading">
             <div id="header-jawn">
               <img height="25" width="25" src="content/images/butterflySilho.png" alt="Logo" />
-              Flutter Feed
+              Flutter poo
               <img height="25" width="25" src="content/images/butterflySilhoFlipped.png" alt="Logo" />
             </div>
             <div className="d-flex justify-content-center">
