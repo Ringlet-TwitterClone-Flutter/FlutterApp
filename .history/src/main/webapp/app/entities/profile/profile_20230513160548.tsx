@@ -16,7 +16,7 @@ export const Profile = () => {
 
   const location = useLocation();
   const navigate = useNavigate();
-  const currentUser = useAppSelector(state => state.authentication.account);
+
   const profile = useAppSelector(state => state.authentication.account);
   const postList = useAppSelector(state => state.post.entities);
   const loading = useAppSelector(state => state.post.loading);
@@ -33,24 +33,21 @@ export const Profile = () => {
     <div>
       {/* Heading */}
       <h1 id="profile-heading" data-cy="ProfileHeading">
-        Profile jopa ssanaya
+        Profiles
       </h1>
-      <div className="card">
+
+      <div className="container">
         <div className="profile-info">
-          <div id="user">User: {currentUser.login}</div>
-
-          <div>Name: {currentUser.firstName}</div>
-
-          <div>Bio: {currentUser.lastName}</div>
-
-          <div>ID: {currentUser.id}</div>
-
-          <div>Profile Pic: {currentUser.imageUrl}</div>
+          <p> {profile.firstName}</p>
 
           {/* Edit Button */}
-          <Button tag={Link} to={`./profile-update`} color="primary" size="sm" data-cy="entityEditButton" id="view-button">
+          <Button tag={Link} to={`/user/${profile.login}/edit`} color="primary" size="sm" data-cy="entityEditButton" id="view-button">
             <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
           </Button>
+
+          <p> {profile.lastName}</p>
+
+          <p> {profile.email}</p>
         </div>
       </div>
 

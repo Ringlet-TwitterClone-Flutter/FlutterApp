@@ -9,12 +9,12 @@ const EntitiesMenu = () => {
       <MenuItem icon="asterisk" to="/post">
         Post
       </MenuItem>
-      <MenuItem icon="asterisk" to="/hashtag">
+      {/* <MenuItem icon="asterisk" to="/hashtag">
         Hashtag
-      </MenuItem>
-      <MenuItem icon="asterisk" to="/comment">
+      </MenuItem> */}
+      {/* <MenuItem icon="asterisk" to="/comment">
         Comment
-      </MenuItem>
+      </MenuItem> */}
       {/* jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here */}
     </>
   );
