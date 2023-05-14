@@ -14,13 +14,6 @@ export const Home = () => {
     <Row>
       <Col md="3" className="pad">
         <span className="butterfree rounded" />
-        <Link to="/post" rel="noopener noreferrer">
-          FlutterBoard
-        </Link>
-        <br></br>
-        <Link to="/profile" rel="noopener noreferrer">
-          Profile
-        </Link>
       </Col>
       <Col md="9">
         <h2 id="welcome">Welcome to Flutter!</h2>
