@@ -14,9 +14,6 @@ Main page styles
   font-size: 50px;
   margin-top: 25px;
   text-align: center;
-  background: linear-gradient(to right, rgb(67, 124, 205), rgb(69, 214, 202));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 #motto {
@@ -24,12 +21,13 @@ Main page styles
   text-align: center;
 }
 #profile-info {
-  color: #060606;
-  text-align: left;
+  color:#060606;
+  white-space: break-spaces;
+
 }
 
 #user {
-  color: #0d0e0e;
+  color:#0d0e0e
 }
 #success {
   color: black;

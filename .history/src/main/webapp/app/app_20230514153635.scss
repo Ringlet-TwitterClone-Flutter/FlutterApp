@@ -322,18 +322,20 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
 
 #view-button {
   background-color: var(--background-color);
-  color: #080909;
+  color:#080909 ;
   padding: 0.5em 1em;
   border: none;
   outline: none;
   position: relative;
   cursor: pointer;
 
-  --background-color: #47e6ec;
+  --background-color:#47e6ec ;
   --border-size: 2px;
+
+  transition: all 0.3s;
 }
-.d-md-inline::before {
-  content: ' ';
+.view-button::before {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -342,13 +344,14 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
   z-index: -1;
   border: var(--border-size) solid var(--background-color);
 }
-.d-md-inline:hover::before,
-.d-md-inline:focus::before {
-  top: calc(var(--border-size) * -2);
-  left: calc(var(--border-size) * -2);
-  right: calc(var(--border-size) * -2);
-  bottom: calc(var(--border-size) * -2);
+.view-button:hover::before,
+.view-button:focuse::before {
+  top: calc(var(--border-size)* -2);
+  left: calc(var(--border-size)* -2);
+  right: calc(var(--border-size)* -2);
+  bottom: calc(var(--border-size)* -2);
 }
+
 
 #refresh-list {
   background-color: #47e6ec;
