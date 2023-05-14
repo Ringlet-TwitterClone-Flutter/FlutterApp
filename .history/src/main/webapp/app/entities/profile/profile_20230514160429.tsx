@@ -30,17 +30,20 @@ export const Profile = () => {
   };
 
   return (
+    
     <div>
       {/* Heading */}
       <h1 id="profile-heading" data-cy="ProfileHeading">
-        Profile
+        Profile 
       </h1>
-      <div className="profile-info">
-        <p>First Name: {currentUser.login}</p>
-        <p>Last Name: {currentUser.login}</p>
-        <p>Current ID: {currentUser.login}</p>
-        <p id="user">Current User: {currentUser.login}</p>
+      <div className="profile-info"> 
+      <p>First Name: {currentUser.login}</p> 
+      <p>Last Name: {currentUser.login}</p>
+      <p>Current ID: {currentUser.login}</p>
+      <p id="user">Current User: {currentUser.login}</p>
+      
       </div>
+
 
       <div className="container">
         <div className="profile-info">
@@ -117,18 +120,18 @@ export const Profile = () => {
                           <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
                         </Button>
 
-                        <div className="text-md-end mt-2">
-                          {/* Edit Button */}
-                          <Button
-                            tag={Link}
-                            to={`/post/${post.id}/edit`}
-                            color="primary"
-                            size="sm"
-                            data-cy="entityEditButton"
-                            id="view-button"
-                          >
-                            <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
-                          </Button>
+                        <div className ="text-md-end mt-2">
+                        {/* Edit Button */}
+                        <Button
+                          tag={Link}
+                          to={`/post/${post.id}/edit`}
+                          color="primary"
+                          size="sm"
+                          data-cy="entityEditButton"
+                          id="view-button"
+                        >
+                          <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                        </Button>
                         </div>
 
                         {/* Delete Button */}
@@ -155,6 +158,6 @@ export const Profile = () => {
       }
     </div>
   );
-};
+}
 
 export default Profile;
