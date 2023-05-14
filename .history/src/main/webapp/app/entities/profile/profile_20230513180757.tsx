@@ -34,23 +34,22 @@ export const Profile = () => {
       {/* Heading */}
       <h1 id="profile-heading" data-cy="ProfileHeading">
         Profile jopa ssanaya
+        
+        <p>{currentUser.login.id}</p>
       </h1>
-      <div className="card">
+
+      <div className="container">
         <div className="profile-info">
-          <div id="user">User: {currentUser.login}</div>
-
-          <div>Name: {currentUser.firstName}</div>
-
-          <div>Bio: {currentUser.lastName}</div>
-
-          <div>ID: {currentUser.id}</div>
-
-          <div>Profile Pic: {currentUser.imageUrl}</div>
+          <p> {profile.firstName}</p>
 
           {/* Edit Button */}
-          <Button tag={Link} to={`./profile-update`} color="primary" size="sm" data-cy="entityEditButton" id="view-button">
+          <Button tag={Link} to={`/user/${profile.login}/edit`} color="primary" size="sm" data-cy="entityEditButton" id="view-button">
             <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
           </Button>
+
+          <p> {profile.lastName}</p>
+
+          <p> {profile.email}</p>
         </div>
       </div>
 
@@ -150,6 +149,6 @@ export const Profile = () => {
       }
     </div>
   );
-};
+}
 
 export default Profile;

@@ -27,3 +27,21 @@ export const Home = () => (
     </NavLink>
   </NavItem>
 );
+
+export const Feed = () => (
+  <NavItem>
+    <NavLink tag={Link} to="/post" className="d-flex align-items-center">
+      <FontAwesomeIcon icon="pencil" />
+      <span>Feed</span>
+    </NavLink>
+  </NavItem>
+);
+
+export const Profile = () => (
+  <NavItem>
+    <NavLink tag={Link} to="/profile" className="d-flex align-items-center">
+      <FontAwesomeIcon icon="pencil" />
+      <span>Profile</span>
+    </NavLink>
+  </NavItem>
+);

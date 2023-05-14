@@ -20,12 +20,11 @@ Main page styles
   font-size: 20px;
   text-align: center;
 }
-.profile-info {
-  color: #47e6ec;
-  display: flex;
+#profile-info {
+  color:#47e6ec
 }
 #user {
-  color: #111414;
+  color:#111414
 }
 #success {
   color: black;
@@ -43,11 +42,10 @@ Main page styles
 
 #edit-button,
 #delete-button,
-#comment-button,
-#show-comments-button {
+#comment-button {
   // background-color: #7539ee;
   color: black;
-  background-color: transparent;
+  background-color: white;
   float: right;
   margin-right: 5px;
   border-radius: 5px;
@@ -62,8 +60,7 @@ Main page styles
 #comment-button:hover,
 #delete-button:hover,
 #refresh-list:hover,
-#jh-create-entity:hover #header-jawn:hover,
-#show-comments-button:hover {
+#jh-create-entity:hover #header-jawn:hover {
   color: #47e6ec;
 }
 
@@ -105,14 +102,6 @@ Main page styles
   margin-right: 20px;
 }
 
-.card-comment {
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto;
-  grid-template-areas: 'header header' 'content content' 'time time' 'hashtags hashtags' 'buttons buttons';
-  z-index: 1;
-  border-radius: 5px;
-  margin-right: 20px;
-}
 .post-header {
   grid-area: header;
   display: flex;
@@ -171,33 +160,4 @@ Main page styles
 
 #post-user {
   display: none;
-}
-
-#post-hashtag {
-  display: none;
-}
-.profile-info {
-  display: block;
-}
-.comment-box {
-  display: flex;
-  align-items: center;
-}
-
-.comment-input-container {
-  display: flex;
-  flex: 1;
-}
-
-#comment-input {
-  flex: 1;
-  margin-right: 10px;
-}
-
-#comment-msg {
-  margin-right: 5em;
-}
-
-#individual-comments {
-  grid-area: content;
 }
