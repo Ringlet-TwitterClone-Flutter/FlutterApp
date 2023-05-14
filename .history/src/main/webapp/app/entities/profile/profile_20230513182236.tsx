@@ -34,16 +34,14 @@ export const Profile = () => {
       {/* Heading */}
       <h1 id="profile-heading" data-cy="ProfileHeading">
         Profile jopa ssanaya
+        
+      
+        
       </h1>
       <div className="profile-info">
-        <div id="user">Current User: {currentUser.login}</div>
-        <br></br>
+      <div id="user">Current User: {currentUser.login}</div>
         <div>First Name: {currentUser.login}</div>
-        <br></br>
-
         <div>Last Name: {currentUser.login}</div>
-        <br></br>
-
         <div>Current ID: {currentUser.login}</div>
       </div>
 
@@ -158,6 +156,6 @@ export const Profile = () => {
       }
     </div>
   );
-};
+}
 
 export default Profile;
