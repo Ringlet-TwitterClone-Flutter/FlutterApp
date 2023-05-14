@@ -28,6 +28,8 @@ export const Post = () => {
   const currentUser = useAppSelector(state => state.authentication.account);
   const postEntity = useAppSelector(state => state.post.entity);
 
+  const [commentText, setCommentText] = useState('');
+
   useEffect(() => {
     dispatch(getEntities({}));
   }, []);
@@ -38,7 +40,7 @@ export const Post = () => {
 
   const handleComment = (post: IPost) => {
     const comment = {
-      text: '',
+      text: commentText,
       createdAt: new Date().toISOString(),
       user: currentUser,
       post: post,
@@ -107,10 +109,6 @@ export const Post = () => {
                           : '#Flutter'}
                       </div>
                       <div>
-                        {/* Comment Button */}
-                        <Button onClick={() => handleComment(post)} size="sm" data-cy="entityDeleteButton" id="comment-button">
-                          <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
-                        </Button>
                         {/* Edit Button */}
                         {post.user &&
                           post.user.login === currentUser.login && ( // Check if post belongs to the current user
@@ -142,10 +140,12 @@ export const Post = () => {
                       </div>
                     </div>
                     {/* ADD COMMENTS TO POSTS HERE */}
+                    {/* Input field for comment text */}
+
                     <div className="comment-container">
                       <div>
                         {commentList && commentList.length > 0 ? (
-                          <div className="card">
+                          <div className="card-comment">
                             {commentList
                               .filter(comment => comment.post && comment.post.id === post.id)
                               .map((comment, i) => (
@@ -191,11 +191,28 @@ export const Post = () => {
                                   </div>
                                 </div>
                               ))}
+                            <div id="success" className="alert alert-warning comment-box">
+                              <div id="comment-msg">Make a comment!</div>
+                              <div className="comment-input-container">
+                                <input type="text" id="comment-input" value={commentText} onChange={e => setCommentText(e.target.value)} />
+
+                                <Button onClick={() => handleComment(post)} size="sm" data-cy="entityDeleteButton" id="comment-button">
+                                  <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
+                                </Button>
+                              </div>
+                            </div>
                           </div>
                         ) : (
                           !loading && (
-                            <div id="success" className="alert alert-warning">
-                              No Comments found
+                            <div id="success" className="alert alert-warning comment-box">
+                              <div id="comment-msg">Be the first to make a comment!</div>
+                              <div className="comment-input-container">
+                                <input type="text" id="comment-input" value={commentText} onChange={e => setCommentText(e.target.value)} />
+
+                                <Button onClick={() => handleComment(post)} size="sm" data-cy="entityDeleteButton" id="comment-button">
+                                  <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
+                                </Button>
+                              </div>
                             </div>
                           )
                         )}

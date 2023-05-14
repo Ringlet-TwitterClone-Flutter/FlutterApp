@@ -46,7 +46,7 @@ Main page styles
 #comment-button {
   // background-color: #7539ee;
   color: black;
-  background-color: white;
+  background-color: transparent;
   float: right;
   margin-right: 5px;
   border-radius: 5px;
@@ -103,6 +103,15 @@ Main page styles
   margin-right: 20px;
 }
 
+.card-comment {
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 'header header' 'content content' 'time time' 'hashtags hashtags' 'buttons buttons';
+  z-index: 1;
+  border-radius: 5px;
+  margin-right: 20px;
+  width: 50%;
+}
 .post-header {
   grid-area: header;
   display: flex;
@@ -169,5 +178,21 @@ Main page styles
 .profile-info {
   display: block;
 }
-#comment-post {
+.comment-box {
+  display: flex;
+  align-items: center;
+}
+
+.comment-input-container {
+  display: flex;
+  flex: 1;
+}
+
+#comment-input {
+  flex: 1;
+  margin-right: 10px;
+}
+
+#comment-msg {
+  margin-right: 5em;
 }
