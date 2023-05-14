@@ -43,7 +43,8 @@ Main page styles
 
 #edit-button,
 #delete-button,
-#comment-button {
+#comment-button,
+#show-comments-button {
   // background-color: #7539ee;
   color: black;
   background-color: transparent;
@@ -61,7 +62,8 @@ Main page styles
 #comment-button:hover,
 #delete-button:hover,
 #refresh-list:hover,
-#jh-create-entity:hover #header-jawn:hover {
+#jh-create-entity:hover #header-jawn:hover,
+#show-comments-button:hover {
   color: #47e6ec;
 }
 

@@ -13,6 +13,7 @@ import { IPost } from 'app/shared/model/post.model';
 import { getEntities } from './post.reducer';
 import FlipMove from 'react-flip-move';
 import PostUpdate from './post-update';
+import { getEntities as commentGetEntities } from 'app/entities/comment/comment.reducer';
 
 export const Post = () => {
   const dispatch = useAppDispatch();
@@ -29,13 +30,18 @@ export const Post = () => {
   const postEntity = useAppSelector(state => state.post.entity);
 
   const [commentText, setCommentText] = useState('');
+  const [showComments, setShowComments] = useState(false);
 
   useEffect(() => {
     dispatch(getEntities({}));
+    dispatch(commentGetEntities({}));
   }, []);
 
   const handleSyncList = () => {
     dispatch(getEntities({}));
+  };
+  const handleToggleComments = () => {
+    setShowComments(!showComments);
   };
 
   const handleComment = (post: IPost) => {
@@ -108,75 +114,95 @@ export const Post = () => {
                             ))
                           : '#Flutter'}
                       </div>
-                      <div>
-                        {/* Edit Button */}
-                        {post.user &&
-                          post.user.login === currentUser.login && ( // Check if post belongs to the current user
-                            <Button
-                              tag={Link}
-                              to={`/post/${post.id}/edit`}
-                              color="primary"
-                              size="sm"
-                              data-cy="entityEditButton"
-                              id="edit-button"
-                            >
-                              <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+
+                      <div className="row">
+                        <div className="col">
+                          {/* Edit Button */}
+                          {post.user &&
+                            post.user.login === currentUser.login && ( // Check if post belongs to the current user
+                              <Button
+                                tag={Link}
+                                to={`/post/${post.id}/edit`}
+                                color="primary"
+                                size="sm"
+                                data-cy="entityEditButton"
+                                id="edit-button"
+                              >
+                                <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                              </Button>
+                            )}
+                        </div>
+                        <div className="col">
+                          {/* Delete Button */}
+                          {post.user &&
+                            post.user.login === currentUser.login && ( // Check if post belongs to the current user
+                              <Button
+                                tag={Link}
+                                to={`/post/${post.id}/delete`}
+                                color="primary"
+                                id="delete-button"
+                                size="sm"
+                                data-cy="entityDeleteButton"
+                              >
+                                <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
+                              </Button>
+                            )}
+                        </div>
+                        <div className="col">
+                          {/* Show comments button */}
+                          <div>
+                            <Button color="primary" id="show-comments-button" size="sm" onClick={handleToggleComments}>
+                              <FontAwesomeIcon icon="pencil" />{' '}
+                              <span className="d-none d-md-inline">{showComments ? 'Hide comments' : 'Show comments'}</span>
                             </Button>
-                          )}
-                        {/* Delete Button */}
-                        {post.user &&
-                          post.user.login === currentUser.login && ( // Check if post belongs to the current user
-                            <Button
-                              tag={Link}
-                              to={`/post/${post.id}/delete`}
-                              color="primary"
-                              id="delete-button"
-                              size="sm"
-                              data-cy="entityDeleteButton"
-                            >
-                              <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
-                            </Button>
-                          )}
+                          </div>
+                        </div>
                       </div>
                     </div>
                     {/* ADD COMMENTS TO POSTS HERE */}
                     {/* Input field for comment text */}
 
                     <div className="comment-container">
-                      <div id="list-of-comments">
-                        {commentList && commentList.length > 0 ? (
-                          <div className="card-comment">
-                            <div id="success" className="alert alert-warning comment-box">
-                              <div id="comment-msg">Make a comment!</div>
-                              <div className="comment-input-container">
-                                <input type="text" id="comment-input" value={commentText} onChange={e => setCommentText(e.target.value)} />
+                      {showComments && (
+                        <div id="list-of-comments">
+                          {commentList && commentList.length > 0 ? (
+                            <div className="card-comment">
+                              <div id="success" className="alert alert-warning comment-box">
+                                <div id="comment-msg">Make a comment!</div>
+                                <div className="comment-input-container">
+                                  <input
+                                    type="text"
+                                    id="comment-input"
+                                    value={commentText}
+                                    onChange={e => setCommentText(e.target.value)}
+                                  />
 
-                                <Button onClick={() => handleComment(post)} size="sm" data-cy="entityDeleteButton" id="comment-button">
-                                  <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
-                                </Button>
+                                  <Button onClick={() => handleComment(post)} size="sm" data-cy="entityDeleteButton" id="comment-button">
+                                    <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
+                                  </Button>
+                                </div>
                               </div>
-                            </div>
-                            <div id="individual-comments">
-                              {commentList
-                                .filter(comment => comment.post && comment.post.id === post.id)
-                                .map((comment, i) => (
-                                  <div key={`entity-${i}`} data-cy="entityTable" className="comment">
-                                    <div className="card">
-                                      <div className="post-list-cell post-header" id="post-header">
-                                        <div className="comment-value">{comment.user ? comment.user.login : ''}</div>
-                                      </div>
-                                      <div className="comment-field">
-                                        <div className="post-time">
-                                          {comment.createdAt ? (
-                                            <TextFormat type="date" value={comment.createdAt} format={APP_DATE_FORMAT} />
-                                          ) : null}
+                              <div id="individual-comments">
+                                {commentList
+                                  .filter(comment => comment.post && comment.post.id === post.id)
+                                  .map((comment, i) => (
+                                    <div key={`entity-${i}`} data-cy="entityTable" className="comment">
+                                      <div className="card">
+                                        <div className="post-list-cell post-header" id="post-header">
+                                          <div className="comment-value">{comment.user ? comment.user.login : ''}</div>
                                         </div>
-                                      </div>
-                                      <div className="post-list-cell post-content" id="post-content">
-                                        <div className="comment-value">{comment.text}</div>
-                                      </div>
+                                        <div className="comment-field">
+                                          <div className="post-time">
+                                            {comment.createdAt ? (
+                                              <TextFormat type="date" value={comment.createdAt} format={APP_DATE_FORMAT} />
+                                            ) : null}
+                                          </div>
+                                        </div>
+                                        <div className="post-list-cell post-content" id="post-content">
+                                          <div className="comment-value">{comment.text}</div>
+                                        </div>
 
-                                      {/* {post.user &&
+                                        {/* {post.user &&
                           post.user.login === currentUser.login && ( // Check if post belongs to the current user
                             <Button
                               tag={Link}
@@ -190,56 +216,62 @@ export const Post = () => {
                             </Button>
                           )} */}
 
-                                      <div className="comment-field">
-                                        <div className="comment-label"></div>
-                                        <div className="comment-value text-end">
-                                          <div className="btn-group flex-btn-group-container">
-                                            {comment.user && comment.user.login === currentUser.login && (
-                                              <Button
-                                                tag={Link}
-                                                to={`/comment/${comment.id}/edit`}
-                                                size="sm"
-                                                data-cy="entityEditButton"
-                                                id="edit-button"
-                                              >
-                                                <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
-                                              </Button>
-                                            )}
-                                            {comment.user && comment.user.login === currentUser.login && (
-                                              <Button
-                                                tag={Link}
-                                                to={`/comment/${comment.id}/delete`}
-                                                color="black"
-                                                size="sm"
-                                                data-cy="entityDeleteButton"
-                                                id="delete-button"
-                                              >
-                                                <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
-                                              </Button>
-                                            )}
+                                        <div className="comment-field">
+                                          <div className="comment-label"></div>
+                                          <div className="comment-value text-end">
+                                            <div className="btn-group flex-btn-group-container">
+                                              {comment.user && comment.user.login === currentUser.login && (
+                                                <Button
+                                                  tag={Link}
+                                                  to={`/comment/${comment.id}/edit`}
+                                                  size="sm"
+                                                  data-cy="entityEditButton"
+                                                  id="edit-button"
+                                                >
+                                                  <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                                                </Button>
+                                              )}
+                                              {comment.user && comment.user.login === currentUser.login && (
+                                                <Button
+                                                  tag={Link}
+                                                  to={`/comment/${comment.id}/delete`}
+                                                  color="black"
+                                                  size="sm"
+                                                  data-cy="entityDeleteButton"
+                                                  id="delete-button"
+                                                >
+                                                  <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
+                                                </Button>
+                                              )}
+                                            </div>
                                           </div>
                                         </div>
                                       </div>
                                     </div>
-                                  </div>
-                                ))}
-                            </div>
-                          </div>
-                        ) : (
-                          !loading && (
-                            <div id="success" className="alert alert-warning comment-box">
-                              <div id="comment-msg">Be the first to make a comment!</div>
-                              <div className="comment-input-container">
-                                <input type="text" id="comment-input" value={commentText} onChange={e => setCommentText(e.target.value)} />
-
-                                <Button onClick={() => handleComment(post)} size="sm" data-cy="entityDeleteButton" id="comment-button">
-                                  <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
-                                </Button>
+                                  ))}
                               </div>
                             </div>
-                          )
-                        )}
-                      </div>
+                          ) : (
+                            !loading && (
+                              <div id="success" className="alert alert-warning comment-box">
+                                <div id="comment-msg">Be the first to make a comment!</div>
+                                <div className="comment-input-container">
+                                  <input
+                                    type="text"
+                                    id="comment-input"
+                                    value={commentText}
+                                    onChange={e => setCommentText(e.target.value)}
+                                  />
+
+                                  <Button onClick={() => handleComment(post)} size="sm" data-cy="entityDeleteButton" id="comment-button">
+                                    <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
+                                  </Button>
+                                </div>
+                              </div>
+                            )
+                          )}
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
