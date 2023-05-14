@@ -1,4 +1,4 @@
-import React, { useState, useEffect, forwardRef } from 'react';
+import React, { useState, useEffect, forwardRef, ReactNode } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Button, Row, Col, FormText } from 'reactstrap';
 import { isNumber, ValidatedField, ValidatedForm } from 'react-jhipster';
@@ -13,16 +13,17 @@ import { getUsers } from 'app/modules/administration/user-management/user-manage
 import { IHashtag } from 'app/shared/model/hashtag.model';
 import { getEntities as getHashtags } from 'app/entities/hashtag/hashtag.reducer';
 import { IPost } from 'app/shared/model/post.model';
-import { getEntity, updateEntity, createEntity, reset } from './post.reducer';
+import { getEntity, updateEntity, createEntity, reset, getEntities } from './post.reducer';
 
 export const PostUpdate = () => {
   const dispatch = useAppDispatch();
 
   const navigate = useNavigate();
 
-  const { id } = useParams<'id'>();
+  let { id } = useParams<'id'>();
   const isNew = id === undefined;
   const [refresh, setRefresh] = useState(false);
+  const [latestId, setLatestId] = useState(0);
   const currentUser = useAppSelector(state => state.authentication.account);
   const users = useAppSelector(state => state.userManagement.users);
   const hashtags = useAppSelector(state => state.hashtag.entities);
@@ -30,10 +31,6 @@ export const PostUpdate = () => {
   const loading = useAppSelector(state => state.post.loading);
   const updating = useAppSelector(state => state.post.updating);
   const updateSuccess = useAppSelector(state => state.post.updateSuccess);
-
-  const handleClose = () => {
-    navigate('/post');
-  };
 
   useEffect(() => {
     if (isNew) {
@@ -48,16 +45,15 @@ export const PostUpdate = () => {
 
   useEffect(() => {
     if (updateSuccess) {
-      handleClose();
-      setRefresh(false);
+      setRefresh(true);
     }
   }, [updateSuccess]);
 
-  useEffect(() => {
-    if (refresh) {
-      window.location.reload();
-    }
-  }, [refresh]);
+  // useEffect(() => {
+  //   if (refresh) {
+  //     window.location.reload();
+  //   }
+  // }, [refresh]);
 
   const saveEntity = values => {
     values.createdAt = convertDateTimeToServer(values.createdAt);
