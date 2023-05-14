@@ -90,7 +90,8 @@ export const Post = () => {
                               </span>
                             ))
                           : '#Flutter'}
-
+                      </div>
+                      <div>
                         {/* Comment Button */}
                         <Button tag={Link} to={`/comment/new`} id="comment-button" size="sm" data-cy="entityDeleteButton">
                           <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
