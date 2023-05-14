@@ -126,7 +126,7 @@ export const PostUpdate = () => {
                   {currentUser.login}
                 </option>
               </ValidatedField>
-              <ValidatedField label="Hashtags " id="post-hashtag" data-cy="hashtags" type="select" multiple name="hashtags">
+              <ValidatedField label="" id="post-hashtag" data-cy="hashtags" type="select" multiple name="hashtags">
                 <option value="" key="0" />
                 {hashtags
                   ? hashtags.map(otherEntity => (
