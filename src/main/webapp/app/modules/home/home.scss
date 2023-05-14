@@ -110,7 +110,6 @@ Main page styles
   z-index: 1;
   border-radius: 5px;
   margin-right: 20px;
-  width: 50%;
 }
 .post-header {
   grid-area: header;
@@ -195,4 +194,8 @@ Main page styles
 
 #comment-msg {
   margin-right: 5em;
+}
+
+#individual-comments {
+  grid-area: content;
 }
