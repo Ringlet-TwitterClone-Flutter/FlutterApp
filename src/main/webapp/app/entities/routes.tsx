@@ -7,6 +7,7 @@ import Post from './post';
 import Profile from './profile';
 import Hashtag from './hashtag';
 import Comment from './comment';
+import Us from './us';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default () => {
@@ -18,6 +19,7 @@ export default () => {
         <Route path="profile/*" element={<Profile />} />
         <Route path="hashtag/*" element={<Hashtag />} />
         <Route path="comment/*" element={<Comment />} />
+        <Route path="us/*" element={<Us />} />
         {/* jhipster-needle-add-route-path - JHipster will add routes here */}
       </ErrorBoundaryRoutes>
     </div>
