@@ -50,7 +50,7 @@ export const CommentDeleteDialog = () => {
           <FontAwesomeIcon icon="ban" />
           &nbsp; Cancel
         </Button>
-        <Button id="jhi-confirm-delete-comment" data-cy="entityConfirmDeleteButton" color="danger" onClick={confirmDelete}>
+        <Button id="jhi-confirm-delete-comment" data-cy="entityConfirmDeleteButton" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
           &nbsp; Delete
         </Button>
