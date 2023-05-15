@@ -33,23 +33,17 @@ export const Profile = () => {
     <div>
       {/* Heading */}
       <h1 id="profile-heading" data-cy="ProfileHeading">
-        Profile jopa ssanaya
+        Profile
       </h1>
       <div className="card">
         <div className="profile-info">
           <div id="user">User: {currentUser.login}</div>
-
-          <div>Name: {currentUser.firstName}</div>
-
-          <div>Bio: {currentUser.lastName}</div>
-
+          <div>Name: {currentUser.firstName}</div>s<div>Bio: {currentUser.lastName}</div>
           <div>ID: {currentUser.id}</div>
-
           <div>Profile Pic: {currentUser.imageUrl}</div>
-
           {/* Edit Button */}
           <Button tag={Link} to={`./profile-update`} color="primary" size="sm" data-cy="entityEditButton" id="view-button">
-            <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+            <FontAwesomeIcon icon="user-edit" /> <span className="d-none d-md-inline">Edit</span>
           </Button>
         </div>
       </div>
