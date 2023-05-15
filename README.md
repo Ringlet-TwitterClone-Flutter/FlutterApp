@@ -1,5 +1,7 @@
 # FlutterApp
 
+Visit us at: (Link coming soon!)
+
 ## Requirements
 Node.js
 
@@ -8,6 +10,8 @@ Flutter is a social media platform application(Twitter clone) developed by an ag
 
 ## What does it do?
 On Flutter, users are able to create an account, edit their user profile, create/edit/delete posts of thier own, and comment on other users' posts. They are able to embed their posts with hashtags, and search for similar content via those very hashtags. 
+
+![](https://github.com/Ringlet-TwitterClone-Flutter/FlutterApp/blob/main/Flutter_UI.gif)
 
 ## Future Features
 
@@ -27,5 +31,3 @@ On Flutter, users are able to create an account, edit their user profile, create
 #### Team Member: Nina McNair
 #### LinkedIn: https://www.linkedin.com/in/nina-mcnair/
 #### GitHub: https://github.com/NinaEmiko
-
-![](https://github.com/Ringlet-TwitterClone-Flutter/FlutterApp/blob/main/Flutter_UI.gif)
