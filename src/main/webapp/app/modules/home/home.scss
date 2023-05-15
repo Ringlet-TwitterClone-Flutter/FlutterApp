@@ -211,11 +211,18 @@ Main page styles
 .comment-box {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
-.comment-input-container,
 #comment-input {
   flex: 1;
+  width: 100%;
+}
+
+.comment-input-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 #comment-msg {
@@ -223,10 +230,14 @@ Main page styles
 }
 
 .comment-container {
-  margin-left: 100px;
+  width: 100%;
 }
 .post-list-row {
   width: 100%;
+}
+#comment-button {
+  flex: 0 0 auto;
+  margin-left: 10px;
 }
 
 #comment-id,
@@ -243,6 +254,13 @@ Main page styles
     margin-top: 20px;
     text-align: center;
   }
+  #comment-msg {
+    display: none;
+  }
+  .comment-input {
+    flex: 0 0 75%;
+    width: auto;
+  }
 }
 
 //About Us Styling
@@ -256,9 +274,24 @@ Main page styles
 }
 
 .team-intro {
+  flex: 1;
+}
+
+.team-left {
+  float: left;
+  width: 75%;
+}
+
+.team-right {
+  float: right;
+  width: 75%;
 }
 
 .pronouns {
   color: gray;
   font-size: 13px;
+}
+
+.team-member-role {
+  font-weight: bold;
 }
