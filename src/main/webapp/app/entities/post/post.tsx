@@ -61,6 +61,7 @@ export const Post = () => {
       {/* Heading */}
       <h1 id="post-heading" data-cy="PostHeading">
         <div id="header-jawn">
+          {/* Butterflies surrounding feed */}
           {/* <img height="25" width="25" src="content/images/butterflySilho.png" alt="Logo" /> */}
           Feed
           {/* <img height="25" width="25" src="content/images/butterflySilhoFlipped.png" alt="Logo" /> */}
