@@ -1,6 +1,39 @@
 $header-color: #7539ee;
 $header-color-secondary: #47e6ec;
+
 $header-color-hover: darken($header-color, 20%);
+
+/* ==========================================================================
+Developement Ribbon
+========================================================================== */
+.ribbon {
+  background-color: rgba(170, 0, 0, 0.5);
+  left: -3.5em;
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  overflow: hidden;
+  position: absolute;
+  top: 30px;
+  white-space: nowrap;
+  width: 15em;
+  z-index: 99999;
+  pointer-events: none;
+  opacity: 0.75;
+  a {
+    color: #ffffff;
+    display: block;
+    font-weight: 400;
+    margin: 1px 0;
+    padding: 10px 50px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 0 5px #444;
+    pointer-events: none;
+  }
+}
 
 /* ==========================================================================
 Navbar styles
@@ -39,30 +72,13 @@ Navbar styles
     }
   }
 }
-
 // controls "Flutter" in header
 .brand-title {
   font-size: 24px;
   color: $header-color;
-  // &:hover {
-  //   color: $header-color-hover;
-  text-decoration: none;
-  background-image: linear-gradient(-225deg, #54078f 0%, #460ccf 29%, #13d8ff 67%, #d000ff 100%);
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 2s linear infinite;
-  display: inline-block;
-  // font-size: 50px;
-}
-@keyframes textclip {
-  to {
-    background-position: 200% center;
+  &:hover {
+    color: $header-color-hover;
+    text-decoration: none;
   }
 }
 
@@ -78,24 +94,11 @@ Navbar styles
   color: #47e6ec;
 }
 
+// .bg-primary {
+//   background-color: #47b0ec;
+// }
+
 // controls outer portion of header
 .d-flex {
   margin-top: 1px;
-}
-
-// Styles for mobile
-@media (max-width: 768px) {
-  .navbar-version {
-    display: none;
-  }
-
-  .nav-link {
-    margin-left: 12px;
-  }
-  #header-tabs {
-    background-color: #000000;
-    opacity: 82%;
-    width: 50%;
-    float: left;
-  }
 }

@@ -335,8 +335,8 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
 .d-md-inline::before {
   content: ' ';
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50px;
   right: 0;
   bottom: 0;
   z-index: -1;
@@ -348,9 +348,6 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
   left: calc(var(--border-size) * -2);
   right: calc(var(--border-size) * -2);
   bottom: calc(var(--border-size) * -2);
-  margin-right: 5px;
-  border-radius: 5px;
-  font-size: 12px;
 }
 
 #refresh-list {

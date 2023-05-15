@@ -4,7 +4,7 @@ Main page styles
 .butterfree {
   display: inline-block;
   width: 100%;
-  height: 100px;
+  height: 100;
   padding-bottom: 200px;
   background: url('../../../content/images/butterfreePic.png') no-repeat center top;
   background-size: contain;
@@ -14,15 +14,6 @@ Main page styles
   font-size: 50px;
   margin-top: 25px;
   text-align: center;
-  background: linear-gradient(to right, rgb(67, 124, 205), rgb(42, 232, 216));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-#profile-heading {
-  text-align: center;
-  background: linear-gradient(to right, rgb(67, 124, 205), rgb(27, 244, 248));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 #motto {
@@ -30,12 +21,17 @@ Main page styles
   text-align: center;
 }
 #profile-info {
-  color: #060606;
+  color:#060606;
   text-align: left;
+  white-space: break-spaces; 
+  overflow-wrap: property;
+  
+
+
 }
 
 #user {
-  color: #0d0e0e;
+  color:#0d0e0e
 }
 #success {
   color: black;
@@ -53,16 +49,14 @@ Main page styles
 
 #edit-button,
 #delete-button,
-#comment-button,
-#show-comments-button {
+#comment-button {
   // background-color: #7539ee;
   color: black;
-  background-color: rgb(253, 251, 251);
-  background-color: transparent;
+  background-color: white;
   float: right;
   margin-right: 5px;
   border-radius: 5px;
-  font-size: 12px;
+  font-size: 30px;
 }
 
 #feed {
@@ -73,8 +67,7 @@ Main page styles
 #comment-button:hover,
 #delete-button:hover,
 #refresh-list:hover,
-#jh-create-entity:hover #header-jawn:hover,
-#show-comments-button:hover {
+#jh-create-entity:hover #header-jawn:hover {
   color: #47e6ec;
 }
 
@@ -114,41 +107,12 @@ Main page styles
   z-index: 1;
   border-radius: 5px;
   margin-right: 20px;
-  border-color: darkgrey;
-  width: 100%;
 }
 
-.card-post {
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto;
-  grid-template-areas: 'header header' 'content content' 'time time' 'hashtags hashtags' 'buttons buttons';
-  z-index: 1;
-  border-radius: 5px;
-  width: 75%;
-  border-color: darkgray;
-}
-
-.card-comment {
-  grid-template-columns: auto 1fr;
-  grid-template-rows: auto;
-  grid-template-areas: 'header header' 'content content' 'time time' 'hashtags hashtags' 'buttons buttons';
-  z-index: 1;
-  border-radius: 5px;
-  margin-right: 20px;
-  border-color: lightgray;
-}
 .post-header {
   grid-area: header;
   display: flex;
   align-items: center;
-}
-
-.new-post-jawn {
-  width: 100%;
-}
-
-#header-jawn {
-  margin-bottom: 12px;
 }
 .profile-info {
   grid-area: header;
@@ -164,6 +128,10 @@ Main page styles
   grid-area: time;
   font-size: 14px;
   color: #999;
+}
+
+#post-hashtag {
+  margin-bottom: 10px;
 }
 
 .wrapper {
@@ -197,31 +165,6 @@ Main page styles
   /* adjust margin-left to match the width of the sidebar */
 }
 
-#post-user,
-#post-hashtag {
+#post-user {
   display: none;
-}
-
-.profile-info {
-  display: block;
-}
-.comment-box {
-  display: flex;
-  align-items: center;
-}
-
-.comment-input-container,
-#comment-input {
-  flex: 1;
-}
-
-#comment-msg {
-  margin-right: 5em;
-}
-
-.comment-container {
-  margin-left: 100px;
-}
-.post-list-row {
-  width: 100%;
 }
