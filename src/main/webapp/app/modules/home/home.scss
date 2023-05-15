@@ -1,6 +1,7 @@
 /* ==========================================================================
 Main page styles
 ========================================================================== */
+// This is the picture of the butterfree on the login and home pages
 .butterfree {
   display: inline-block;
   width: 100%;
@@ -10,22 +11,34 @@ Main page styles
   background-size: contain;
 }
 
+// This is the welcome message on the homepage
 #welcome {
   font-size: 50px;
   margin-top: 25px;
   text-align: center;
+  background: linear-gradient(to right, rgb(67, 124, 205), rgb(42, 232, 216));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#profile-heading {
+  text-align: center;
+  background: linear-gradient(to right, rgb(67, 124, 205), rgb(27, 244, 248));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
+// This is the "Spread Your Wings" from the header
 #motto {
   font-size: 20px;
   text-align: center;
 }
-.profile-info {
-  color: #47e6ec;
-  display: flex;
+#profile-info {
+  color: #060606;
+  text-align: left;
 }
+
 #user {
-  color: #111414;
+  color: #0d0e0e;
 }
 #success {
   color: black;
@@ -36,7 +49,7 @@ Main page styles
 }
 
 #success-text {
-  color: #47e6ec;
+  color: #45d6db;
 }
 
 // Button Styles
@@ -47,6 +60,7 @@ Main page styles
 #show-comments-button {
   // background-color: #7539ee;
   color: black;
+  background-color: rgb(253, 251, 251);
   background-color: transparent;
   float: right;
   margin-right: 5px;
@@ -213,4 +227,13 @@ Main page styles
 }
 .post-list-row {
   width: 100%;
+}
+
+// Styles for mobile
+@media (max-width: 768px) {
+  #welcome {
+    font-size: 40px;
+    margin-top: 20px;
+    text-align: center;
+  }
 }

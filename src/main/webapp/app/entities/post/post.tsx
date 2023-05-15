@@ -85,7 +85,7 @@ export const Post = () => {
         <div className="container">
           {postList && postList.length > 0 ? (
             <div className="post-list ">
-              <FlipMove>
+              <FlipMove duration={700}>
                 {/* Displays each Post */}
                 {[...postList].reverse().map((post, i) => (
                   <div key={`entity-${i}`} className="post-list-row" data-cy="entityTable">
