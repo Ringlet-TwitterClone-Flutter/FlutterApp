@@ -27,7 +27,9 @@ export const Home = () => (
   <NavItem>
     <NavLink tag={Link} to="/" className="d-flex align-items-center">
       <FontAwesomeIcon icon="home" id="profile-span" />
-      <span id="profile-span">Home</span>
+      <span id="profile-span" style={{ marginLeft: '0.3rem' }}>
+        Home
+      </span>
     </NavLink>
   </NavItem>
 );
@@ -36,7 +38,9 @@ export const Feed = () => (
   <NavItem>
     <NavLink tag={Link} to="/post" className="d-flex align-items-center">
       <FontAwesomeIcon icon="newspaper" id="profile-span" />
-      <span id="profile-span">Feed</span>
+      <span id="profile-span" style={{ marginLeft: '0.3rem' }}>
+        Feed
+      </span>
     </NavLink>
   </NavItem>
 );
@@ -45,7 +49,9 @@ export const Profile = () => (
   <NavItem>
     <NavLink tag={Link} to="/profile" className="d-flex align-items-center">
       <FontAwesomeIcon icon="user-circle" id="profile-span" />
-      <span id="profile-span">Profile</span>
+      <span id="profile-span" style={{ marginLeft: '0.3rem' }}>
+        Profile
+      </span>
     </NavLink>
   </NavItem>
 );
@@ -53,7 +59,7 @@ export const Us = () => (
   <NavItem>
     <NavLink tag={Link} to="/us" className="d-flex align-items-center">
       <FontAwesomeIcon icon="briefcase" id="us-span" />
-      <span id="us-text" style={{ marginLeft: '0.3rem' }}>
+      <span id="us-span" style={{ marginLeft: '0.3rem' }}>
         About Us
       </span>
     </NavLink>
