@@ -33,7 +33,7 @@ export const Profile = () => {
     <div>
       {/* Heading */}
       <h1 id="profile-heading" data-cy="ProfileHeading">
-        Profile jopa ssanaya
+        Profile
       </h1>
       <div className="card">
         <div className="profile-info">
