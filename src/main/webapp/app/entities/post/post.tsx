@@ -61,9 +61,9 @@ export const Post = () => {
       {/* Heading */}
       <h1 id="post-heading" data-cy="PostHeading">
         <div id="header-jawn">
-          <img height="25" width="25" src="content/images/butterflySilho.png" alt="Logo" />
+          {/* <img height="25" width="25" src="content/images/butterflySilho.png" alt="Logo" /> */}
           Feed
-          <img height="25" width="25" src="content/images/butterflySilhoFlipped.png" alt="Logo" />
+          {/* <img height="25" width="25" src="content/images/butterflySilhoFlipped.png" alt="Logo" /> */}
         </div>
         <div className="d-flex justify-content-center">
           {/* Create New Post Button */}
