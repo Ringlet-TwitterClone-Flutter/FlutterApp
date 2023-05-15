@@ -91,12 +91,11 @@ export const Post = () => {
                   <div key={`entity-${i}`} className="post-list-row" data-cy="entityTable">
                     <div className="card card-post new-post-jawn">
                       {/* Username and Post Time */}
-                      <div className="post-list-cell post-header" id="post-header">
-                        <h4>{post.user ? post.user.login : ''}</h4>
-                        <span className="post-time">
-                          {post.createdAt ? <TextFormat type="date" value={post.createdAt} format={APP_DATE_FORMAT} /> : null}
-                        </span>
-                      </div>
+
+                      <h4>{post.user ? post.user.login : ''}</h4>
+                      <span className="post-time">
+                        {post.createdAt ? <TextFormat type="date" value={post.createdAt} format={APP_DATE_FORMAT} /> : null}
+                      </span>
 
                       {/* Content of post */}
                       <div className="post-list-cell post-content" id="post-content">
