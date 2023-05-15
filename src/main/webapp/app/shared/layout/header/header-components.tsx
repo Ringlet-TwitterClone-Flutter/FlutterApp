@@ -26,8 +26,8 @@ export const Brand = () => (
 export const Home = () => (
   <NavItem>
     <NavLink tag={Link} to="/" className="d-flex align-items-center">
-      <FontAwesomeIcon icon="home" />
-      <span>Home</span>
+      <FontAwesomeIcon icon="home" id="profile-span" />
+      <span id="profile-span">Home</span>
     </NavLink>
   </NavItem>
 );
@@ -35,8 +35,8 @@ export const Home = () => (
 export const Feed = () => (
   <NavItem>
     <NavLink tag={Link} to="/post" className="d-flex align-items-center">
-      <FontAwesomeIcon icon="newspaper" />
-      <span>Feed</span>
+      <FontAwesomeIcon icon="newspaper" id="profile-span" />
+      <span id="profile-span">Feed</span>
     </NavLink>
   </NavItem>
 );
@@ -44,8 +44,8 @@ export const Feed = () => (
 export const Profile = () => (
   <NavItem>
     <NavLink tag={Link} to="/profile" className="d-flex align-items-center">
-      <FontAwesomeIcon icon="user-circle" />
-      <span>Profile</span>
+      <FontAwesomeIcon icon="user-circle" id="profile-span" />
+      <span id="profile-span">Profile</span>
     </NavLink>
   </NavItem>
 );
