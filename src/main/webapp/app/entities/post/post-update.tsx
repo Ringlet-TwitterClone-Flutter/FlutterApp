@@ -56,11 +56,11 @@ export const PostUpdate = () => {
     }
   }, [updateSuccess]);
 
-  // useEffect(() => {
-  //   if (refresh) {
-  //     window.location.reload();
-  //   }
-  // }, [refresh]);
+  useEffect(() => {
+    if (refresh) {
+      window.location.reload();
+    }
+  }, [refresh]);
 
   const saveEntity = values => {
     // gets current date and time
