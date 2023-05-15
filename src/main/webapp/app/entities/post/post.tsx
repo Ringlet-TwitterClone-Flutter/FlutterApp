@@ -64,7 +64,7 @@ export const Post = () => {
     const newPost = {
       text,
       createdAt: new Date().toISOString(),
-      user: currentUser,
+      // user: currentUser,
     };
     onNewPost(newPost);
   };
@@ -99,7 +99,7 @@ export const Post = () => {
         <div className="container">
           {postList && postList.length > 0 ? (
             <div className="post-list ">
-              <FlipMove duration={700}>
+              <FlipMove duration={500}>
                 {/* Displays each Post */}
                 {/* {[...postList].map((post, i) => ( */}
                 {postList.map((post, i) => {
