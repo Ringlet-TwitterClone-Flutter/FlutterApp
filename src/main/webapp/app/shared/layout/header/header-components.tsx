@@ -49,3 +49,13 @@ export const Profile = () => (
     </NavLink>
   </NavItem>
 );
+export const Us = () => (
+  <NavItem>
+    <NavLink tag={Link} to="/us" className="d-flex align-items-center">
+      <FontAwesomeIcon icon="briefcase" id="us-span" />
+      <span id="us-text" style={{ marginLeft: '0.3rem' }}>
+        About Us
+      </span>
+    </NavLink>
+  </NavItem>
+);
