@@ -236,13 +236,6 @@ Main page styles
   display: none;
 }
 
-.team-intro {
-}
-
-.pronouns {
-  color: gray;
-}
-
 // Styles for mobile
 @media (max-width: 768px) {
   #welcome {
@@ -250,4 +243,22 @@ Main page styles
     margin-top: 20px;
     text-align: center;
   }
+}
+
+//About Us Styling
+
+#about-us-header {
+  text-align: center;
+  font-size: 40px;
+}
+.team-header {
+  display: flex;
+}
+
+.team-intro {
+}
+
+.pronouns {
+  color: gray;
+  font-size: 13px;
 }

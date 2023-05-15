@@ -5,15 +5,23 @@ export const Post = () => {
     <div>
       <h1 id="about-us-header">About Us</h1>
       <h2>The Flutter Team</h2>
-      <h4 className="team-name">James Jang</h4>
-      <div className="pronouns">He/Him</div>
+      <div className="team-header">
+        <h4 className="team-name">James Jang</h4>
+        <div className="pronouns">He/Him</div>
+      </div>
       <div className="team-intro">Prior to Flutter, James...</div>
-      <h4 className="team-name">Jacob Ciaffi</h4>
-      <div className="pronouns">He/Him</div>
-      <h4 className="team-name">Anastasia Epifanova</h4>
-      <div className="pronouns">She/Her</div>
-      <h4 className="team-name">Nina McNair</h4>
-      <div className="pronouns">She/They</div>
+      <div className="team-header">
+        <h4 className="team-name">Jacob Ciaffi</h4>
+        <div className="pronouns">He/Him</div>
+      </div>
+      <div className="team-header">
+        <h4 className="team-name">Anastasia Epifanova</h4>
+        <div className="pronouns">She/Her</div>
+      </div>
+      <div className="team-header">
+        <h4 className="team-name">Nina McNair</h4>
+        <div className="pronouns">She/They</div>
+      </div>
       <div className="team-intro">
         Prior to Flutter, Nina was in security. After handling a bank robbery, she received a promotion leading to her working directly down
         the street from Zip Code Wilmington. She found herself spending a lot of time on tedious tasks, that could have easily been
