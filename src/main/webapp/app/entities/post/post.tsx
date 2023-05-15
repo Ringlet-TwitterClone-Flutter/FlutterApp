@@ -115,48 +115,44 @@ export const Post = () => {
                           : '#Flutter'}
                       </div>
 
-                      <div className="row">
-                        <div className="col">
-                          {/* Edit Button */}
-                          {post.user &&
-                            post.user.login === currentUser.login && ( // Check if post belongs to the current user
-                              <Button
-                                tag={Link}
-                                to={`/post/${post.id}/edit`}
-                                color="primary"
-                                size="sm"
-                                data-cy="entityEditButton"
-                                id="edit-button"
-                              >
-                                <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
-                              </Button>
-                            )}
+                      <div className="col">
+                        {/* Show comments button */}
+                        <div>
+                          <Button color="primary" id="show-comments-button" size="sm" onClick={handleToggleComments}>
+                            <FontAwesomeIcon icon="comments" />{' '}
+                            <span className="d-none d-md-inline">{showComments ? 'Hide comments' : 'Show comments'}</span>
+                          </Button>
                         </div>
-                        <div className="col">
-                          {/* Delete Button */}
-                          {post.user &&
-                            post.user.login === currentUser.login && ( // Check if post belongs to the current user
-                              <Button
-                                tag={Link}
-                                to={`/post/${post.id}/delete`}
-                                color="primary"
-                                id="delete-button"
-                                size="sm"
-                                data-cy="entityDeleteButton"
-                              >
-                                <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
-                              </Button>
-                            )}
-                        </div>
-                        <div className="col">
-                          {/* Show comments button */}
-                          <div>
-                            <Button color="primary" id="show-comments-button" size="sm" onClick={handleToggleComments}>
-                              <FontAwesomeIcon icon="comments" />{' '}
-                              <span className="d-none d-md-inline">{showComments ? 'Hide comments' : 'Show comments'}</span>
+
+                        {/* Delete Button */}
+                        {post.user &&
+                          post.user.login === currentUser.login && ( // Check if post belongs to the current user
+                            <Button
+                              tag={Link}
+                              to={`/post/${post.id}/delete`}
+                              color="primary"
+                              id="delete-button"
+                              size="sm"
+                              data-cy="entityDeleteButton"
+                            >
+                              <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
                             </Button>
-                          </div>
-                        </div>
+                          )}
+
+                        {/* Edit Button */}
+                        {post.user &&
+                          post.user.login === currentUser.login && ( // Check if post belongs to the current user
+                            <Button
+                              tag={Link}
+                              to={`/post/${post.id}/edit`}
+                              color="primary"
+                              size="sm"
+                              data-cy="entityEditButton"
+                              id="edit-button"
+                            >
+                              <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                            </Button>
+                          )}
                       </div>
                     </div>
                     {/* ADD COMMENTS TO POSTS HERE */}
