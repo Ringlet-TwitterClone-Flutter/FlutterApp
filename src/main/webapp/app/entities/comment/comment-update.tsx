@@ -32,6 +32,7 @@ export const CommentUpdate = () => {
   const loading = useAppSelector(state => state.comment.loading);
   const updating = useAppSelector(state => state.comment.updating);
   const updateSuccess = useAppSelector(state => state.comment.updateSuccess);
+  const currentUser = useAppSelector(state => state.authentication.account);
 
   const handleClose = () => {
     navigate('/comment');
@@ -88,7 +89,7 @@ export const CommentUpdate = () => {
       <Row className="justify-content-center">
         <Col md="8">
           <h2 id="flutterApp.comment.home.createOrEditLabel" data-cy="CommentCreateUpdateHeading">
-            Create or edit a Comment
+            Edit
           </h2>
         </Col>
       </Row>
@@ -98,19 +99,19 @@ export const CommentUpdate = () => {
             <p>Loading...</p>
           ) : (
             <ValidatedForm defaultValues={defaultValues()} onSubmit={saveEntity}>
-              {!isNew ? <ValidatedField name="id" required readOnly id="comment-id" label="ID" validate={{ required: true }} /> : null}
+              {!isNew ? <ValidatedField name="" required readOnly id="comment-id" label="" validate={{ required: true }} /> : null}
               <ValidatedField
-                label="Text"
+                label=""
                 id="comment-text"
                 name="text"
                 data-cy="text"
-                type="text"
+                type="textarea"
                 validate={{
                   required: { value: true, message: 'This field is required.' },
                 }}
               />
               <ValidatedField
-                label="Created At"
+                label=""
                 id="comment-createdAt"
                 name="createdAt"
                 data-cy="createdAt"
@@ -120,15 +121,10 @@ export const CommentUpdate = () => {
                   required: { value: true, message: 'This field is required.' },
                 }}
               />
-              <ValidatedField id="comment-user" name="user" data-cy="user" label="User" type="select">
-                <option value="" key="0" />
-                {users
-                  ? users.map(otherEntity => (
-                      <option value={otherEntity.id} key={otherEntity.id}>
-                        {otherEntity.login}
-                      </option>
-                    ))
-                  : null}
+              <ValidatedField id="comment-user" name="user" data-cy="user" label="" type="select">
+                <option value={currentUser.id} key={currentUser.id}>
+                  {currentUser.login}
+                </option>
               </ValidatedField>
               <ValidatedField id="comment-post" name="post" data-cy="post" label="Post" type="select">
                 <option value="" key="0" />
@@ -140,15 +136,15 @@ export const CommentUpdate = () => {
                     ))
                   : null}
               </ValidatedField>
-              <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/comment" replace color="info">
+              &nbsp;
+              <Button color="primary" id="edit-button" data-cy="entityCreateSaveButton" type="submit" disabled={updating}>
+                <FontAwesomeIcon icon="save" />
+                &nbsp; Save
+              </Button>
+              <Button tag={Link} id="edit-button" data-cy="entityCreateCancelButton" to="/post" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">Back</span>
-              </Button>
-              &nbsp;
-              <Button color="primary" id="save-entity" data-cy="entityCreateSaveButton" type="submit" disabled={updating}>
-                <FontAwesomeIcon icon="save" />
-                &nbsp; Save
               </Button>
             </ValidatedForm>
           )}

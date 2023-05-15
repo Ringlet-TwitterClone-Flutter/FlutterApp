@@ -229,6 +229,13 @@ Main page styles
   width: 100%;
 }
 
+#comment-id,
+#comment-user,
+#post-id,
+#comment-createdAt {
+  display: none;
+}
+
 // Styles for mobile
 @media (max-width: 768px) {
   #welcome {
