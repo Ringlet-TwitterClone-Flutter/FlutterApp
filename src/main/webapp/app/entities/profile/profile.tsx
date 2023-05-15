@@ -49,7 +49,7 @@ export const Profile = () => {
 
           {/* Edit Button */}
           <Button tag={Link} to={`./profile-update`} color="primary" size="sm" data-cy="entityEditButton" id="view-button">
-            <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+            <FontAwesomeIcon icon="user-edit" /> <span className="d-none d-md-inline">Edit</span>
           </Button>
         </div>
       </div>

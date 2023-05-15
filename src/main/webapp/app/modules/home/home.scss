@@ -201,3 +201,27 @@ Main page styles
 #individual-comments {
   grid-area: content;
 }
+
+@media (max-width: 768px) {
+  .navbar-version {
+    display: none;
+  }
+  .brand-container {
+    /* Styles for mobile screens */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .brand-container .brand-title {
+    /* Styles for the brand title on mobile */
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .brand-container .navbar-version {
+    /* Styles for the navbar version on mobile */
+    font-size: 12px;
+    margin-top: 5px;
+  }
+}

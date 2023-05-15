@@ -152,7 +152,7 @@ export const Post = () => {
                           {/* Show comments button */}
                           <div>
                             <Button color="primary" id="show-comments-button" size="sm" onClick={handleToggleComments}>
-                              <FontAwesomeIcon icon="pencil" />{' '}
+                              <FontAwesomeIcon icon="comments" />{' '}
                               <span className="d-none d-md-inline">{showComments ? 'Hide comments' : 'Show comments'}</span>
                             </Button>
                           </div>
@@ -178,7 +178,7 @@ export const Post = () => {
                                   />
 
                                   <Button onClick={() => handleComment(post)} size="sm" data-cy="entityDeleteButton" id="comment-button">
-                                    <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
+                                    <FontAwesomeIcon icon="share" /> <span className="d-none d-md-inline">Comment</span>
                                   </Button>
                                 </div>
                               </div>
