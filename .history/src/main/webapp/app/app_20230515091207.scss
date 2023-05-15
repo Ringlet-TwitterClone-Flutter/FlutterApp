@@ -328,6 +328,7 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
   outline: none;
   position: relative;
   cursor: pointer;
+  
 
   --background-color: #47e6ec;
   --border-size: 2px;
@@ -341,6 +342,9 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
   bottom: 0;
   z-index: -1;
   border: var(--border-size) solid var(--background-color);
+  margin-right: 5px;
+  border-radius: 5px;
+  font-size: 12px;
 }
 .d-md-inline:hover::before,
 .d-md-inline:focus::before {
@@ -348,9 +352,6 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
   left: calc(var(--border-size) * -2);
   right: calc(var(--border-size) * -2);
   bottom: calc(var(--border-size) * -2);
-  margin-right: 5px;
-  border-radius: 5px;
-  font-size: 12px;
 }
 
 #refresh-list {
