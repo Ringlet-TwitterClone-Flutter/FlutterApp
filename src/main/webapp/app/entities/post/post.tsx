@@ -61,9 +61,9 @@ export const Post = () => {
       {/* Heading */}
       <h1 id="post-heading" data-cy="PostHeading">
         <div id="header-jawn">
-          <img height="25" width="25" src="content/images/butterflySilho.png" alt="Logo" />
+          {/* <img height="25" width="25" src="content/images/butterflySilho.png" alt="Logo" /> */}
           Feed
-          <img height="25" width="25" src="content/images/butterflySilhoFlipped.png" alt="Logo" />
+          {/* <img height="25" width="25" src="content/images/butterflySilhoFlipped.png" alt="Logo" /> */}
         </div>
         <div className="d-flex justify-content-center">
           {/* Create New Post Button */}
@@ -91,12 +91,11 @@ export const Post = () => {
                   <div key={`entity-${i}`} className="post-list-row" data-cy="entityTable">
                     <div className="card card-post new-post-jawn">
                       {/* Username and Post Time */}
-                      <div className="post-list-cell post-header" id="post-header">
-                        <h4>{post.user ? post.user.login : ''}</h4>
-                        <span className="post-time">
-                          {post.createdAt ? <TextFormat type="date" value={post.createdAt} format={APP_DATE_FORMAT} /> : null}
-                        </span>
-                      </div>
+
+                      <h4>{post.user ? post.user.login : ''}</h4>
+                      <span className="post-time">
+                        {post.createdAt ? <TextFormat type="date" value={post.createdAt} format={APP_DATE_FORMAT} /> : null}
+                      </span>
 
                       {/* Content of post */}
                       <div className="post-list-cell post-content" id="post-content">
