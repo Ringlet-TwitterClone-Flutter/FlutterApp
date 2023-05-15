@@ -11,10 +11,10 @@ import PostDeleteDialog from './post-delete-dialog';
 const PostRoutes = () => (
   <ErrorBoundaryRoutes>
     <Route index element={<Post />} />
-    <Route path="new" element={<PostUpdate />} />
+    <Route path="new" element={<PostUpdate onNewPost={undefined} />} />
     <Route path=":id">
       <Route index element={<PostDetail />} />
-      <Route path="edit" element={<PostUpdate />} />
+      <Route path="edit" element={<PostUpdate onNewPost={undefined} />} />
       <Route path="delete" element={<PostDeleteDialog />} />
     </Route>
   </ErrorBoundaryRoutes>

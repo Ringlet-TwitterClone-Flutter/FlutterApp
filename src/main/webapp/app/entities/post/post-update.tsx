@@ -15,7 +15,8 @@ import { getEntities as getHashtags } from 'app/entities/hashtag/hashtag.reducer
 import { IPost } from 'app/shared/model/post.model';
 import { getEntity, updateEntity, createEntity, reset, getEntities } from './post.reducer';
 
-export const PostUpdate = () => {
+export const PostUpdate = ({ onNewPost }) => {
+  const [postText, setPostText] = useState('');
   const dispatch = useAppDispatch();
 
   const navigate = useNavigate();
@@ -36,6 +37,11 @@ export const PostUpdate = () => {
    * redirects to the /post page but we don't need this part anymore */
   const handleClose = () => {
     navigate('/post');
+  };
+
+  const handlePost = () => {
+    onNewPost(postText);
+    setPostText('');
   };
 
   useEffect(() => {
@@ -97,7 +103,7 @@ export const PostUpdate = () => {
 
   return (
     <div>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center ">
         <Col md="11">
           {loading ? (
             <p>Loading...</p>

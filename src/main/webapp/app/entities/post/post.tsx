@@ -4,7 +4,7 @@ import { Button, Col, Row, Table } from 'reactstrap';
 import { Translate, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { createEntity as createCommentEntity } from 'app/entities/comment/comment.reducer';
-
+import { createEntity as createPostEntity } from 'app/entities/post/post.reducer';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { format } from 'date-fns';
@@ -56,6 +56,19 @@ export const Post = () => {
     navigate('/post');
   };
 
+  const onNewPost = newPost => {
+    dispatch(createPostEntity(newPost));
+  };
+
+  const handleNewPost = text => {
+    const newPost = {
+      text,
+      createdAt: new Date().toISOString(),
+      user: currentUser,
+    };
+    onNewPost(newPost);
+  };
+
   return (
     <div>
       {/* Heading */}
@@ -69,8 +82,8 @@ export const Post = () => {
           {/* Create New Post Button */}
           <div className="container">
             <div className="post-list-row">
-              <div className="card new-post-jawn">
-                <PostUpdate></PostUpdate>
+              <div className="new-post-jawn">
+                <PostUpdate onNewPost={handleNewPost} />
                 {/* <Link to="/post/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
                       <FontAwesomeIcon icon="plus" />
                       &nbsp;New Post
@@ -87,117 +100,125 @@ export const Post = () => {
             <div className="post-list ">
               <FlipMove duration={700}>
                 {/* Displays each Post */}
-                {[...postList].reverse().map((post, i) => (
-                  <div key={`entity-${i}`} className="post-list-row" data-cy="entityTable">
-                    <div className="card card-post new-post-jawn">
-                      {/* Username and Post Time */}
+                {/* {[...postList].map((post, i) => ( */}
+                {postList.map((post, i) => {
+                  const reverseIndex = postList.length - 1 - i;
+                  return (
+                    <div key={`entity-${reverseIndex}`} className="post-list-row" data-cy="entityTable">
+                      <div className="card card-post new-post-jawn">
+                        {/* Username and Post Time */}
 
-                      <h4>{post.user ? post.user.login : ''}</h4>
-                      <span className="post-time">
-                        {post.createdAt ? <TextFormat type="date" value={post.createdAt} format={APP_DATE_FORMAT} /> : null}
-                      </span>
+                        <h5>{post.user ? post.user.login : ''}</h5>
+                        <span className="post-time">
+                          {post.createdAt ? <TextFormat type="date" value={post.createdAt} format={APP_DATE_FORMAT} /> : null}
+                        </span>
 
-                      {/* Content of post */}
-                      <div className="post-list-cell post-content" id="post-content">
-                        <p>{post.text}</p>
-                      </div>
-
-                      {/* Hashtags */}
-                      <div className="post-list-cell " id="post-hashtag">
-                        {postEntity.hashtags
-                          ? postEntity.hashtags.map((val, j) => (
-                              <span key={j}>
-                                <Link to={`/hashtag/${val.id}`}>{val.name}</Link>
-                                {j === postEntity.hashtags.length - 1 ? '' : ', '}
-                              </span>
-                            ))
-                          : '#Flutter'}
-                      </div>
-
-                      <div className="col">
-                        {/* Show comments button */}
-                        <div>
-                          <Button color="primary" id="show-comments-button" size="sm" onClick={handleToggleComments}>
-                            <FontAwesomeIcon icon="comments" />{' '}
-                            <span className="d-none d-md-inline">{showComments ? 'Hide comments' : 'Show comments'}</span>
-                          </Button>
+                        {/* Content of post */}
+                        <div className="post-list-cell post-content" id="post-content">
+                          <p>{post.text}</p>
                         </div>
 
-                        {/* Delete Button */}
-                        {post.user &&
-                          post.user.login === currentUser.login && ( // Check if post belongs to the current user
-                            <Button
-                              tag={Link}
-                              to={`/post/${post.id}/delete`}
-                              color="primary"
-                              id="delete-button"
-                              size="sm"
-                              data-cy="entityDeleteButton"
-                            >
-                              <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
-                            </Button>
-                          )}
+                        {/* Hashtags */}
+                        <div className="post-list-cell " id="post-hashtag">
+                          {postEntity.hashtags
+                            ? postEntity.hashtags.map((val, j) => (
+                                <span key={j}>
+                                  <Link to={`/hashtag/${val.id}`}>{val.name}</Link>
+                                  {j === postEntity.hashtags.length - 1 ? '' : ', '}
+                                </span>
+                              ))
+                            : '#Flutter'}
+                        </div>
 
-                        {/* Edit Button */}
-                        {post.user &&
-                          post.user.login === currentUser.login && ( // Check if post belongs to the current user
-                            <Button
-                              tag={Link}
-                              to={`/post/${post.id}/edit`}
-                              color="primary"
-                              size="sm"
-                              data-cy="entityEditButton"
-                              id="edit-button"
-                            >
-                              <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                        <div className="col">
+                          {/* Show comments button */}
+                          <div>
+                            <Button color="primary" id="show-comments-button" size="sm" onClick={handleToggleComments}>
+                              <FontAwesomeIcon icon="comments" />{' '}
+                              <span className="d-none d-md-inline">{showComments ? 'Hide comments' : 'Show comments'}</span>
                             </Button>
-                          )}
+                          </div>
+
+                          {/* Delete Button */}
+                          {post.user &&
+                            post.user.login === currentUser.login && ( // Check if post belongs to the current user
+                              <Button
+                                tag={Link}
+                                to={`/post/${post.id}/delete`}
+                                color="primary"
+                                id="delete-button"
+                                size="sm"
+                                data-cy="entityDeleteButton"
+                              >
+                                <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
+                              </Button>
+                            )}
+
+                          {/* Edit Button */}
+                          {post.user &&
+                            post.user.login === currentUser.login && ( // Check if post belongs to the current user
+                              <Button
+                                tag={Link}
+                                to={`/post/${post.id}/edit`}
+                                color="primary"
+                                size="sm"
+                                data-cy="entityEditButton"
+                                id="edit-button"
+                              >
+                                <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                              </Button>
+                            )}
+                        </div>
                       </div>
-                    </div>
-                    {/* ADD COMMENTS TO POSTS HERE */}
-                    {/* Input field for comment text */}
-                    <div className="card-comment">
-                      <div className="comment-container">
-                        {showComments && (
-                          <div id="list-of-comments">
-                            {commentList && commentList.length > 0 ? (
-                              <div className="card-comment">
-                                <div id="success" className="alert alert-warning comment-box">
-                                  <div id="comment-msg">Make a comment!</div>
-                                  <div className="comment-input-container">
-                                    <input
-                                      type="text"
-                                      id="comment-input"
-                                      value={commentText}
-                                      onChange={e => setCommentText(e.target.value)}
-                                    />
+                      {/* ADD COMMENTS TO POSTS HERE */}
+                      {/* Input field for comment text */}
+                      <div className="card-comment">
+                        <div className="comment-container">
+                          {showComments && (
+                            <div id="list-of-comments">
+                              {commentList && commentList.length > 0 ? (
+                                <div className="card-comment">
+                                  <div id="success" className="alert alert-warning comment-box">
+                                    <div id="comment-msg">Make a comment!</div>
+                                    <div className="comment-input-container">
+                                      <input
+                                        type="text"
+                                        id="comment-input"
+                                        value={commentText}
+                                        onChange={e => setCommentText(e.target.value)}
+                                      />
 
-                                    <Button onClick={() => handleComment(post)} size="sm" data-cy="entityDeleteButton" id="comment-button">
-                                      <FontAwesomeIcon icon="share" /> <span className="d-none d-md-inline">Comment</span>
-                                    </Button>
+                                      <Button
+                                        onClick={() => handleComment(post)}
+                                        size="sm"
+                                        data-cy="entityDeleteButton"
+                                        id="comment-button"
+                                      >
+                                        <FontAwesomeIcon icon="share" /> <span className="d-none d-md-inline">Comment</span>
+                                      </Button>
+                                    </div>
                                   </div>
-                                </div>
-                                <div id="individual-comments">
-                                  {commentList
-                                    .filter(comment => comment.post && comment.post.id === post.id)
-                                    .map((comment, i) => (
-                                      <div key={`entity-${i}`} data-cy="entityTable" className="comment">
-                                        <div className="card card-comment">
-                                          <div className="post-list-cell post-header" id="post-header">
-                                            <div className="comment-value">{comment.user ? comment.user.login : ''}</div>
-                                          </div>
-                                          <div className="comment-field">
-                                            <div className="post-time">
-                                              {comment.createdAt ? (
-                                                <TextFormat type="date" value={comment.createdAt} format={APP_DATE_FORMAT} />
-                                              ) : null}
+                                  <div id="individual-comments">
+                                    {commentList
+                                      .filter(comment => comment.post && comment.post.id === post.id)
+                                      .map((comment, i) => (
+                                        <div key={`entity-${i}`} data-cy="entityTable" className="comment">
+                                          <div className="card card-comment">
+                                            <div className="post-list-cell post-header" id="post-header">
+                                              <div className="comment-value">{comment.user ? comment.user.login : ''}</div>
                                             </div>
-                                          </div>
-                                          <div className="post-list-cell post-content" id="post-content">
-                                            <div className="comment-value">{comment.text}</div>
-                                          </div>
+                                            <div className="comment-field">
+                                              <div className="post-time">
+                                                {comment.createdAt ? (
+                                                  <TextFormat type="date" value={comment.createdAt} format={APP_DATE_FORMAT} />
+                                                ) : null}
+                                              </div>
+                                            </div>
+                                            <div className="post-list-cell post-content" id="post-content">
+                                              <div className="comment-value">{comment.text}</div>
+                                            </div>
 
-                                          {/* {post.user &&
+                                            {/* {post.user &&
                           post.user.login === currentUser.login && ( // Check if post belongs to the current user
                             <Button
                               tag={Link}
@@ -211,66 +232,72 @@ export const Post = () => {
                             </Button>
                           )} */}
 
-                                          <div className="comment-field">
-                                            <div className="comment-label"></div>
-                                            <div className="comment-value text-end">
-                                              <div className="btn-group flex-btn-group-container">
-                                                {comment.user && comment.user.login === currentUser.login && (
-                                                  <Button
-                                                    tag={Link}
-                                                    to={`/comment/${comment.id}/edit`}
-                                                    size="sm"
-                                                    data-cy="entityEditButton"
-                                                    id="edit-button"
-                                                  >
-                                                    <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
-                                                  </Button>
-                                                )}
-                                                {comment.user && comment.user.login === currentUser.login && (
-                                                  <Button
-                                                    tag={Link}
-                                                    to={`/comment/${comment.id}/delete`}
-                                                    color="black"
-                                                    size="sm"
-                                                    data-cy="entityDeleteButton"
-                                                    id="delete-button"
-                                                  >
-                                                    <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
-                                                  </Button>
-                                                )}
+                                            <div className="comment-field">
+                                              <div className="comment-label"></div>
+                                              <div className="comment-value text-end">
+                                                <div className="btn-group flex-btn-group-container">
+                                                  {comment.user && comment.user.login === currentUser.login && (
+                                                    <Button
+                                                      tag={Link}
+                                                      to={`/comment/${comment.id}/edit`}
+                                                      size="sm"
+                                                      data-cy="entityEditButton"
+                                                      id="edit-button"
+                                                    >
+                                                      <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+                                                    </Button>
+                                                  )}
+                                                  {comment.user && comment.user.login === currentUser.login && (
+                                                    <Button
+                                                      tag={Link}
+                                                      to={`/comment/${comment.id}/delete`}
+                                                      color="black"
+                                                      size="sm"
+                                                      data-cy="entityDeleteButton"
+                                                      id="delete-button"
+                                                    >
+                                                      <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
+                                                    </Button>
+                                                  )}
+                                                </div>
                                               </div>
                                             </div>
                                           </div>
                                         </div>
-                                      </div>
-                                    ))}
-                                </div>
-                              </div>
-                            ) : (
-                              !loading && (
-                                <div id="success" className="alert alert-warning comment-box">
-                                  <div id="comment-msg">Be the first to make a comment!</div>
-                                  <div className="comment-input-container">
-                                    <input
-                                      type="text"
-                                      id="comment-input"
-                                      value={commentText}
-                                      onChange={e => setCommentText(e.target.value)}
-                                    />
-
-                                    <Button onClick={() => handleComment(post)} size="sm" data-cy="entityDeleteButton" id="comment-button">
-                                      <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
-                                    </Button>
+                                      ))}
                                   </div>
                                 </div>
-                              )
-                            )}
-                          </div>
-                        )}
+                              ) : (
+                                !loading && (
+                                  <div id="success" className="alert alert-warning comment-box">
+                                    <div id="comment-msg">Be the first to make a comment!</div>
+                                    <div className="comment-input-container">
+                                      <input
+                                        type="text"
+                                        id="comment-input"
+                                        value={commentText}
+                                        onChange={e => setCommentText(e.target.value)}
+                                      />
+
+                                      <Button
+                                        onClick={() => handleComment(post)}
+                                        size="sm"
+                                        data-cy="entityDeleteButton"
+                                        id="comment-button"
+                                      >
+                                        <FontAwesomeIcon icon="plus" /> <span className="d-none d-md-inline">Comment</span>
+                                      </Button>
+                                    </div>
+                                  </div>
+                                )
+                              )}
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </FlipMove>
             </div>
           ) : (
