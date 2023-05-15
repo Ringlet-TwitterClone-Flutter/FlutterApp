@@ -51,7 +51,7 @@ export const PostUpdate = () => {
 
   useEffect(() => {
     if (updateSuccess) {
-      handleClose(); // no longer needed
+      handleClose();
       setRefresh(true);
     }
   }, [updateSuccess]);
@@ -63,7 +63,10 @@ export const PostUpdate = () => {
   // }, [refresh]);
 
   const saveEntity = values => {
-    values.createdAt = convertDateTimeToServer(values.createdAt);
+    // gets current date and time
+    const currentDate = new Date();
+    // convert currentDate to server format
+    values.createdAt = convertDateTimeToServer(currentDate);
 
     const entity = {
       ...postEntity,
