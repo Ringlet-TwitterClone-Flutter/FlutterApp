@@ -109,7 +109,7 @@ export const PostUpdate = ({ onNewPost }) => {
             <p>Loading...</p>
           ) : (
             <ValidatedForm defaultValues={defaultValues()} onSubmit={saveEntity}>
-              {!isNew ? <ValidatedField name="id" required readOnly id="post-id" label="ID" validate={{ required: true }} /> : null}
+              {!isNew ? <ValidatedField name="id" required readOnly id="post-id" label="" validate={{ required: true }} /> : null}
               <ValidatedField
                 label="New Post"
                 id="post-text"
