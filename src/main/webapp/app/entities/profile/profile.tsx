@@ -35,6 +35,7 @@ export const Profile = () => {
       <h1 id="profile-heading" data-cy="ProfileHeading">
         Profile
       </h1>
+
       <div className="profile-info">
         <p>First Name: {currentUser.login}</p>
         <p>Last Name: {currentUser.login}</p>
@@ -43,17 +44,16 @@ export const Profile = () => {
       </div>
 
       <div className="container">
+
         <div className="profile-info">
-          <p> {profile.firstName}</p>
-
+          <div id="user">User: {currentUser.login}</div>
+          <div>Name: {currentUser.firstName}</div>s<div>Bio: {currentUser.lastName}</div>
+          <div>ID: {currentUser.id}</div>
+          <div>Profile Pic: {currentUser.imageUrl}</div>
           {/* Edit Button */}
-          <Button tag={Link} to={`/user/${profile.login}/edit`} color="primary" size="sm" data-cy="entityEditButton" id="view-button">
-            <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
+          <Button tag={Link} to={`./profile-update`} color="primary" size="sm" data-cy="entityEditButton" id="view-button">
+            <FontAwesomeIcon icon="user-edit" /> <span className="d-none d-md-inline">Edit</span>
           </Button>
-
-          <p> {profile.lastName}</p>
-
-          <p> {profile.email}</p>
         </div>
       </div>
 

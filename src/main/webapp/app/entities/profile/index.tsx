@@ -5,7 +5,7 @@ import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
 
 import Post from './profile';
 import PostDetail from './post-detail';
-import PostUpdate from './post-update';
+import PostUpdate from './profile-update';
 import PostDeleteDialog from './post-delete-dialog';
 
 const PostRoutes = () => (
