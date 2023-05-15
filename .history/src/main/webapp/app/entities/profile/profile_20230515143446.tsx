@@ -35,6 +35,14 @@ export const Profile = () => {
       <h1 id="profile-heading" data-cy="ProfileHeading">
         Profile
       </h1>
+      <div className="profile-info">
+        <p>First Name: {currentUser.login}</p>
+        <p>Last Name: {currentUser.login}</p>
+        <p>Current ID: {currentUser.login}</p>
+        <p id="user">Current User: {currentUser.login}</p>
+      </div>
+
+      <div className="container">
       <div className="card">
         <div className="profile-info">
           <div id="user">User: {currentUser.login}</div>

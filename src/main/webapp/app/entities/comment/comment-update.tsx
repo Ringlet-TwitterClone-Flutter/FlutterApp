@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Button, Row, Col, FormText } from 'reactstrap';
 import { isNumber, ValidatedField, ValidatedForm } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { mapIdList } from 'app/shared/util/entity-utils';
@@ -14,6 +15,8 @@ import { IPost } from 'app/shared/model/post.model';
 import { getEntities as getPosts } from 'app/entities/post/post.reducer';
 import { IComment } from 'app/shared/model/comment.model';
 import { getEntity, updateEntity, createEntity, reset } from './comment.reducer';
+import { AxiosResponse } from 'axios';
+import axios from 'axios';
 
 export const CommentUpdate = () => {
   const dispatch = useAppDispatch();
@@ -154,5 +157,10 @@ export const CommentUpdate = () => {
     </div>
   );
 };
+
+export const createCommentEntity = createAsyncThunk('comment/create_entity', async (comment: IComment, { dispatch }) => {
+  const result = await axios.post<IComment>('/api/comments', comment);
+  return result.data;
+});
 
 export default CommentUpdate;

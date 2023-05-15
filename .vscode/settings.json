@@ -4,6 +4,5 @@
     "java.configuration.updateBuildConfiguration": "interactive"
 =======
   "java.compile.nullAnalysis.mode": "automatic",
-  "java.configuration.updateBuildConfiguration": "automatic"
->>>>>>> 68e7b5656d9817ab177e67484909c9fd41fcd8ee
+  "java.configuration.updateBuildConfiguration": "interactive"
 }

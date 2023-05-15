@@ -1,3 +1,51 @@
+Anastasian
+#6777
+
+JamesJang-2jz — 03/20/2023 10:58 AM
+add me
+JamesJang-2jz — 03/23/2023 9:50 PM
+have you pushed blackjack?
+do u need help on anything?
+Anastasian — 03/23/2023 9:52 PM
+i didn't push it yet, im still working on it, i fine for now i think, just trying to figure out how to put everything together
+JamesJang-2jz — 03/23/2023 9:53 PM
+nice! ok
+Anastasian — 03/23/2023 10:15 PM
+Quick question, we only have one player playing the game or we have to make it for more than one player?
+JamesJang-2jz — 03/23/2023 10:56 PM
+One player and one computer
+Anastasian — 03/23/2023 10:56 PM
+okie
+Anastasian — 03/24/2023 11:14 AM
+past: blackJack game Present: fixing the output Blockers: errors between classes. working on correct output
+JamesJang-2jz — 05/13/2023 5:21 PM
+jdbc:h2:file:./target/h2db/db/flutterapp;DB_CLOSE_DELAY=-1;MODE=LEGACY
+jdbc:postgresql://localhost:5432/FlutterApp
+Anastasian — 05/13/2023 6:49 PM
+Ссаная
+JamesJang-2jz — 05/13/2023 8:01 PM
+Did u take another laptop case by mistake maybe?
+JamesJang-2jz — Yesterday at 5:29 PM
+Image
+Anastasian — Yesterday at 5:39 PM
+😖😖
+Image
+JamesJang-2jz — Yesterday at 5:40 PM
+Omg nooo
+Drive safe
+Anastasian — Yesterday at 5:40 PM
+Thank you
+JamesJang-2jz — Today at 2:55 PM
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Button, Table } from 'reactstrap';
+import { Translate, TextFormat } from 'react-jhipster';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+Expand
+message.txt
+6 KB
+﻿
+JamesJang-2jz#5294
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button, Table } from 'reactstrap';

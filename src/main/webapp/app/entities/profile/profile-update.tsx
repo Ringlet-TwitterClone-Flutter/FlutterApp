@@ -85,7 +85,7 @@ export const PostUpdate = () => {
       <Row className="justify-content-center">
         <Col md="8">
           <h2 id="flutterApp.post.home.createOrEditLabel" data-cy="PostCreateUpdateHeading">
-            Create or edit a Post
+            Profile
           </h2>
         </Col>
       </Row>

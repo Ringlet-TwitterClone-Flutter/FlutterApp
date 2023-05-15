@@ -25,19 +25,24 @@ export const Home = () => {
             <Alert color="success" id="success">
               You are logged in as user &quot;{account.login}&quot;.
             </Alert>
+            <Alert color="success" id="success">
+              Please report any bugs to: The.Flutter.Team@gmail.com
+            </Alert>
           </div>
         ) : (
           // This is where we change the sign in display
           <div>
             <Alert color="warning" id="success">
+              Already have an account?
+              <br />
               <Link to="/login" className="alert-link" id="success-text">
                 Sign in
               </Link>
-              <br />- Administrator (login=&quot;admin&quot; and password=&quot;admin&quot;) <br />- User (login=&quot;user&quot; and
-              password=&quot;user&quot;).
             </Alert>
 
             <Alert color="warning" id="success">
+              New to Flutter?
+              <br />
               <Link to="/account/register" className="alert-link" id="success-text">
                 Register a new account
               </Link>
