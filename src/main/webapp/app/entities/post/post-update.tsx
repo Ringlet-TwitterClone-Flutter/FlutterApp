@@ -32,6 +32,12 @@ export const PostUpdate = () => {
   const updating = useAppSelector(state => state.post.updating);
   const updateSuccess = useAppSelector(state => state.post.updateSuccess);
 
+  /** this is called after updateSuccess in useEffect. so it
+   * redirects to the /post page but we don't need this part anymore */
+  const handleClose = () => {
+    navigate('/post');
+  };
+
   useEffect(() => {
     if (isNew) {
       dispatch(reset());
@@ -45,6 +51,7 @@ export const PostUpdate = () => {
 
   useEffect(() => {
     if (updateSuccess) {
+      handleClose(); // no longer needed
       setRefresh(true);
     }
   }, [updateSuccess]);
