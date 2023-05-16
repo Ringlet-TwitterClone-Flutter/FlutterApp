@@ -76,7 +76,7 @@ export const Post = () => {
         <div id="header-jawn">
           {/* Butterflies surrounding feed */}
           {/* <img height="25" width="25" src="content/images/butterflySilho.png" alt="Logo" /> */}
-          Feed
+          Feed me butterflies
           {/* <img height="25" width="25" src="content/images/butterflySilhoFlipped.png" alt="Logo" /> */}
         </div>
         <div className="d-flex justify-content-center">
@@ -96,7 +96,7 @@ export const Post = () => {
       </h1>
 
       {
-        <div className="container">
+        <div className="app-container">
           {postList && postList.length > 0 ? (
             <div className="post-list ">
               <FlipMove duration={500}>
