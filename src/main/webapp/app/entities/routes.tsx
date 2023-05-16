@@ -15,7 +15,8 @@ export default () => {
     <div>
       <ErrorBoundaryRoutes>
         {/* prettier-ignore */}
-        <Route path="post/*" element={<Post />} /> // This is where we add the route to the post page
+        {/*  This is where we add the route to the post page */}
+        <Route path="post/*" element={<Post />} />
         <Route path="profile/*" element={<Profile />} />
         <Route path="hashtag/*" element={<Hashtag />} />
         <Route path="comment/*" element={<Comment />} />

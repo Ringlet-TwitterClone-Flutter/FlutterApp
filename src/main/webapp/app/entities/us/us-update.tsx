@@ -13,10 +13,9 @@ import { getUsers } from 'app/modules/administration/user-management/user-manage
 import { IHashtag } from 'app/shared/model/hashtag.model';
 import { getEntities as getHashtags } from 'app/entities/hashtag/hashtag.reducer';
 import { IPost } from 'app/shared/model/post.model';
-import { getEntity, updateEntity, createEntity, reset, getEntities } from './post.reducer';
+import { getEntity, updateEntity, createEntity, reset, getEntities } from './us.reducer';
 
-export const PostUpdate = ({ onNewPost }) => {
-  const [postText, setPostText] = useState('');
+export const PostUpdate = () => {
   const dispatch = useAppDispatch();
 
   const navigate = useNavigate();
@@ -37,11 +36,6 @@ export const PostUpdate = ({ onNewPost }) => {
    * redirects to the /post page but we don't need this part anymore */
   const handleClose = () => {
     navigate('/post');
-  };
-
-  const handlePost = () => {
-    onNewPost(postText);
-    setPostText('');
   };
 
   useEffect(() => {
@@ -103,7 +97,7 @@ export const PostUpdate = ({ onNewPost }) => {
 
   return (
     <div>
-      <Row className="justify-content-center ">
+      <Row className="justify-content-center">
         <Col md="11">
           {loading ? (
             <p>Loading...</p>
