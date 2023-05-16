@@ -137,7 +137,8 @@ Main page styles
   grid-template-areas: 'header header' 'content content' 'time time' 'hashtags hashtags' 'buttons buttons';
   z-index: 1;
   border-radius: 5px;
-  margin-right: 20px;
+  margin-right: 5px;
+  margin-left: 10px;
   border-color: lightgray;
 }
 .post-header {
@@ -212,6 +213,7 @@ Main page styles
   display: flex;
   align-items: center;
   width: 100%;
+  margin-left: 9px;
 }
 
 #comment-input {
