@@ -127,7 +127,7 @@ Main page styles
   grid-template-areas: 'header header' 'content content' 'time time' 'hashtags hashtags' 'buttons buttons';
   z-index: 1;
   border-radius: 5px;
-  width: 75%;
+  width: 100%;
   border-color: darkgray;
 }
 
@@ -233,6 +233,9 @@ Main page styles
   width: 100%;
 }
 .post-list-row {
+  width: 100%;
+}
+.post-list {
   width: 100%;
 }
 #comment-button {

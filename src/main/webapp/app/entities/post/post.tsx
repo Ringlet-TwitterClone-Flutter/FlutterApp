@@ -96,7 +96,7 @@ export const Post = () => {
       </h1>
 
       {
-        <div className="container">
+        <div className="app-container">
           {postList && postList.length > 0 ? (
             <div className="post-list ">
               <FlipMove duration={500}>
