@@ -4,11 +4,11 @@ export const Post = () => {
   return (
     <div>
       <h1 id="about-us-header">About Us</h1>
-      <h2>The Flutter Team</h2>
+      <h2 id="flutter-team">The Flutter Team</h2>
 
       <div className="team-member-container">
         <div className="team-header">
-          <h4 className="team-name">James Jang</h4>
+          <div className="team-name">James Jang</div>
           <div className="pronouns">He/Him</div>
         </div>
         <div className="team-member-role">Full Stack Software Developer</div>
@@ -17,7 +17,7 @@ export const Post = () => {
 
       <div className="team-member-container">
         <div className="team-header">
-          <h4 className="team-name">Jacob Ciaffi</h4>
+          <div className="team-name">Jacob Ciaffi</div>
           <div className="pronouns">He/Him</div>
         </div>
         <div className="team-member-role">Full Stack Software Developer</div>
@@ -26,7 +26,7 @@ export const Post = () => {
 
       <div className="team-member-container">
         <div className="team-header">
-          <h4 className="team-name">Anastasia Epifanova</h4>
+          <div className="team-name">Anastasia Epifanova</div>
           <div className="pronouns">She/Her</div>
         </div>
         <div className="team-member-role">Full Stack Software Developer</div>
@@ -35,22 +35,25 @@ export const Post = () => {
 
       <div className="team-member-container">
         <div className="team-header">
-          <h4 className="team-name">Nina McNair</h4>
+          <div className="team-name">Nina McNair</div>
           <div className="pronouns">She/They</div>
         </div>
         <div className="team-member-role">Full Stack Software Developer</div>
         <div className="team-intro">
           Prior to Flutter, Nina was in security. After handling a bank robbery, she received a promotion leading to her working directly
-          down the street from Zip Code Wilmington. She found herself spending a lot of time on tedious tasks, that could have easily been
-          automated. She would then look up and see flyers and banners for Zip Code, telling her that she could learn to do just that. Over
-          time she went from saying things like, "I wish there was an app for this.. I wish there was a program that could do that.." to
-          saying, "I'm going to be the one to make it." It was that change in mindset that led her down the rabbithole of software
-          development, and she has been hooked ever since.
+          down the street from Zip Code Wilmington. She found herself spending a lot of time on tedious tasks that she wanted to automate,
+          but she didn't know where to start. That itch to develop solutions through technology sparked her interest in Zip Code and led her
+          down the rabbithole of software development. Since then she has been hooked.
           <br />
           <br />
           Now, as a valued member of the Flutter Team, she is able to put those skills that she has acquired from her time at Zip Code to
           use. Those skills include Java, JavaScript, TypeScript, React, Angular, Spring and Spring Boot, Git, TDD, Maven and J-Unit, HTML,
-          CSS, BootStrap and MySQL.
+          CSS, BootStrap, MySQL and Agile Methodologies.
+          <br />
+          <br />
+          <a href="https://github.com/NinaEmiko">Nina's Github</a>
+          <br />
+          <a href="https://www.linkedin.com/in/nina-mcnair/">Connect with Nina on LinkedIn!</a>
         </div>
       </div>
     </div>

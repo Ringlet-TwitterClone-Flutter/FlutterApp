@@ -3,14 +3,15 @@ import { Route } from 'react-router-dom';
 
 import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
 
-import Post from './profile';
+import Profile from './profile';
 import PostDetail from './post-detail';
 import PostUpdate from './profile-update';
 import PostDeleteDialog from './post-delete-dialog';
 
 const PostRoutes = () => (
   <ErrorBoundaryRoutes>
-    <Route index element={<Post />} />
+
+    <Route index element={<Profile />} />
     <Route path="new" element={<PostUpdate onNewPost={undefined} />} />
     <Route path=":id">
       <Route index element={<PostDetail />} />

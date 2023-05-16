@@ -72,25 +72,12 @@ export const Post = () => {
   return (
     <div>
       {/* Heading */}
-      <h1 id="profile-heading" data-cy="ProfileHeading">
-        Profile
-      </h1>
-
-      {/* Heading */}
       <h1 id="post-heading" data-cy="PostHeading">
-        <div className="d-flex justify-content-center">
-          {/* Create New Post Button */}
-          <div className="container">
-            <div className="post-list-row">
-              <div className="new-post-jawn">
-                <PostUpdate onNewPost={handleNewPost} />
-                {/* <Link to="/post/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
-                      <FontAwesomeIcon icon="plus" />
-                      &nbsp;New Post
-                    </Link> */}
-              </div>
-            </div>
-          </div>
+        <div id="header-jawn">
+          {/* Butterflies surrounding feed */}
+          {/* <img height="25" width="25" src="content/images/butterflySilho.png" alt="Logo" /> */}
+          Profile
+          {/* <img height="25" width="25" src="content/images/butterflySilhoFlipped.png" alt="Logo" /> */}
         </div>
       </h1>
 
@@ -178,26 +165,7 @@ export const Post = () => {
                             <div id="list-of-comments">
                               {commentList && commentList.length > 0 ? (
                                 <div className="card-comment">
-                                  <div id="success" className="alert alert-warning comment-box">
-                                    <div id="comment-msg">Make a comment!</div>
-                                    <div className="comment-input-container">
-                                      <input
-                                        type="text"
-                                        id="comment-input"
-                                        value={commentText}
-                                        onChange={e => setCommentText(e.target.value)}
-                                      />
 
-                                      <Button
-                                        onClick={() => handleComment(post)}
-                                        size="sm"
-                                        data-cy="entityDeleteButton"
-                                        id="comment-button"
-                                      >
-                                        <FontAwesomeIcon icon="share" /> <span className="d-none d-md-inline">Comment</span>
-                                      </Button>
-                                    </div>
-                                  </div>
                                   <div id="individual-comments">
                                     {commentList
                                       .filter(comment => comment.post && comment.post.id === post.id)
@@ -265,6 +233,26 @@ export const Post = () => {
                                           </div>
                                         </div>
                                       ))}
+                                    <div id="success" className="alert alert-warning comment-box">
+                                      <div id="comment-msg">Make a comment!</div>
+                                      <div className="comment-input-container">
+                                        <input
+                                          type="text"
+                                          id="comment-input"
+                                          value={commentText}
+                                          onChange={e => setCommentText(e.target.value)}
+                                        />
+
+                                        <Button
+                                          onClick={() => handleComment(post)}
+                                          size="sm"
+                                          data-cy="entityDeleteButton"
+                                          id="comment-button"
+                                        >
+                                          <FontAwesomeIcon icon="share" /> <span className="d-none d-md-inline">Comment</span>
+                                        </Button>
+                                      </div>
+                                    </div>
                                   </div>
                                 </div>
                               ) : (
