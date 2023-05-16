@@ -76,7 +76,7 @@ export const Post = () => {
         <div id="header-jawn">
           {/* Butterflies surrounding feed */}
           {/* <img height="25" width="25" src="content/images/butterflySilho.png" alt="Logo" /> */}
-          Profile
+          {currentUser.login}'s Profile
           {/* <img height="25" width="25" src="content/images/butterflySilhoFlipped.png" alt="Logo" /> */}
         </div>
       </h1>
@@ -165,7 +165,6 @@ export const Post = () => {
                             <div id="list-of-comments">
                               {commentList && commentList.length > 0 ? (
                                 <div className="card-comment">
-
                                   <div id="individual-comments">
                                     {commentList
                                       .filter(comment => comment.post && comment.post.id === post.id)

@@ -35,7 +35,7 @@ export const CommentUpdate = () => {
   const currentUser = useAppSelector(state => state.authentication.account);
 
   const handleClose = () => {
-    navigate('/comment');
+    // navigate('/comment');
   };
 
   useEffect(() => {

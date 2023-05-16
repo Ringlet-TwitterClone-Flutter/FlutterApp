@@ -58,15 +58,17 @@ export const PostUpdate = ({ onNewPost }) => {
   useEffect(() => {
     if (updateSuccess) {
       handleClose();
-      setRefresh(true);
+      setRefresh(false);
     }
   }, [updateSuccess]);
 
-  // useEffect(() => {
-  //   if (refresh) {
-  //     window.location.reload();
-  //   }
-  // }, [refresh]);
+  useEffect(() => {
+    if (refresh) {
+      setTimeout(function () {
+        location.reload();
+      }, 1000);
+    }
+  }, [refresh]);
 
   const saveEntity = values => {
     // gets current date and time
