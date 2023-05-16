@@ -14,7 +14,7 @@
   "fluentMethods": true,
   "jpaMetamodelFiltering": false,
   "name": "Hashtag",
-  "pagination": "no",
+  "pagination": "infinite-scroll",
   "readOnly": false,
   "relationships": [
     {

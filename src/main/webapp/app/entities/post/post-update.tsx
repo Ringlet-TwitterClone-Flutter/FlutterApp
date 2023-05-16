@@ -15,7 +15,8 @@ import { getEntities as getHashtags } from 'app/entities/hashtag/hashtag.reducer
 import { IPost } from 'app/shared/model/post.model';
 import { getEntity, updateEntity, createEntity, reset, getEntities } from './post.reducer';
 
-export const PostUpdate = () => {
+export const PostUpdate = ({ onNewPost }) => {
+  const [postText, setPostText] = useState('');
   const dispatch = useAppDispatch();
 
   const navigate = useNavigate();
@@ -38,6 +39,11 @@ export const PostUpdate = () => {
     navigate('/post');
   };
 
+  const handlePost = () => {
+    onNewPost(postText);
+    setPostText('');
+  };
+
   useEffect(() => {
     if (isNew) {
       dispatch(reset());
@@ -56,11 +62,11 @@ export const PostUpdate = () => {
     }
   }, [updateSuccess]);
 
-  useEffect(() => {
-    if (refresh) {
-      window.location.reload();
-    }
-  }, [refresh]);
+  // useEffect(() => {
+  //   if (refresh) {
+  //     window.location.reload();
+  //   }
+  // }, [refresh]);
 
   const saveEntity = values => {
     // gets current date and time
@@ -97,13 +103,13 @@ export const PostUpdate = () => {
 
   return (
     <div>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center ">
         <Col md="11">
           {loading ? (
             <p>Loading...</p>
           ) : (
             <ValidatedForm defaultValues={defaultValues()} onSubmit={saveEntity}>
-              {!isNew ? <ValidatedField name="id" required readOnly id="post-id" label="ID" validate={{ required: true }} /> : null}
+              {!isNew ? <ValidatedField name="id" required readOnly id="post-id" label="" validate={{ required: true }} /> : null}
               <ValidatedField
                 label="New Post"
                 id="post-text"
