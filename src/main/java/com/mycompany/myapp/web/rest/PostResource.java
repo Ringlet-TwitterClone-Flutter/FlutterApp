@@ -53,9 +53,9 @@ public class PostResource {
     @PostMapping("/posts")
     public ResponseEntity<Post> createPost(@Valid @RequestBody Post post) throws URISyntaxException {
         log.debug("REST request to save Post : {}", post);
-        if (post.getId() != null) {
-            throw new BadRequestAlertException("A new post cannot already have an ID", ENTITY_NAME, "idexists");
-        }
+        // if (post.getId() != null) {
+        //     throw new BadRequestAlertException("A new post cannot already have an ID", ENTITY_NAME, "idexists");
+        // }
         Post result = postRepository.save(post);
         return ResponseEntity
             .created(new URI("/api/posts/" + result.getId()))
