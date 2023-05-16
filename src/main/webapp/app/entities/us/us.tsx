@@ -4,11 +4,11 @@ export const Post = () => {
   return (
     <div>
       <h1 id="about-us-header">About Us</h1>
-      <h2>The Flutter Team</h2>
+      <h2 id="flutter-team">The Flutter Team</h2>
 
       <div className="team-member-container">
         <div className="team-header">
-          <h4 className="team-name">James Jang</h4>
+          <div className="team-name">James Jang</div>
           <div className="pronouns">He/Him</div>
         </div>
         <div className="team-member-role">Full Stack Software Developer</div>
@@ -17,7 +17,7 @@ export const Post = () => {
 
       <div className="team-member-container">
         <div className="team-header">
-          <h4 className="team-name">Jacob Ciaffi</h4>
+          <div className="team-name">Jacob Ciaffi</div>
           <div className="pronouns">He/Him</div>
         </div>
         <div className="team-member-role">Full Stack Software Developer</div>
@@ -26,7 +26,7 @@ export const Post = () => {
 
       <div className="team-member-container">
         <div className="team-header">
-          <h4 className="team-name">Anastasia Epifanova</h4>
+          <div className="team-name">Anastasia Epifanova</div>
           <div className="pronouns">She/Her</div>
         </div>
         <div className="team-member-role">Full Stack Software Developer</div>
@@ -35,7 +35,7 @@ export const Post = () => {
 
       <div className="team-member-container">
         <div className="team-header">
-          <h4 className="team-name">Nina McNair</h4>
+          <div className="team-name">Nina McNair</div>
           <div className="pronouns">She/They</div>
         </div>
         <div className="team-member-role">Full Stack Software Developer</div>

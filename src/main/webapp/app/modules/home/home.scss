@@ -269,12 +269,17 @@ Main page styles
   text-align: center;
   font-size: 40px;
 }
+
+#flutter-team {
+}
 .team-header {
-  display: flex;
+  // color: #47e6ec;
+  color: #7539ee;
+  font-size: 20px;
+  margin-top: 15px;
 }
 
 .team-intro {
-  flex: 1;
 }
 
 .team-left {
@@ -294,4 +299,5 @@ Main page styles
 
 .team-member-role {
   font-weight: bold;
+  color: black;
 }
