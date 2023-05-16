@@ -58,6 +58,7 @@ Navbar styles
   -webkit-text-fill-color: transparent;
   animation: textclip 2s linear infinite;
   display: inline-block;
+  text-align: center;
   // font-size: 50px;
 }
 @keyframes textclip {
@@ -97,5 +98,18 @@ Navbar styles
     opacity: 82%;
     width: 50%;
     float: left;
+  }
+  .brand-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+  }
+  .brand-title {
+    text-align: center;
+  }
+  #brand-icon {
+    display: none;
   }
 }

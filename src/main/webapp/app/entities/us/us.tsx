@@ -49,6 +49,11 @@ export const Post = () => {
           Now, as a valued member of the Flutter Team, she is able to put those skills that she has acquired from her time at Zip Code to
           use. Those skills include Java, JavaScript, TypeScript, React, Angular, Spring and Spring Boot, Git, TDD, Maven and J-Unit, HTML,
           CSS, BootStrap, MySQL and Agile Methodologies.
+          <br />
+          <br />
+          <a href="https://github.com/NinaEmiko">Nina's Github</a>
+          <br />
+          <a href="https://www.linkedin.com/in/nina-mcnair/">Connect with Nina on LinkedIn!</a>
         </div>
       </div>
     </div>
