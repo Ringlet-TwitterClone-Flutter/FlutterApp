@@ -28,6 +28,10 @@ const Header = (props: IHeaderProps) => {
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
+  const handleOptionClick = () => {
+    setMenuOpen(false);
+  };
+
   /* jhipster-needle-add-element-to-menu - JHipster will add new menu items here */
   // bgstock is blk bkground */
   return (
@@ -38,7 +42,7 @@ const Header = (props: IHeaderProps) => {
         <NavbarToggler aria-label="Menu" onClick={toggleMenu} />
         <Brand />
         <Collapse isOpen={menuOpen} navbar>
-          <Nav id="header-tabs" className="ms-auto" navbar>
+          <Nav id="header-tabs" className="ms-auto" navbar onClick={handleOptionClick}>
             <Home />
 
             {props.isAuthenticated && <Feed />}
