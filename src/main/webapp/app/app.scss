@@ -32,7 +32,7 @@ a {
     overflow-x: hidden;
     padding: 1rem;
     .card {
-      padding: 1rem;
+      padding: 0.7rem;
     }
     .view-routes {
       height: 100%;
@@ -381,10 +381,6 @@ http://stackoverflow.com/questions/23436430/bootstrap-3-input-group-100-width */
   text-align: center;
   color: black;
 }
-
-.card {
-}
-
 //Styling for Profile title
 
 #profile-heading {
