@@ -15,7 +15,7 @@ import FlipMove from 'react-flip-move';
 import PostUpdate from './profile-update';
 import { getEntities as commentGetEntities } from 'app/entities/comment/comment.reducer';
 
-export const Profile = () => {
+export const Post = () => {
   const dispatch = useAppDispatch();
 
   const location = useLocation();
@@ -165,6 +165,7 @@ export const Profile = () => {
                             <div id="list-of-comments">
                               {commentList && commentList.length > 0 ? (
                                 <div className="card-comment">
+
                                   <div id="individual-comments">
                                     {commentList
                                       .filter(comment => comment.post && comment.post.id === post.id)
@@ -296,4 +297,4 @@ export const Profile = () => {
   );
 };
 
-export default Profile;
+export default Post;
