@@ -12,7 +12,17 @@ export const Post = () => {
           <div className="pronouns">He/Him</div>
         </div>
         <div className="team-member-role">Full Stack Software Developer</div>
-        <div className="team-intro">Prior to Flutter, James...</div>
+        <div className="team-intro">
+          Prior to Flutter, James was in the food industry managing a supermarket. He has a bachelor's degree in Management Information
+          Systems from the University of Delaware. After implementing new systems and products into the business, James decided it was time
+          to break out of the cycle and continue on his original path. He dropped everything and applied to Zip Code where he developed
+          skills in Java, React, Spring Boot, Git, TDD, HTML, CSS, Bootstrap, mySQL, Javascript, Typescript and Agile. James is a team
+          builder, experienced with management and proud member of the Flutter Team.
+        </div>
+        <br />
+        <a href="https://github.com/JamesJang-2jz">James' Github</a>
+        <br />
+        <a href="https://www.linkedin.com/in/james-jang13/">Connect with James on LinkedIn</a>
       </div>
 
       <div className="team-member-container">
