@@ -16,7 +16,7 @@ Navbar styles
 // adjusts header height and color
 .bg-stock {
   background-color: #000000;
-  opacity: 82%;
+  opacity: 85%;
   height: 70px;
 }
 
@@ -112,4 +112,13 @@ Navbar styles
   #brand-icon {
     display: none;
   }
+}
+
+.dropdown-menu-end {
+  background-color: #000000;
+  color: white;
+}
+
+.dropdown-item {
+  color: #47e6ec;
 }
