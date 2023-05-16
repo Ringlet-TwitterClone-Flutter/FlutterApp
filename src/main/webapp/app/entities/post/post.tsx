@@ -76,7 +76,7 @@ export const Post = () => {
         <div id="header-jawn">
           {/* Butterflies surrounding feed */}
           {/* <img height="25" width="25" src="content/images/butterflySilho.png" alt="Logo" /> */}
-          Feed
+          Feed me butterflies
           {/* <img height="25" width="25" src="content/images/butterflySilhoFlipped.png" alt="Logo" /> */}
         </div>
         <div className="d-flex justify-content-center">
