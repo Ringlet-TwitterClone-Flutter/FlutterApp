@@ -21,7 +21,17 @@ export const Post = () => {
           <div className="pronouns">He/Him</div>
         </div>
         <div className="team-member-role">Full Stack Software Developer</div>
-        <div className="team-intro">Prior to Flutter, Ciaffi...</div>
+        <div className="team-intro">
+          Jacob Ciaffi is in the United States Marine Reserve. Prior to Flutter, he spent 4 years in manufacturing where he was entrusted to
+          do quality inspections on all production, which was valued at over $80k. When Jacob caught wind that Military One Source was
+          looking for marines to apply to Zip Code Wilmington, he jumped at the opportunity to transition into software development where he
+          could utilize his love for identifying and solving problems.
+        </div>
+        <br />
+
+        <a href="https://github.com/Ciaffi-Jacob">Jacob's Github</a>
+        <br />
+        <a href="https://www.linkedin.com/in/jacobciaffi/">Connect with Jacob on LinkedIn!</a>
       </div>
 
       <div className="team-member-container">
@@ -46,7 +56,7 @@ export const Post = () => {
           down the rabbithole of software development. Since then she has been hooked.
           <br />
           <br />
-          Now, as a valued member of the Flutter Team, she is able to put those skills that she has acquired from her time at Zip Code to
+          Now, as a valued member's of the Flutter Team, they are able to put the skills that they acquired from their time at Zip Code to
           use. Those skills include Java, JavaScript, TypeScript, React, Angular, Spring and Spring Boot, Git, TDD, Maven and J-Unit, HTML,
           CSS, BootStrap, MySQL and Agile Methodologies.
           <br />
