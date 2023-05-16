@@ -75,9 +75,9 @@ export const Post = () => {
       <h1 id="post-heading" data-cy="PostHeading">
         <div id="header-jawn">
           {/* Butterflies surrounding feed */}
-          <img height="25" width="25" src="content/images/butterflySilho.png" alt="Logo" />
+          {/* <img height="25" width="25" src="content/images/butterflySilho.png" alt="Logo" /> */}
           Feed me butterflies
-          <img height="25" width="25" src="content/images/butterflySilhoFlipped.png" alt="Logo" />
+          {/* <img height="25" width="25" src="content/images/butterflySilhoFlipped.png" alt="Logo" /> */}
         </div>
         <div className="d-flex justify-content-center">
           {/* Create New Post Button */}
@@ -310,7 +310,9 @@ export const Post = () => {
   );
 };
 
+
 export default Post;
 function createPostEntity(newPost: any): any {
   throw new Error('Function not implemented.');
 }
+

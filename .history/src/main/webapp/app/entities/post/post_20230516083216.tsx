@@ -310,7 +310,9 @@ export const Post = () => {
   );
 };
 
+
 export default Post;
 function createPostEntity(newPost: any): any {
   throw new Error('Function not implemented.');
 }
+
