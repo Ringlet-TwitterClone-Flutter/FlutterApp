@@ -21,7 +21,7 @@ export const Post = () => {
         <br />
         <a href="https://github.com/JamesJang-2jz">James' Github</a>
         <br />
-        <a href="https://www.linkedin.com/in/james-jang13/">Connect with James on LinkedIn</a>
+        <a href="https://www.linkedin.com/in/james-jang13/">Connect with James on LinkedIn!</a>
       </div>
 
       <div className="team-member-container">
@@ -37,7 +37,6 @@ export const Post = () => {
           could utilize his love for identifying and solving problems.
         </div>
         <br />
-
         <a href="https://github.com/Ciaffi-Jacob">Jacob's Github</a>
         <br />
         <a href="https://www.linkedin.com/in/jacobciaffi/">Connect with Jacob on LinkedIn!</a>
@@ -49,8 +48,17 @@ export const Post = () => {
           <div className="pronouns">She/Her</div>
         </div>
         <div className="team-member-role">Full Stack Software Developer</div>
-        <div className="team-intro">Prior to Flutter, Anastasia...</div>
+        <div className="team-intro">
+          Prior to Flutter, Anastasia was a Medical Records and Quality Assurance Coordinator and an Assembler for a global supplier of
+          ophthalmic surgery specialty laser equipment. With a background as an artist, she has been able to utilize her artistic abilities
+          to create visually appealing user interfaces and to create innovative solutions in the tech industry.
+        </div>
       </div>
+      <br />
+      <br />
+      <a href="https://github.com/orgs/Ringlet-TwitterClone-Flutter/people/AnastasiaE3">Anastasia's Github</a>
+      <br />
+      <a href="https://www.linkedin.com/in/epifanova-anastasia-nastya/">Connect with Anastasia on LinkedIn!</a>
 
       <div className="team-member-container">
         <div className="team-header">
