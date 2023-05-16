@@ -10,7 +10,7 @@ library.add(fas);
 
 export const BrandIcon = props => (
   <div {...props} className="brand-icon">
-    <img src="content/images/butterflySilho.png" alt="Logo" />
+    <img id="brand-icon" src="content/images/butterflySilho.png" alt="Logo" />
   </div>
 );
 
