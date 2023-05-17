@@ -20,7 +20,7 @@ export const PostUpdate = ({ onNewPost }) => {
   const dispatch = useAppDispatch();
 
   const navigate = useNavigate();
-
+  const [text, setText] = useState('');
   let { id } = useParams<'id'>();
   const isNew = id === undefined;
   const [refresh, setRefresh] = useState(false);
@@ -38,12 +38,9 @@ export const PostUpdate = ({ onNewPost }) => {
   const handleClose = () => {
     navigate('/post');
   };
-
-  const handlePost = () => {
-    onNewPost(postText);
-    setPostText('');
-  };
-
+  function handleOnEnter(text) {
+    console.log('enter', text);
+  }
   useEffect(() => {
     if (isNew) {
       dispatch(reset());
@@ -133,20 +130,7 @@ export const PostUpdate = ({ onNewPost }) => {
                 validate={{
                   required: { value: true, message: 'This field is required.' },
                 }}
-                style={{}}
               />
-              {/* <ValidatedField
-                label="Created At"
-                id="post-createdAt"
-                name="createdAt"
-                data-cy="createdAt"
-                type="datetime-local"
-                placeholder="YYYY-MM-DD HH:mm"
-                validate={{
-                  required: { value: true, message: 'This field is required.' },
-                }}
-                style={{ width: '50%' }}
-              /> */}
               <ValidatedField id="post-user" name="user" data-cy="user" type="select">
                 <option value={currentUser.id} key={currentUser.id}>
                   {currentUser.login}
