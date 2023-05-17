@@ -31,6 +31,7 @@ export const Post = () => {
 
   const [commentText, setCommentText] = useState('');
   const [showComments, setShowComments] = useState(false);
+  const [expandedComments, setExpandedComments] = useState({});
 
   useEffect(() => {
     dispatch(getEntities({}));
@@ -40,8 +41,11 @@ export const Post = () => {
   const handleSyncList = () => {
     dispatch(getEntities({}));
   };
-  const handleToggleComments = () => {
-    setShowComments(!showComments);
+  const handleToggleComments = postId => {
+    setExpandedComments(prevState => ({
+      ...prevState,
+      [postId]: !prevState[postId], // toggle the expanded state of the post's comments
+    }));
   };
 
   const handleComment = (post: IPost) => {
@@ -133,9 +137,9 @@ export const Post = () => {
                         <div className="col">
                           {/* Show comments button */}
                           <div>
-                            <Button color="primary" id="show-comments-button" size="sm" onClick={handleToggleComments}>
+                            <Button color="primary" id="show-comments-button" size="sm" onClick={() => handleToggleComments(post.id)}>
                               <FontAwesomeIcon icon="comments" />{' '}
-                              <span className="d-none d-md-inline">{showComments ? 'Hide comments' : 'Show comments'}</span>
+                              <span className="d-none d-md-inline">{expandedComments[post.id] ? 'Hide comments' : 'Show comments'}</span>
                             </Button>
                           </div>
 
@@ -174,7 +178,7 @@ export const Post = () => {
                       {/* Input field for comment text */}
                       <div className="card-comment">
                         <div className="comment-container">
-                          {showComments && (
+                          {expandedComments[post.id] && (
                             <div id="list-of-comments">
                               {commentList && commentList.length > 0 ? (
                                 <div className="card-comment">
