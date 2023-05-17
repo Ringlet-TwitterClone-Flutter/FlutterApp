@@ -48,8 +48,6 @@ Main page styles
   margin-right: 20px;
 }
 
-#butterfly {
-}
 #success-text {
   color: #45d6db;
 }
@@ -83,6 +81,10 @@ Main page styles
   color: #47e6ec;
 }
 
+#butterfly {
+  color: #45d6db;
+  float: right;
+}
 #header-jawn {
   text-align: center;
   background: linear-gradient(to right, rgb(67, 124, 205), rgb(42, 232, 216));

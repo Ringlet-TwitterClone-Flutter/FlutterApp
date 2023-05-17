@@ -76,8 +76,8 @@ export const Post = () => {
         <div id="header-jawn">
           {/* Butterflies surrounding feed */}
           <img id="butterfly" height="30" width="30" src="content/images/butterflySilho.png" alt="Logo" />
-          &nbsp;Flutter Feed&nbsp;
-          <img id="butterfly" height="30" width="30" src="content/images/butterflySilhoFlipped.png" alt="Logo" />
+          Flutter Feed
+          <img id="butterfly" height="30" width="30" src="content/images/butterflySilhoFliped.png" alt="Logo" />
         </div>
         <div className="d-flex justify-content-center">
           {/* Create New Post Button */}
@@ -95,6 +95,7 @@ export const Post = () => {
         </div>
       </h1>
 
+                    
       {
         <div className="app-container">
           {postList && postList.length > 0 ? (
