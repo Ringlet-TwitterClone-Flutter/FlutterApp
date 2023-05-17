@@ -57,6 +57,7 @@ export const Post = () => {
     };
     navigate('/post');
     dispatch(createCommentEntity(comment));
+    setCommentText(''); // Clear the comment textbox
   };
 
   const onNewPost = newPost => {
