@@ -5,12 +5,20 @@ Main page styles
 .butterfree {
   display: inline-block;
   width: 100%;
-  height: 100px;
+  height: 100%;
   padding-bottom: 200px;
   background: url('../../../content/images/butterfreePic.png') no-repeat center top;
   background-size: contain;
 }
-
+// team photo
+.flutterTeam {
+  // display: inline-block;
+  width: 100%;
+  height: 100px;
+  padding-bottom: 500px;
+  background: url('../../../content/images/FlutterGroup.jpg') no-repeat center top;
+  background-size: contain;
+}
 // This is the welcome message on the homepage
 #welcome {
   font-size: 50px;

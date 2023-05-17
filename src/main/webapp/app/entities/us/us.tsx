@@ -3,9 +3,9 @@ import React, { useState, useEffect, forwardRef } from 'react';
 export const Post = () => {
   return (
     <div>
+      <div className="flutterTeam" />
       <h1 id="about-us-header">About Us</h1>
       <h2 id="flutter-team">The Flutter Team</h2>
-
       <div className="team-member-container">
         <div className="team-header">
           <div className="team-name">James Jang</div>
@@ -13,10 +13,10 @@ export const Post = () => {
         </div>
         <div className="team-member-role">Full Stack Software Developer</div>
         <div className="team-intro">
-          Prior to Flutter, James was in the food service industry where he managed a supermarket. He recieved his bachelor's degree in
-          Management Information Systems from the University of Delaware. After implementing new systems and products into the business,
-          James decided it was time to break out of the cycle and continue on his original path. James is a team builder, experienced with
-          management and proud member of the Flutter Team.
+          Prior to Flutter, James was in the food service industry where he managed a supermarket. He received his bachelor's degree in
+          Management Information Systems from the University of Delaware. After implementing new systems and products into the business, he
+          decided it was time to break out of the cycle and continue on his original path, giving him the courage to drop everything and
+          apply to Zip Code. James is a team builder, experienced with management and proud member of the Flutter Team.
         </div>
         <br />
         <a href="https://github.com/JamesJang-2jz">James' Github</a>
