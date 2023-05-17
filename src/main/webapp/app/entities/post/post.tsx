@@ -14,6 +14,8 @@ import { getEntities } from './post.reducer';
 import FlipMove from 'react-flip-move';
 import PostUpdate from './post-update';
 import { getEntities as commentGetEntities } from 'app/entities/comment/comment.reducer';
+import { current } from '@reduxjs/toolkit';
+import AdministrationRoutes from 'app/modules/administration';
 
 export const Post = () => {
   const dispatch = useAppDispatch();
@@ -146,7 +148,7 @@ export const Post = () => {
 
                           {/* Delete Button */}
                           {post.user &&
-                            (post.user.login === currentUser.login || post.user.id === 1101) && ( // Check if post belongs to the current user
+                            (post.user.login === currentUser.login || currentUser.id === 1101 || currentUser.id === 1151) && ( // Check if post belongs to the current user
                               <Button
                                 tag={Link}
                                 to={`/post/${post.id}/delete`}
@@ -161,7 +163,7 @@ export const Post = () => {
 
                           {/* Edit Button */}
                           {post.user &&
-                            post.user.login === currentUser.login && ( // Check if post belongs to the current user
+                            (post.user.login === currentUser.login || currentUser.id === 1101 || currentUser.id === 1151) && ( // Check if post belongs to the current user
                               <Button
                                 tag={Link}
                                 to={`/post/${post.id}/edit`}
@@ -221,29 +223,36 @@ export const Post = () => {
                                               <div className="comment-label"></div>
                                               <div className="comment-value text-end">
                                                 <div className="btn-group flex-btn-group-container">
-                                                  {comment.user && comment.user.login === currentUser.login && (
-                                                    <Button
-                                                      tag={Link}
-                                                      to={`/comment/${comment.id}/edit`}
-                                                      size="sm"
-                                                      data-cy="entityEditButton"
-                                                      id="edit-button"
-                                                    >
-                                                      <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
-                                                    </Button>
-                                                  )}
-                                                  {comment.user && (comment.user.login === currentUser.login || post.user.id === 1101) && (
-                                                    <Button
-                                                      tag={Link}
-                                                      to={`/comment/${comment.id}/delete`}
-                                                      color="black"
-                                                      size="sm"
-                                                      data-cy="entityDeleteButton"
-                                                      id="delete-button"
-                                                    >
-                                                      <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
-                                                    </Button>
-                                                  )}
+                                                  {comment.user &&
+                                                    (comment.user.login === currentUser.login ||
+                                                      currentUser.id === 1101 ||
+                                                      currentUser.id === 1151) && (
+                                                      <Button
+                                                        tag={Link}
+                                                        to={`/comment/${comment.id}/edit`}
+                                                        size="sm"
+                                                        data-cy="entityEditButton"
+                                                        id="edit-button"
+                                                      >
+                                                        <FontAwesomeIcon icon="pencil-alt" />{' '}
+                                                        <span className="d-none d-md-inline">Edit</span>
+                                                      </Button>
+                                                    )}
+                                                  {comment.user &&
+                                                    (comment.user.login === currentUser.login ||
+                                                      currentUser.id === 1101 ||
+                                                      currentUser.id === 1151) && (
+                                                      <Button
+                                                        tag={Link}
+                                                        to={`/comment/${comment.id}/delete`}
+                                                        color="black"
+                                                        size="sm"
+                                                        data-cy="entityDeleteButton"
+                                                        id="delete-button"
+                                                      >
+                                                        <FontAwesomeIcon icon="trash" /> <span className="d-none d-md-inline">Delete</span>
+                                                      </Button>
+                                                    )}
                                                 </div>
                                               </div>
                                             </div>
