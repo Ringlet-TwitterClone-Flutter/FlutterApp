@@ -8,6 +8,8 @@ export const Post = () => {
           <img id="butterfly" height="50" width="50" src="content/images/image.png" alt="Logo" />
           &nbsp;About Us&nbsp;
           <img id="butterfly" height="50" width="50" src="content/images/Butterfree-Pokemon-PNG-Transparent.png" alt="Logo" />
+          <br />
+          <br />
           <div className="flutterTeam" />
         </div>
       </h1>
