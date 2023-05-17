@@ -83,21 +83,21 @@ export const Post = () => {
           &nbsp;Flutter Feed&nbsp;
           <img id="butterfly" height="50" width="50" src="content/images/Butterfree-Pokemon-PNG-Transparent.png" alt="Logo" />
         </div>
-        <div className="d-flex justify-content-center">
-          {/* Create New Post Button */}
-          <div className="container">
-            <div className="post-list-row">
-              <div className="new-post-jawn">
-                <PostUpdate onNewPost={handleNewPost} />
-                {/* <Link to="/post/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
+      </h1>
+      <div className="d-flex justify-content-center">
+        {/* Create New Post Button */}
+        <div className="container">
+          <div className="post-list-row">
+            <div className="new-post-jawn">
+              <PostUpdate onNewPost={handleNewPost} />
+              {/* <Link to="/post/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
                       <FontAwesomeIcon icon="plus" />
                       &nbsp;New Post
                     </Link> */}
-              </div>
             </div>
           </div>
         </div>
-      </h1>
+      </div>
 
       {
         <div className="app-container">

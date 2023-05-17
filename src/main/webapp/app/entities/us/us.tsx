@@ -3,8 +3,14 @@ import React, { useState, useEffect, forwardRef } from 'react';
 export const Post = () => {
   return (
     <div>
-      <div className="flutterTeam" />
-      <h1 id="about-us-header">About Us</h1>
+      <h1 id="post-heading" data-cy="PostHeading">
+        <div id="header-jawn">
+          <img id="butterfly" height="50" width="50" src="content/images/image.png" alt="Logo" />
+          &nbsp;About Us&nbsp;
+          <img id="butterfly" height="50" width="50" src="content/images/Butterfree-Pokemon-PNG-Transparent.png" alt="Logo" />
+          <div className="flutterTeam" />
+        </div>
+      </h1>
       <h2 id="flutter-team">The Flutter Team</h2>
       <div className="team-member-container">
         <div className="team-header">
@@ -23,7 +29,6 @@ export const Post = () => {
         <br />
         <a href="https://www.linkedin.com/in/james-jang13/">Connect with James on LinkedIn!</a>
       </div>
-
       <div className="team-member-container">
         <div className="team-header">
           <div className="team-name">Jacob Ciaffi</div>
@@ -41,7 +46,6 @@ export const Post = () => {
         <br />
         <a href="https://www.linkedin.com/in/jacobciaffi/">Connect with Jacob on LinkedIn!</a>
       </div>
-
       <div className="team-member-container">
         <div className="team-header">
           <div className="team-name">Anastasia Epifanova</div>
@@ -59,7 +63,6 @@ export const Post = () => {
       <a href="https://github.com/orgs/Ringlet-TwitterClone-Flutter/people/AnastasiaE3">Anastasia's Github</a>
       <br />
       <a href="https://www.linkedin.com/in/epifanova-anastasia-nastya/">Connect with Anastasia on LinkedIn!</a>
-
       <div className="team-member-container">
         <div className="team-header">
           <div className="team-name">Nina McNair</div>
