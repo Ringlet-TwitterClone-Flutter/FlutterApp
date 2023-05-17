@@ -51,8 +51,9 @@ export const Post = () => {
       user: currentUser,
       post: post,
     };
-    navigate('/post');
+
     dispatch(createCommentEntity(comment));
+    navigate('/post');
   };
 
   const onNewPost = newPost => {
@@ -74,9 +75,9 @@ export const Post = () => {
       <h1 id="post-heading" data-cy="PostHeading">
         <div id="header-jawn">
           {/* Butterflies surrounding feed */}
-          <img id="butterfly" height="30" width="30" src="content/images/butterflySilho.png" alt="Logo" />
-          &nbsp;Flutter Feed&nbsp;
-          <img id="butterfly" height="30" width="30" src="content/images/butterflySilhoFlipped.png" alt="Logo" />
+          <img id="butterfly" height="5" width="5" src="https://i.pinimg.com/originals/be/93/1c/be931c4d5476c6acf3d3662d9debdef8.gif" alt="Logo" />
+          Flutter Feed
+          <img id="butterfly" height="5" width="5" src="https://i.pinimg.com/originals/be/93/1c/be931c4d5476c6acf3d3662d9debdef8.gif" alt="Logo" />
         </div>
         <div className="d-flex justify-content-center">
           {/* Create New Post Button */}
@@ -94,6 +95,7 @@ export const Post = () => {
         </div>
       </h1>
 
+                    
       {
         <div className="app-container">
           {postList && postList.length > 0 ? (

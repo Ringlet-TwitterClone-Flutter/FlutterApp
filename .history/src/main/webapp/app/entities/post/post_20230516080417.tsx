@@ -51,8 +51,9 @@ export const Post = () => {
       user: currentUser,
       post: post,
     };
-    navigate('/post');
+
     dispatch(createCommentEntity(comment));
+    navigate('/post');
   };
 
   const onNewPost = newPost => {
@@ -74,9 +75,9 @@ export const Post = () => {
       <h1 id="post-heading" data-cy="PostHeading">
         <div id="header-jawn">
           {/* Butterflies surrounding feed */}
-          <img id="butterfly" height="30" width="30" src="content/images/butterflySilho.png" alt="Logo" />
-          &nbsp;Flutter Feed&nbsp;
-          <img id="butterfly" height="30" width="30" src="content/images/butterflySilhoFlipped.png" alt="Logo" />
+          {/* <img height="25" width="25" src="content/images/butterflySilho.png" alt="Logo" /> */}
+          Feed me butterflies
+          {/* <img height="25" width="25" src="content/images/butterflySilhoFlipped.png" alt="Logo" /> */}
         </div>
         <div className="d-flex justify-content-center">
           {/* Create New Post Button */}
@@ -178,6 +179,26 @@ export const Post = () => {
                             <div id="list-of-comments">
                               {commentList && commentList.length > 0 ? (
                                 <div className="card-comment">
+                                  <div id="success" className="alert alert-warning comment-box">
+                                    <div id="comment-msg">Make a comment!</div>
+                                    <div className="comment-input-container">
+                                      <input
+                                        type="text"
+                                        id="comment-input"
+                                        value={commentText}
+                                        onChange={e => setCommentText(e.target.value)}
+                                      />
+
+                                      <Button
+                                        onClick={() => handleComment(post)}
+                                        size="sm"
+                                        data-cy="entityDeleteButton"
+                                        id="comment-button"
+                                      >
+                                        <FontAwesomeIcon icon="share" /> <span className="d-none d-md-inline">Comment</span>
+                                      </Button>
+                                    </div>
+                                  </div>
                                   <div id="individual-comments">
                                     {commentList
                                       .filter(comment => comment.post && comment.post.id === post.id)
@@ -245,26 +266,6 @@ export const Post = () => {
                                           </div>
                                         </div>
                                       ))}
-                                    <div id="success" className="alert alert-warning comment-box">
-                                      <div id="comment-msg">Make a comment!</div>
-                                      <div className="comment-input-container">
-                                        <input
-                                          type="text"
-                                          id="comment-input"
-                                          value={commentText}
-                                          onChange={e => setCommentText(e.target.value)}
-                                        />
-
-                                        <Button
-                                          onClick={() => handleComment(post)}
-                                          size="sm"
-                                          data-cy="entityDeleteButton"
-                                          id="comment-button"
-                                        >
-                                          <FontAwesomeIcon icon="share" /> <span className="d-none d-md-inline">Comment</span>
-                                        </Button>
-                                      </div>
-                                    </div>
                                   </div>
                                 </div>
                               ) : (
@@ -309,7 +310,9 @@ export const Post = () => {
   );
 };
 
+
 export default Post;
 function createPostEntity(newPost: any): any {
   throw new Error('Function not implemented.');
 }
+
