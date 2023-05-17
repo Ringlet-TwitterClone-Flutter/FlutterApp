@@ -1,0 +1,427 @@
+/* ==========================================================================
+Main page styles
+========================================================================== */
+// This is the picture of the butterfree on the login and home pages
+.butterfree {
+  display: inline-block;
+  width: 100%;
+  height: 100px;
+  padding-bottom: 200px;
+  background: url('../../../content/images/butterfreePic.png') no-repeat center top;
+  background-size: contain;
+}
+
+// This is the welcome message on the homepage
+#welcome {
+  font-size: 50px;
+  margin-top: 25px;
+  text-align: center;
+  background: linear-gradient(to right, rgb(67, 124, 205), rgb(42, 232, 216));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#profile-heading {
+  text-align: center;
+  background: linear-gradient(to right, rgb(67, 124, 205), rgb(27, 244, 248));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+// This is the "Spread Your Wings" from the header
+#motto {
+  font-size: 20px;
+  text-align: center;
+}
+#profile-info {
+  color: #060606;
+  text-align: left;
+}
+
+#user {
+  color: #0d0e0e;
+}
+#success {
+  color: black;
+  background-color: lavender;
+  border-color: #47e6ec;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+#success-text {
+  color: #45d6db;
+}
+
+// Button Styles
+
+#edit-button,
+#delete-button,
+#comment-button,
+#show-comments-button {
+  // background-color: #7539ee;
+  color: black;
+  background-color: rgb(253, 251, 251);
+  background-color: transparent;
+  float: right;
+  margin-right: 5px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+#feed {
+  float: right;
+}
+
+#edit-button:hover,
+#comment-button:hover,
+#delete-button:hover,
+#refresh-list:hover,
+#jh-create-entity:hover #header-jawn:hover,
+#show-comments-button:hover {
+  color: #47e6ec;
+}
+
+
+#butterfly 
+  {
+    width:150px;
+    height:150px;
+    position:absolute;
+  }
+
+
+
+  
+ 
+    
+
+  
+//   body {
+//     perspective: 1500px;
+//     transform-origin: center center;
+//   }
+//   .container {
+//     position: absolute;
+//     top: 100px;
+//     left: 30px;
+//     transform-style: preserve-3d;
+//     transform: rotateX(70deg);
+// }
+// // .hover-container {
+// //     transform-style: preserve-3d;
+// // }
+// .wing {
+//     position: absolute;
+
+//     transform-style: preserve-3d;
+//     animation: flap 0.3s linear infinite alternate;
+//     width: 100px;
+//     height: 100px;
+//     /*background-color: rgba(252, 227, 100, 0.69);*/
+//     background: radial-gradient(ellipse at center, rgba(15, 225, 236, 0.9) 65%,rgba(0, 255, 42, 0.9) 100%);
+//     border-bottom: 3px solid rgb(0, 255, 145);
+// }
+// .wing:after {
+//     content: ' ';
+//     position: absolute;
+//     width: 74px;
+//     height: 88px;
+//     top: -76px;
+//     left: 25px;
+//     /*background-color: rgba(252, 227, 100, 0.69);*/
+//     background: radial-gradient(ellipse at center, rgba(14, 226, 219, 0.9) 24%,rgba(9, 203, 237, 0.9) 27%,rgba(12, 100, 222, 0.9) 64%,rgba(0, 255, 153, 0.9) 100%);
+//     border-radius: 50% 114%;
+// }
+// .left {
+//     transform-origin: right center;
+//     border-radius: 177% 50%;
+// }
+// .right {
+//     transform-origin: left center;
+//     border-radius: 50% 177%;
+//     left: 110px;
+//     animation-direction: alternate-reverse;
+// }
+
+// .left:after {
+//     left: 25px;
+//     border-radius: 50% 114%;
+// }
+
+// .right:after {
+//     left: 0;
+//     border-radius: 114% 50%;
+// }
+
+// .body {
+//     width: 10px;
+//     height: 80px;
+//     border-radius: 5px;
+//     background-color: #333;
+//     position: absolute;
+//     left: 100px;
+//     top: -30px;
+// }
+
+// .head {
+//     position: absolute;
+//     width: 20px;
+//     height: 20px;
+//     border-radius: 50%;
+//     background-color: #333;
+//     left: 95px;
+//     top: 32px;
+// }
+// .head:before {
+//     content: '';
+//     position: absolute;
+//     display: inline-block;
+//     width: 1px;
+//     height: 40px;
+//     background-color: #333;
+//     transform: rotateX(34deg) rotateZ(20deg) translateY(20px);
+//     top: -7px;
+// }
+// .head:after {
+//     content: '';
+//     position: absolute;
+//     display: inline-block;
+//     width: 1px;
+//     height: 40px;
+//     background-color: #333;
+//     transform: rotateX(34deg) rotateZ(-20deg) translateY(20px);
+//     top: -7px;
+//     left: 15px;
+//   }
+// }
+
+
+#header-jawn {
+  text-align: center;
+  background: linear-gradient(to right, rgb(67, 124, 205), rgb(42, 232, 216));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#cancel-save {
+  color: black;
+  background-color: #47e6ec;
+}
+#jh-create-entity {
+  color: black;
+  background-color: white;
+}
+#refresh-list {
+  color: black;
+  background-color: white;
+}
+
+//Profile Styles
+
+.profile-header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+}
+
+//Post Styles
+.jh-card {
+}
+
+.button-pad {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.card {
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 'header header' 'content content' 'time time' 'hashtags hashtags' 'buttons buttons';
+  z-index: 1;
+  border-radius: 5px;
+  margin-right: 20px;
+  border-color: darkgrey;
+  width: 100%;
+}
+
+.card-post {
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 'header header' 'content content' 'time time' 'hashtags hashtags' 'buttons buttons';
+  z-index: 1;
+  border-radius: 5px;
+  width: 100%;
+  border-color: darkgray;
+}
+
+.card-comment {
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 'header header' 'content content' 'time time' 'hashtags hashtags' 'buttons buttons';
+  z-index: 1;
+  border-radius: 5px;
+  margin-right: 20px;
+  border-color: lightgray;
+}
+.post-header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+}
+
+.new-post-jawn {
+  width: 100%;
+}
+
+#header-jawn {
+  margin-bottom: 12px;
+}
+.profile-info {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+}
+
+.post-content {
+  grid-area: content;
+}
+
+.post-time {
+  grid-area: time;
+  font-size: 14px;
+  color: #999;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.sidebar {
+  position: fixed;
+  top: 210px;
+  left: 20px;
+  width: 300px;
+  max-height: calc(100vh - 210px);
+  background-color: transparent;
+  overflow-y: auto;
+  font-size: 20px;
+  z-index: 1;
+}
+
+#profile-button,
+#home-button {
+  text-decoration: none;
+}
+
+#profile-button:hover,
+#home-button:hover {
+  color: #47e6ec;
+}
+
+.content {
+  margin-left: 200px;
+  /* adjust margin-left to match the width of the sidebar */
+}
+
+#post-user,
+#post-hashtag {
+  display: none;
+}
+
+.profile-info {
+  display: block;
+}
+.comment-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+#comment-input {
+  flex: 1;
+  width: 100%;
+}
+
+.comment-input-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#comment-msg {
+  margin-right: 5em;
+}
+
+.comment-container {
+  width: 100%;
+}
+.post-list-row {
+  width: 100%;
+}
+.post-list {
+  width: 100%;
+}
+#comment-button {
+  flex: 0 0 auto;
+  margin-left: 10px;
+}
+
+#comment-id,
+#comment-user,
+#post-id,
+#comment-createdAt {
+  display: none;
+}
+
+// Styles for mobile
+@media (max-width: 768px) {
+  #welcome {
+    font-size: 40px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  #comment-msg {
+    display: none;
+  }
+  .comment-input {
+    flex: 0 0 75%;
+    width: auto;
+  }
+}
+
+//About Us Styling
+
+#about-us-header {
+  text-align: center;
+  font-size: 40px;
+}
+
+#flutter-team {
+}
+.team-header {
+  // color: #47e6ec;
+  color: #7539ee;
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.team-intro {
+}
+
+.team-left {
+  float: left;
+  width: 75%;
+}
+
+.team-right {
+  float: right;
+  width: 75%;
+}
+
+.pronouns {
+  color: gray;
+  font-size: 13px;
+}
+
+.team-member-role {
+  font-weight: bold;
+  color: black;
+}

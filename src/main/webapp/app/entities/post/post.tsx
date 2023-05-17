@@ -4,7 +4,7 @@ import { Button, Col, Row, Table } from 'reactstrap';
 import { Translate, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { createEntity as createCommentEntity } from 'app/entities/comment/comment.reducer';
-import { createEntity as createPostEntity } from 'app/entities/post/post.reducer';
+
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { format } from 'date-fns';
@@ -74,9 +74,9 @@ export const Post = () => {
       <h1 id="post-heading" data-cy="PostHeading">
         <div id="header-jawn">
           {/* Butterflies surrounding feed */}
-          {/* <img height="25" width="25" src="content/images/butterflySilho.png" alt="Logo" /> */}
-          Flutter Feed
-          {/* <img height="25" width="25" src="content/images/butterflySilhoFlipped.png" alt="Logo" /> */}
+          <img id="butterfly" height="30" width="30" src="content/images/butterflySilho.png" alt="Logo" />
+          &nbsp;Flutter Feed&nbsp;
+          <img id="butterfly" height="30" width="30" src="content/images/butterflySilhoFlipped.png" alt="Logo" />
         </div>
         <div className="d-flex justify-content-center">
           {/* Create New Post Button */}
@@ -310,3 +310,6 @@ export const Post = () => {
 };
 
 export default Post;
+function createPostEntity(newPost: any): any {
+  throw new Error('Function not implemented.');
+}

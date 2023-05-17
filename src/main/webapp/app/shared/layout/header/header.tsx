@@ -42,12 +42,13 @@ const Header = (props: IHeaderProps) => {
         <NavbarToggler aria-label="Menu" onClick={toggleMenu} />
         <Brand />
         <Collapse isOpen={menuOpen} navbar>
-          <Nav id="header-tabs" className="ms-auto" navbar onClick={handleOptionClick}>
-            <Home />
-
-            {props.isAuthenticated && <Feed />}
-            {props.isAuthenticated && <Profile />}
-            {props.isAuthenticated && <Us />}
+          <Nav id="header-tabs" className="ms-auto" navbar>
+            <div onClick={handleOptionClick}>
+              <Home />
+            </div>
+            <div onClick={handleOptionClick}>{props.isAuthenticated && <Feed />}</div>
+            <div onClick={handleOptionClick}>{props.isAuthenticated && <Profile />}</div>
+            <div onClick={handleOptionClick}>{props.isAuthenticated && <Us />}</div>
             {props.isAuthenticated && props.isAdmin && (
               <AdminMenu showOpenAPI={props.isOpenAPIEnabled} showDatabase={!props.isInProduction} />
             )}
