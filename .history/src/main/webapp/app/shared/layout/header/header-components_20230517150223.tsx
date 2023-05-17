@@ -10,7 +10,7 @@ library.add(fas);
 
 export const BrandIcon = props => (
   <div {...props} className="brand-icon">
-    <img id="butterfly" width="50" src="content/images/Butterfree-Pokemon-PNG-Transparent.png" alt="Logo" />
+    <img id="butterfly" width="45" src="content/images/Butterfree-Pokemon-PNG-Transparent.png" alt="Logo" />
   </div>
 );
 

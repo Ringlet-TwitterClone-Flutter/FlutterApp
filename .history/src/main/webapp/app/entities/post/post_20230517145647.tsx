@@ -74,9 +74,9 @@ export const Post = () => {
       <h1 id="post-heading" data-cy="PostHeading">
         <div id="header-jawn">
           {/* Butterflies surrounding feed */}
-          <img id="butterfly" height="50" width="50" src="content/images/image.png" alt="Logo" />
+          <img id="butterfly" height="30" width="30" src="content/images/image.png" alt="Logo" />
           &nbsp;Flutter Feed&nbsp;
-          <img id="butterfly" height="50" width="50" src="content/images/Butterfree-Pokemon-PNG-Transparent.png" alt="Logo" />
+          <img id="butterfly" height="30" width="30" src="content/images/Butterfree-Pokemon-PNG-Transparent.png" alt="Logo" />
         </div>
         <div className="d-flex justify-content-center">
           {/* Create New Post Button */}

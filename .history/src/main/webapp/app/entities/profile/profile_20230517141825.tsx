@@ -4,15 +4,15 @@ import { Button, Col, Row, Table } from 'reactstrap';
 import { Translate, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { createEntity as createCommentEntity } from 'app/entities/comment/comment.reducer';
-
+import { createEntity as createPostEntity } from 'app/entities/post/post.reducer';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { format } from 'date-fns';
 
 import { IPost } from 'app/shared/model/post.model';
-import { getEntities } from './post.reducer';
+import { getEntities } from './profile.reducer';
 import FlipMove from 'react-flip-move';
-import PostUpdate from './post-update';
+import PostUpdate from './profile-update';
 import { getEntities as commentGetEntities } from 'app/entities/comment/comment.reducer';
 
 export const Post = () => {
@@ -51,8 +51,9 @@ export const Post = () => {
       user: currentUser,
       post: post,
     };
-    navigate('/post');
+
     dispatch(createCommentEntity(comment));
+    navigate('/post');
   };
 
   const onNewPost = newPost => {
@@ -74,23 +75,9 @@ export const Post = () => {
       <h1 id="post-heading" data-cy="PostHeading">
         <div id="header-jawn">
           {/* Butterflies surrounding feed */}
-          <img id="butterfly" height="50" width="50" src="content/images/image.png" alt="Logo" />
-          &nbsp;Flutter Feed&nbsp;
-          <img id="butterfly" height="50" width="50" src="content/images/Butterfree-Pokemon-PNG-Transparent.png" alt="Logo" />
-        </div>
-        <div className="d-flex justify-content-center">
-          {/* Create New Post Button */}
-          <div className="container">
-            <div className="post-list-row">
-              <div className="new-post-jawn">
-                <PostUpdate onNewPost={handleNewPost} />
-                {/* <Link to="/post/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
-                      <FontAwesomeIcon icon="plus" />
-                      &nbsp;New Post
-                    </Link> */}
-              </div>
-            </div>
-          </div>
+          {/* <img height="25" width="25" src="content/images/butterflySilho.png" alt="Logo" /> */}
+          {currentUser.login}'s Profile
+          {/* <img height="25" width="25" src="content/images/butterflySilhoFlipped.png" alt="Logo" /> */}
         </div>
       </h1>
 
@@ -310,6 +297,3 @@ export const Post = () => {
 };
 
 export default Post;
-function createPostEntity(newPost: any): any {
-  throw new Error('Function not implemented.');
-}
