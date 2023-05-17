@@ -51,9 +51,8 @@ export const Post = () => {
       user: currentUser,
       post: post,
     };
-
-    dispatch(createCommentEntity(comment));
     navigate('/post');
+    dispatch(createCommentEntity(comment));
   };
 
   const onNewPost = newPost => {

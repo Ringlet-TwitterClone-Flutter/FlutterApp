@@ -58,25 +58,39 @@ export const PostUpdate = ({ onNewPost }) => {
   useEffect(() => {
     if (updateSuccess) {
       handleClose();
-      setRefresh(true);
+      setRefresh(false);
     }
   }, [updateSuccess]);
 
-  // useEffect(() => {
-  //   if (refresh) {
-  //     window.location.reload();
-  //   }
-  // }, [refresh]);
+  useEffect(() => {
+    if (refresh) {
+      // id += 1;
+      // setTimeout(function () {
+      //   location.reload();
+      // }, 1000);
+    }
+  }, [refresh]);
+  useEffect(() => {
+    const fetchLatestId = async () => {
+      const response = await fetch('api/posts');
+      const data = await response.json();
+
+      setLatestId(data.latestId);
+    };
+    fetchLatestId();
+  }, []);
 
   const saveEntity = values => {
     // gets current date and time
     const currentDate = new Date();
     // convert currentDate to server format
     values.createdAt = convertDateTimeToServer(currentDate);
+    const newId = latestId + 1;
 
     const entity = {
       ...postEntity,
       ...values,
+      id: newId,
       hashtags: mapIdList(values.hashtags),
       user: users.find(it => it.id.toString() === values.user.toString()),
     };
