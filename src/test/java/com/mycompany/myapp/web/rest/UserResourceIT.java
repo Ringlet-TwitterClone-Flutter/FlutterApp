@@ -36,6 +36,8 @@ import org.springframework.transaction.annotation.Transactional;
 @IntegrationTest
 class UserResourceIT {
 
+    private static Integer counter = 0;
+
     private static final String DEFAULT_LOGIN = "johndoe";
     private static final String UPDATED_LOGIN = "jhipster";
 
@@ -44,7 +46,7 @@ class UserResourceIT {
     private static final String DEFAULT_PASSWORD = "passjohndoe";
     private static final String UPDATED_PASSWORD = "passjhipster";
 
-    private static final String DEFAULT_EMAIL = "johndoe@localhost";
+    private static final String DEFAULT_EMAIL = "johndoe" + counter.toString() + "@localhost";
     private static final String UPDATED_EMAIL = "jhipster@localhost";
 
     private static final String DEFAULT_FIRSTNAME = "john";
