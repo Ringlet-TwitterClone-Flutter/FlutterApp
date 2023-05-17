@@ -59,7 +59,7 @@ export const RegisterPage = () => {
               }}
               data-cy="username"
             />
-            <ValidatedField
+            {/* <ValidatedField
               name="email"
               label="Email"
               placeholder="Your email"
@@ -71,7 +71,7 @@ export const RegisterPage = () => {
                 validate: v => isEmail(v) || 'Your email is invalid.',
               }}
               data-cy="email"
-            />
+            /> */}
             <ValidatedField
               name="firstPassword"
               label="New password"

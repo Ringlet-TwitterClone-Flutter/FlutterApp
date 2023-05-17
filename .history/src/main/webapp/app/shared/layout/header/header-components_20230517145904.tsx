@@ -10,14 +10,14 @@ library.add(fas);
 
 export const BrandIcon = props => (
   <div {...props} className="brand-icon">
-    <img id="butterfly" width="50" src="content/images/Butterfree-Pokemon-PNG-Transparent.png" alt="Logo" />
+    <img id="butterfly" height="40" width="40" src="content/images/Butterfree-Pokemon-PNG-Transparent.png" alt="Logo" />
   </div>
 );
 
 export const Brand = () => (
   <NavbarBrand tag={Link} to="/" className="brand-logo">
     <BrandIcon />
-    <span className="brand-title">&nbsp;Flutter</span>
+    <span className="brand-title">Flutter</span>
     {/* <span className="navbar-version">{VERSION}</span> */}
     <span className="navbar-version">Spread your wings</span>
   </NavbarBrand>
