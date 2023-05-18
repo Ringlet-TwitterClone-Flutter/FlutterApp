@@ -95,7 +95,7 @@ export const Post = () => {
                       <div className="card card-post new-post-jawn">
                         {/* Username and Post Time */}
 
-                        <h5>{post.user ? post.user.login : ''}</h5>
+                        <h5>{post.user ? post.user.login : post.user.login}</h5>
                         <span className="post-time">
                           {post.createdAt ? <TextFormat type="date" value={post.createdAt} format={APP_DATE_FORMAT} /> : null}
                         </span>
@@ -172,7 +172,7 @@ export const Post = () => {
                                         <div key={`entity-${i}`} data-cy="entityTable" className="comment">
                                           <div className="card card-comment">
                                             <div className="post-list-cell post-header" id="post-header">
-                                              <div className="comment-value">{comment.user ? comment.user.login : ''}</div>
+                                              <div className="comment-value">{comment.user ? comment.user.login : comment.user.login}</div>
                                             </div>
                                             <div className="comment-field">
                                               <div className="post-time">
