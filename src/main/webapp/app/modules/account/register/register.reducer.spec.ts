@@ -44,7 +44,7 @@ describe('Creating account tests', () => {
     ).toEqual({
       ...initialState,
       registrationSuccess: true,
-      successMessage: 'Account creation was successful! You may now log in.',
+      successMessage: 'Registration saved! Please check your email for confirmation.',
     });
   });
 

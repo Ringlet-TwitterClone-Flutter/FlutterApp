@@ -7,18 +7,17 @@ Main page styles
   width: 100%;
   height: 100%;
   padding-bottom: 200px;
-  background: url('../../../content/images/butterfreePic.png') no-repeat center top;
+  background: url(http://3.bp.blogspot.com/-tt4AzfHbw-c/U_IOYXpjrqI/AAAAAAAAKtk/sCh-QLC54aE/s1600/Butterfree%2B5.gif) no-repeat center top;
   background-size: contain;
 }
 // team photo
 .flutterTeam {
   // display: inline-block;
-  width: 350px;
-  height: 350px;
+  width: 100%;
+  height: 100px;
+  padding-bottom: 500px;
   background: url('../../../content/images/FlutterGroup.jpg') no-repeat center top;
   background-size: contain;
-  margin-left: auto;
-  margin-right: auto;
 }
 // This is the welcome message on the homepage
 #welcome {
@@ -170,7 +169,6 @@ Main page styles
 
 #header-jawn {
   margin-bottom: 12px;
-  font-size: 50px;
 }
 .profile-info {
   grid-area: header;
@@ -326,7 +324,4 @@ Main page styles
 }
 #post-text {
   color: black;
-}
-#flutter-team {
-  text-align: center;
 }

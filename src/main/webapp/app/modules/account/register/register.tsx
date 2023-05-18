@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { ValidatedField, ValidatedForm, isEmail } from 'react-jhipster';
 import { Row, Col, Alert, Button } from 'reactstrap';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+
 import PasswordStrengthBar from 'app/shared/layout/password/password-strength-bar';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { handleRegister, reset } from './register.reducer';
 
 export const RegisterPage = () => {
-  const navigate = useNavigate();
   const [password, setPassword] = useState('');
   const dispatch = useAppDispatch();
 
@@ -21,7 +20,6 @@ export const RegisterPage = () => {
 
   const handleValidSubmit = ({ username, email, firstPassword }) => {
     dispatch(handleRegister({ login: username, email, password: firstPassword, langKey: 'en' }));
-    navigate('/');
   };
 
   const updatePassword = event => setPassword(event.target.value);
@@ -105,6 +103,14 @@ export const RegisterPage = () => {
               Register
             </Button>
           </ValidatedForm>
+          <p>&nbsp;</p>
+          <Alert color="warning" id="success">
+            <a className="alert-link">Sign in</a>
+            <span>
+              <br />- Administrator (login=&quot;admin&quot; and password=&quot;admin&quot;) <br />- User (login=&quot;user&quot; and
+              password=&quot;user&quot;).
+            </span>
+          </Alert>
         </Col>
       </Row>
     </div>
