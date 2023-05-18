@@ -15,7 +15,14 @@ Flutter is a social media platform application(Twitter clone) developed by an ag
 
 On Flutter, users are able to create an account, edit their user profile, create/edit/delete posts of thier own, and comment on other users' posts. They are able to embed their posts with hashtags, and search for similar content via those very hashtags.
 
-![](https://github.com/Ringlet-TwitterClone-Flutter/FlutterApp/blob/main/Flutter_UI.gif)
+### Creating Posts
+![](https://github.com/Ringlet-TwitterClone-Flutter/FlutterApp/blob/main/flutter-homepage-post.gif)
+
+### Making Comments
+![](https://github.com/Ringlet-TwitterClone-Flutter/FlutterApp/blob/main/flutter-comment.gif)
+
+### Flutter's Profile Page
+![](https://github.com/Ringlet-TwitterClone-Flutter/FlutterApp/blob/main/flutter-profile-page.gif)
 
 ## Future Features
 
