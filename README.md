@@ -1,6 +1,7 @@
 # FlutterApp
 
-Visit us at: ![](https://flutter-app.herokuapp.com/)
+Visit us at:
+[Flutter](https://flutter-app.herokuapp.com/)
 
 ## Requirements
 
