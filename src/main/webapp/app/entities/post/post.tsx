@@ -146,7 +146,7 @@ export const Post = () => {
 
                           {/* Delete Button */}
                           {post.user &&
-                            (post.user.login === currentUser.login || currentUser.id === 1101 || currentUser.id === 1151) && ( // Check if post belongs to the current user
+                            (post.user.login === currentUser.login || currentUser.id === 1001 || currentUser.id === 1002) && ( // Check if post belongs to the current user
                               <Button
                                 tag={Link}
                                 to={`/post/${post.id}/delete`}
@@ -161,7 +161,7 @@ export const Post = () => {
 
                           {/* Edit Button */}
                           {post.user &&
-                            (post.user.login === currentUser.login || currentUser.id === 1101 || currentUser.id === 1151) && ( // Check if post belongs to the current user
+                            (post.user.login === currentUser.login || currentUser.id === 1001 || currentUser.id === 1002) && ( // Check if post belongs to the current user
                               <Button
                                 tag={Link}
                                 to={`/post/${post.id}/edit`}
@@ -223,8 +223,8 @@ export const Post = () => {
                                                 <div className="btn-group flex-btn-group-container">
                                                   {comment.user &&
                                                     (comment.user.login === currentUser.login ||
-                                                      currentUser.id === 1101 ||
-                                                      currentUser.id === 1151) && (
+                                                      currentUser.id === 1001 ||
+                                                      currentUser.id === 1002) && (
                                                       <Button
                                                         tag={Link}
                                                         to={`/comment/${comment.id}/edit`}
@@ -238,8 +238,8 @@ export const Post = () => {
                                                     )}
                                                   {comment.user &&
                                                     (comment.user.login === currentUser.login ||
-                                                      currentUser.id === 1101 ||
-                                                      currentUser.id === 1151) && (
+                                                      currentUser.id === 1001 ||
+                                                      currentUser.id === 1002) && (
                                                       <Button
                                                         tag={Link}
                                                         to={`/comment/${comment.id}/delete`}
