@@ -14,7 +14,7 @@ const initialState: EntityState<IPost> = {
   updateSuccess: false,
 };
 
-const apiUrl = 'api/posts/user';
+const apiUrl = 'api/posts/user'; //calls the api to get the posts for the user
 
 // Actions
 
