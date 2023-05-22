@@ -25,7 +25,6 @@ export const Post = () => {
 
   const postList = useAppSelector(state => state.post.entities);
   const loading = useAppSelector(state => state.post.loading);
-  const isAuthenticated = useAppSelector(state => state.authentication.isAuthenticated);
   const currentUser = useAppSelector(state => state.authentication.account);
   const postEntity = useAppSelector(state => state.post.entity);
 
