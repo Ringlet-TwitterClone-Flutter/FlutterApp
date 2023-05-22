@@ -90,10 +90,6 @@ export const Post = () => {
           <div className="post-list-row">
             <div className="new-post-jawn">
               <PostUpdate onNewPost={handleNewPost} />
-              {/* <Link to="/post/new" className="btn btn-primary jh-create-entity" id="jh-create-entity" data-cy="entityCreateButton">
-                      <FontAwesomeIcon icon="plus" />
-                      &nbsp;New Post
-                    </Link> */}
             </div>
           </div>
         </div>
@@ -202,21 +198,6 @@ export const Post = () => {
                                             <div className="post-list-cell post-content" id="post-content">
                                               <div className="comment-value">{comment.text}</div>
                                             </div>
-
-                                            {/* {post.user &&
-                          post.user.login === currentUser.login && ( // Check if post belongs to the current user
-                            <Button
-                              tag={Link}
-                              to={`/post/${post.id}/edit`}
-                              color="primary"
-                              size="sm"
-                              data-cy="entityEditButton"
-                              id="edit-button"
-                            >
-                              <FontAwesomeIcon icon="pencil-alt" /> <span className="d-none d-md-inline">Edit</span>
-                            </Button>
-                          )} */}
-
                                             <div className="comment-field">
                                               <div className="comment-label"></div>
                                               <div className="comment-value text-end">

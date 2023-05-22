@@ -87,7 +87,6 @@ export const Post = () => {
             <div className="post-list ">
               <FlipMove duration={500}>
                 {/* Displays each Post */}
-                {/* {[...postList].map((post, i) => ( */}
                 {[...postList].reverse().map((post, i) => {
                   const reverseIndex = postList.length - 1 - i;
                   return (
